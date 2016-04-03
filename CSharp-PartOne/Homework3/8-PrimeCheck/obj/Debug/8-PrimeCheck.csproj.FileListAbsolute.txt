@@ -1,0 +1,6 @@
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\8-PrimeCheck\bin\Debug\8-PrimeCheck.exe.config
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\8-PrimeCheck\bin\Debug\8-PrimeCheck.exe
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\8-PrimeCheck\bin\Debug\8-PrimeCheck.pdb
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\8-PrimeCheck\obj\Debug\8-PrimeCheck.csprojResolveAssemblyReference.cache
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\8-PrimeCheck\obj\Debug\8-PrimeCheck.exe
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\8-PrimeCheck\obj\Debug\8-PrimeCheck.pdb

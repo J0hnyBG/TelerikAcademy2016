@@ -1,0 +1,5 @@
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\11-3rdBit\bin\Debug\11-3rdBit.exe.config
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\11-3rdBit\bin\Debug\11-3rdBit.exe
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\11-3rdBit\bin\Debug\11-3rdBit.pdb
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\11-3rdBit\obj\Debug\11-3rdBit.exe
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\11-3rdBit\obj\Debug\11-3rdBit.pdb

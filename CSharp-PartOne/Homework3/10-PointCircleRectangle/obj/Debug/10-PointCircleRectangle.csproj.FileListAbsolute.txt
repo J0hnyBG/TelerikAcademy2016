@@ -1,0 +1,6 @@
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\10-PointCircleRectangle\bin\Debug\10-PointCircleRectangle.exe.config
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\10-PointCircleRectangle\bin\Debug\10-PointCircleRectangle.exe
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\10-PointCircleRectangle\bin\Debug\10-PointCircleRectangle.pdb
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\10-PointCircleRectangle\obj\Debug\10-PointCircleRectangle.csprojResolveAssemblyReference.cache
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\10-PointCircleRectangle\obj\Debug\10-PointCircleRectangle.exe
+F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\10-PointCircleRectangle\obj\Debug\10-PointCircleRectangle.pdb
