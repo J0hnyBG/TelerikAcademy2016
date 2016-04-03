@@ -1,0 +1,6 @@
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\5-ThirdDigit\bin\Debug\5-ThirdDigit.exe.config
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\5-ThirdDigit\bin\Debug\5-ThirdDigit.exe
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\5-ThirdDigit\bin\Debug\5-ThirdDigit.pdb
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\5-ThirdDigit\obj\Debug\5-ThirdDigit.exe
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\5-ThirdDigit\obj\Debug\5-ThirdDigit.pdb
+C:\Users\Ivan-PC\documents\visual studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\5-ThirdDigit\obj\Debug\5-ThirdDigit.csprojResolveAssemblyReference.cache

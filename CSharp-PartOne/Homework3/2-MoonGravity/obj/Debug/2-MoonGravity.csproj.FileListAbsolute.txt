@@ -1,0 +1,5 @@
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\2-MoonGravity\bin\Debug\2-MoonGravity.exe.config
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\2-MoonGravity\bin\Debug\2-MoonGravity.exe
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\2-MoonGravity\bin\Debug\2-MoonGravity.pdb
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\2-MoonGravity\obj\Debug\2-MoonGravity.exe
+C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\2-MoonGravity\obj\Debug\2-MoonGravity.pdb
