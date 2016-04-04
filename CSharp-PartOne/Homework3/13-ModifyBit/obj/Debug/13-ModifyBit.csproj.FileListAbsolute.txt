@@ -1,0 +1,6 @@
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\13-ModifyBit\bin\Debug\13-ModifyBit.exe.config
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\13-ModifyBit\bin\Debug\13-ModifyBit.exe
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\13-ModifyBit\bin\Debug\13-ModifyBit.pdb
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\13-ModifyBit\obj\Debug\13-ModifyBit.csprojResolveAssemblyReference.cache
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\13-ModifyBit\obj\Debug\13-ModifyBit.exe
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\13-ModifyBit\obj\Debug\13-ModifyBit.pdb

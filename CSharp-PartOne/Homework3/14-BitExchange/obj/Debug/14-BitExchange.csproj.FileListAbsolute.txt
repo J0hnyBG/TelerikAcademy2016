@@ -1,0 +1,6 @@
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\14-BitExchange\bin\Debug\14-BitExchange.exe.config
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\14-BitExchange\bin\Debug\14-BitExchange.exe
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\14-BitExchange\bin\Debug\14-BitExchange.pdb
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\14-BitExchange\obj\Debug\14-BitExchange.csprojResolveAssemblyReference.cache
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\14-BitExchange\obj\Debug\14-BitExchange.exe
+D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\14-BitExchange\obj\Debug\14-BitExchange.pdb
