@@ -1,6 +1,0 @@
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\9-Trapezoids\bin\Debug\9-Trapezoids.exe.config
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\9-Trapezoids\bin\Debug\9-Trapezoids.exe
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\9-Trapezoids\bin\Debug\9-Trapezoids.pdb
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\9-Trapezoids\obj\Debug\9-Trapezoids.csprojResolveAssemblyReference.cache
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\9-Trapezoids\obj\Debug\9-Trapezoids.exe
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\9-Trapezoids\obj\Debug\9-Trapezoids.pdb

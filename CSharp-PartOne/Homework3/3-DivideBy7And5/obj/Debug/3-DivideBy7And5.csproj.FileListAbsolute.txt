@@ -1,5 +1,0 @@
-C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\3-DivideBy7And5\bin\Debug\3-DivideBy7And5.exe.config
-C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\3-DivideBy7And5\bin\Debug\3-DivideBy7And5.exe
-C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\3-DivideBy7And5\bin\Debug\3-DivideBy7And5.pdb
-C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\3-DivideBy7And5\obj\Debug\3-DivideBy7And5.exe
-C:\Users\Ivan-PC\Documents\Visual Studio 2015\Projects\Telerik\C#-Part1\HW3\HW3\3-DivideBy7And5\obj\Debug\3-DivideBy7And5.pdb

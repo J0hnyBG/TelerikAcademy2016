@@ -1,5 +1,0 @@
-D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\15-BitSwap\bin\Debug\15-BitSwap.exe.config
-D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\15-BitSwap\bin\Debug\15-BitSwap.exe
-D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\15-BitSwap\bin\Debug\15-BitSwap.pdb
-D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\15-BitSwap\obj\Debug\15-BitSwap.exe
-D:\Programming\Telerik\GitHub\TelerikAcademy2016\CSharp-PartOne\Homework3\15-BitSwap\obj\Debug\15-BitSwap.pdb

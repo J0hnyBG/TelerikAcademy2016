@@ -1,6 +1,0 @@
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\7-PointInACircle\bin\Debug\7-PointInACircle.exe.config
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\7-PointInACircle\bin\Debug\7-PointInACircle.exe
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\7-PointInACircle\bin\Debug\7-PointInACircle.pdb
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\7-PointInACircle\obj\Debug\7-PointInACircle.csprojResolveAssemblyReference.cache
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\7-PointInACircle\obj\Debug\7-PointInACircle.exe
-F:\Misc\Programming\Telerik Academy\Github\TelerikAcademy2016\CSharp-PartOne\Homework3\7-PointInACircle\obj\Debug\7-PointInACircle.pdb
