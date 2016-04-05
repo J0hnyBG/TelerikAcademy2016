@@ -19,8 +19,7 @@ namespace _10_PointCircleRectangle
             double y = double.Parse(Console.ReadLine());
 
             bool isInsideCircle = Math.Pow(x - circleX, 2) + Math.Pow(y - circleY, 2) <= circleRadius * circleRadius;
-            //Doesnt give correct output
-            bool isInsideRectangle = rectangleLeftOffset <= x && x <= rectangleLeftOffset + rectangleWidth && rectangleTopOffset <= y && y <= rectangleTopOffset + rectangleHeight - 1;
+            bool isInsideRectangle = !(rectangleLeftOffset < x && x <= rectangleLeftOffset + rectangleWidth && rectangleTopOffset < y && y <= rectangleTopOffset + rectangleHeight);
 
             if (isInsideCircle)
             {
@@ -37,7 +36,7 @@ namespace _10_PointCircleRectangle
             else
             {
                 Console.Write("outside rectangle");
-            } 
+            }
         }
     }
 }
