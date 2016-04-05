@@ -8,33 +8,44 @@ namespace _3SaddyKopper
     {
         static void Main()
         {
-            bool IsOneDigit = false;
-            bool IsOneDigitInner = false;
-
             string input = Console.ReadLine();
-
-            List<ulong> sumList = new List<ulong>();
-
-            int transformCounter = 0;
-            ulong evensMultiplied = 0;
-
             string number = input;
+
+            bool IsOneDigit = false;
+            int transformCounter = 0;
+            
+
             while (!IsOneDigit)
             {
+                bool IsOneDigitInner = false;
+                List<ulong> sumList = new List<ulong>();
+
                 while (!IsOneDigitInner)
                 {
                     number = RemoveLast(number);
                     sumList.Add(GetSumOfEvens(number));
                     IsOneDigitInner = CheckIfLast(number);
                 }
-                evensMultiplied = sumList.Aggregate((a, x) => a * x);
-                transformCounter++;
 
-                number = evensMultiplied.ToString();
+                number = sumList.Aggregate((a, x) => a * x).ToString();
+
+                if (transformCounter == 9)
+                {
+                    break;
+                }
                 IsOneDigit = CheckIfLast(number);
+                transformCounter++;
             }
 
-            Console.WriteLine(number);
+            if (transformCounter == 9)
+            {
+                Console.WriteLine(number);
+            }
+            else
+            {
+                Console.WriteLine(transformCounter);
+                Console.WriteLine(number);
+            } 
         }
 
         static bool CheckIfLast(string s)
