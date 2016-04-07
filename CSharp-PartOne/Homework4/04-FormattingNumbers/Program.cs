@@ -13,8 +13,12 @@ namespace _04_FormattingNumbers
             string hexValue = a.ToString("X").PadRight(10, ' ');
             string bitValue = Convert.ToString(a, 2).PadLeft(10, '0');
 
+
             Console.Write(hexValue + "|");
             Console.Write(bitValue + "|");
+            Console.Write(String.Format("{0:0.00}", a).PadLeft(10, ' ') + "|");
+            Console.Write(String.Format("{0:0.00}", a).PadRight(10, ' '));
+
         }
     }
 }
