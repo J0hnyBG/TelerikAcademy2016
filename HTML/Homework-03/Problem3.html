@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ugly Calculator - Homework 2</title>
+    <meta charset="utf-8" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        form {
+            width: 400px;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        table {
+            width: 400px
+        }
+        
+        table,
+        table tr,
+        table tr td {
+            border: 2px solid #e67e22;
+            border-collapse: collapse;
+        }
+        
+        input {
+            background-color: #FDE3A7;
+            padding: 0;
+            font-size: 3em;
+            width: 100%;
+            height: 100px;
+            text-shadow: 2px 2px #95A5A6;
+        }
+        
+        .align-right {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table class="full-width">
+            <thead>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" class="full-width align-right">
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="submit" value="1">
+                    </td>
+                    <td>
+                        <input type="submit" value="2">
+                    </td>
+                    <td>
+                        <input type="submit" value="3">
+                    </td>
+                    <td>
+                        <input type="submit" value="+">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="4">
+                    </td>
+                    <td>
+                        <input type="submit" value="5">
+                    </td>
+                    <td>
+                        <input type="submit" value="6">
+                    </td>
+                    <td>
+                        <input type="submit" value="-">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="7">
+                    </td>
+                    <td>
+                        <input type="submit" value="8">
+                    </td>
+                    <td>
+                        <input type="submit" value="9">
+                    </td>
+                    <td>
+                        <input type="submit" value="*">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="0">
+                    </td>
+                    <td>
+                        <input type="submit" value=".">
+                    </td>
+                    <td>
+                        <input type="submit" value="/">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

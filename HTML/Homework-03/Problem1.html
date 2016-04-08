@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Problem 1 - Homework 2</title>
+    <meta charset="utf-8" />
+    <style>
+        #second,
+        #second tbody tr,
+        #second tbody tr td {
+            border: 1px solid black;
+            border-collapse: separate;
+        }
+        
+        #second td {
+            width: 30px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .right {
+            text-align: right;
+        }
+        
+        .bottom {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <table style="width: 600px;">
+            <thead>
+                <tr style="text-align:center;">
+                    <td colspan="2">
+                        <h2><i>Fresh Fruits</i></h2>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>It has long been know that a diet that includes at least a few servings of fresh friot every day will help keep you healthy, fit and trim.</td>
+                    <td><img style="width: 250px" src="https://pixabay.com/static/uploads/photo/2013/02/17/12/24/fruits-82524_960_720.jpg" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="second">
+            <tbody>
+                <tr>
+                    <td colspan="3">This is a title</td>
+                    <td class="center">A</td>
+                    <td class="right">B</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">C</td>
+                    <td class="center">D</td>
+                    <td class="center">E</td>
+                    <td class="center">F</td>
+                    <td class="right">G</td>
+                </tr>
+                <tr>
+                    <td class="center">H</td>
+                    <td colspan="2" class="center">I</td>
+                    <td rowspan="2" class="bottom right">J</td>
+                </tr>
+                <tr>
+                    <td class="center">K</td>
+                    <td class="center">L</td>
+                    <td class="center">M</td>
+                </tr>
+                <tr>
+                    <td class="right">N</td>
+                    <td colspan="4" class="center">O</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
