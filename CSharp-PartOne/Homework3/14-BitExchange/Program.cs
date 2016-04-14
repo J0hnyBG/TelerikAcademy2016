@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace _14_BitExchange
 {
@@ -17,10 +16,10 @@ namespace _14_BitExchange
 
         static uint ExchangeBits(int first, int second, uint input)
         {
-            uint mask = (uint)(1 << first);
+            uint mask = ((uint)1 << first);
             uint result = input & mask;
             uint firstBit = result >> first;
-            mask = (uint)(1 << second);
+            mask = ((uint)1 << second);
             result = input & mask;
             uint secondBit = result >> second;
 

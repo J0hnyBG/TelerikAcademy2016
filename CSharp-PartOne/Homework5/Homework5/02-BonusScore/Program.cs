@@ -20,7 +20,7 @@ namespace _02_BonusScore
             }
             else if (inputNumber >= 7 && inputNumber <= 9)
             {
-                inputNumber *= 100;
+                inputNumber *= 1000;
                 Console.WriteLine(inputNumber);
             }
             else

@@ -6,12 +6,12 @@ class Program
     private static void Main()
     {
         string input = Console.ReadLine();
-        string[] cards = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k", "a"};
-        bool isCorrectCard = cards.Any(card => input.ToLower() == card);
+        string[] cards = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+        bool isCorrectCard = cards.Any(card => input.ToUpper() == card);
 
         if (isCorrectCard)
         {
-            Console.WriteLine("yes " + input.ToLower());
+            Console.WriteLine("yes " + input.ToUpper());
         }
         else
         {

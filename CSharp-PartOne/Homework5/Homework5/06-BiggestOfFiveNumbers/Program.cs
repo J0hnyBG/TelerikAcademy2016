@@ -17,7 +17,14 @@ namespace _05_BiggestOfThree
                 double.Parse(Console.ReadLine())
             };
 
-            double max = inputNumbers.Concat(new double[] { 0 }).Max();
+            double max = Double.MinValue;//inputNumbers.Concat(new double[] { 0 }).Max();
+            for (int i = 0; i < inputNumbers.Length; i++)
+            {
+                if (max < inputNumbers[i])
+                {
+                    max = inputNumbers[i];
+                }
+            }
 
             Console.WriteLine(max);
         }
