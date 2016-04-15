@@ -10,7 +10,7 @@ namespace _04_PrintADeck
         static void Main()
         {
             string inputChar = Console.ReadLine();
-            string[] cards = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k", "a" };
+            string[] cards = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
             string[] suits = {"of spades", "of clubs", "of hearts", "of diamonds"};
 
             for (int i = 0; i < cards.Length; i++)
@@ -23,7 +23,7 @@ namespace _04_PrintADeck
                         Console.Write(", ");
                     }
                 }
-                if (inputChar.ToLower() == cards[i])
+                if (inputChar.ToUpper() == cards[i])
                 {
                     break;
                 }

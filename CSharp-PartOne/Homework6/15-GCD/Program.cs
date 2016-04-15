@@ -7,8 +7,9 @@ namespace _15_GCD
     {
         static void Main()
         {
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
+            string[] input = Console.ReadLine().Split(' ');
+            int a = Math.Abs(int.Parse(input[0]));
+            int b = Math.Abs(int.Parse(input[1]));
 
             while (a != b)
             {

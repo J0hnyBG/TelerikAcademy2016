@@ -30,9 +30,9 @@ namespace _03_MMSAOfNNumbers
             }
             double avg = sum / numbers.Length;
 
-            Console.WriteLine("min=" + min);
-            Console.WriteLine("max=" + max);
-            Console.WriteLine("sum=" + sum);
+            Console.WriteLine("min={0:F2}",min);
+            Console.WriteLine("max={0:F2}", max);
+            Console.WriteLine("sum={0:F2}", sum);
             Console.WriteLine("avg={0:F2}", avg);
         }
     }
