@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-NumbersFrom1ToN", "01-NumbersFrom1ToN\01-NumbersFrom1ToN.csproj", "{A01B4A76-57E3-4C1D-9C54-96184A5E2471}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-PrintADeck", "04-PrintAD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-Calculate", "05-Calculate\05-Calculate.csproj", "{A36184C7-5D37-4765-8D93-56891163DF74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-CalculateAgain", "05-CalculateAgain\05-CalculateAgain.csproj", "{48EAE81C-A938-4F3B-A9FA-BF9429651AB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-CalculateAgain", "05-CalculateAgain\06-CalculateAgain.csproj", "{48EAE81C-A938-4F3B-A9FA-BF9429651AB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-Calculate3", "07-Calculate3\07-Calculate3.csproj", "{13643369-024E-4574-8B25-9BF308214FD8}"
 EndProject

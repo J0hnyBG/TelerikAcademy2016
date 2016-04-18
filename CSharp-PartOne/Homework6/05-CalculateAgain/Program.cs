@@ -3,7 +3,7 @@ using System.Numerics;
 //Write a program that calculates N! / K! for given N and K.
 //Use only one loop.
 
-namespace _05_CalculateAgain
+namespace _06_CalculateAgain
 {
     class Program
     {
