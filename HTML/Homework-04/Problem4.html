@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Problem 4 - Forms homework</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <style type="text/css">
+        table,
+        thead,
+        th,
+        tbody,
+        tr,
+        td {
+            border: 1px solid #a4abb2;
+            border-collapse: collapse;
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #3b3b3b;
+        }
+
+        body > form > table > thead > tr:nth-child(1) {
+            background-color: #e7e9eb;
+        }
+
+        body > form > table > thead > tr:nth-child(2),
+        button {
+            background: linear-gradient(#f2f2f4, #dbdfe4);
+        }
+
+        body > form > table > thead > tr:nth-child(3) {
+            background-color: #dfe3e8;
+        }
+
+        body > form > table > tfoot > tr {
+            background: linear-gradient(#e5e9ed, #b9bec3);
+        }
+
+        body > form > table > tfoot > tr > td {
+            border: none;
+        }
+
+        body > form > table > tfoot > tr > td:nth-child(2) {
+            text-align: right;
+        }
+
+        table {
+            border-radius: 30px;
+        }
+
+        tfoot a {
+            color: #3b3b3b;
+            text-decoration: none;
+            margin: 0px 3px;
+        }
+
+        tfoot a:visited {
+            color: #3b3b3b;
+            text-decoration: none;
+        }
+
+        td {
+            padding: 5px 5px;
+        }
+
+        button {
+            margin: 2px;
+            border-radius: 3px;
+            border: 1px solid gray;
+        }
+
+        button:active {
+            background: linear-gradient(#dbdfe4, #f2f2f4);
+        }
+
+        button:focus,
+        select:focus,
+        input:focus {
+            outline: 1 !important;
+        }
+
+        select {
+            border-radius: 3px;
+            background: linear-gradient(#f2f2f4, #dbdfe4);
+        }
+
+        body > form > table > tfoot > tr > td:nth-child(1) > label {
+            margin-left: 10px;
+        }
+
+        .fa {
+            color: #5b5c5e;
+        }
+
+        body > form > table > thead > tr:nth-child(3) > td:nth-child(1) > input[type="text"] {
+            width: 50%;
+        }
+
+        body > form > table > thead > tr:nth-child(3) > td:nth-child(3) > input[type="text"],
+        body > form > table > thead > tr:nth-child(3) > td:nth-child(5) > input[type="text"] {
+            width: 50%;
+        }
+
+        td:first-child,
+        td:nth-child(6) {
+            width: 80px;
+        }
+
+        td:nth-child(2),
+        td:nth-child(4) {
+            width: 250px;
+        }
+
+        td:nth-child(3),
+        td:nth-child(5) {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="6">
+                        Drag a column header and drop it here to group by that column
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ProductID
+                    </td>
+                    <td>
+                        Product name
+                    </td>
+                    <td>
+                        Unit price
+                    </td>
+                    <td>
+                        Quantity per unit
+                    </td>
+                    <td>
+                        Units in stock
+                    </td>
+                    <td>
+                        Discontinued
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="productID" value="">
+                    </td>
+                    <td>
+                        <input type="text" name="productName" value="">
+                    </td>
+                    <td>
+                        <input type="text" name="unitPrice" value="">
+                        <button type="button" name="filterByPrice"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                    </td>
+                    <td>
+                        <input type="text" name="quantity" value="">
+                    </td>
+                    <td>
+                        <input type="text" name="unitsInStock" value="">
+                        <button type="button" name="filterByStock"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="discontinued" value="1">
+                        <button type="button" name="filterByStock"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Chai</td>
+                    <td>$18.00</td>
+                    <td>10 boxes x 20 bags</td>
+                    <td>39</td>
+                    <td>
+                        <input type="checkbox" name="firstRow" value="1" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Chang</td>
+                    <td>$19.00</td>
+                    <td>24 - 12 oz bottles</td>
+                    <td>17</td>
+                    <td>
+                        <input type="checkbox" name="firstRow" value="1" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Aniseed Syrup</td>
+                    <td>$10.00</td>
+                    <td>12 - 550 ml bottles</td>
+                    <td>13</td>
+                    <td>
+                        <input type="checkbox" name="firstRow" value="1" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Chef Anton's Cajun Seasoning</td>
+                    <td>$22.00</td>
+                    <td>48 - 6 oz jars</td>
+                    <td>53</td>
+                    <td>
+                        <input type="checkbox" name="firstRow" value="1" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Chef Anton's Gumbo Mix</td>
+                    <td>$21.35</td>
+                    <td>36 boxes</td>
+                    <td>0</td>
+                    <td>
+                        <input type="checkbox" name="firstRow" value="1" disabled checked>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Ikura</td>
+                    <td>$31.00</td>
+                    <td>12 - 200 ml jars</td>
+                    <td>6</td>
+                    <td>
+                        <input type="checkbox" name="firstRow" value="1" disabled>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <button type="button" name="firstPage"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                        <button type="button" name="previousPage"><i class="fa fa-caret-left" aria-hidden="true"></i></button>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a> ...
+                        <button type="button" name="previousPage"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
+                        <button type="button" name="firstPage"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                        <label for="pageSize">Page size:</label>
+                        <select id="pageSize">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>30</option>
+                            <option>40</option>
+                            <option>50</option>
+                        </select>
+                    </td>
+                    <td colspan="3">
+                        335104 items in 33511 pages
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</body>
+
+</html>
