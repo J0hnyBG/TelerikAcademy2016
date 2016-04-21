@@ -4,14 +4,68 @@
 <head>
     <title>Problem 2 - Semantic HTML</title>
     <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet">
+    <style>
+        article,
+        section,
+        aside,
+        hgroup,
+        nav,
+        header,
+        footer,
+        figure,
+        figcaption {
+            display: block;
+        }
+    </style>
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
 
 <body>
-
+    <header>
+        <a href="#"><img src="http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png" alt="ubuntu logo"></a>
+        <h1>Welcome to Our Web Site</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Nav item 1</a></li>
+                <li><a href="#">Nav item 2</a></li>
+                <li><a href="#">Nav item 3</a></li>
+                <li><a href="#">Nav item 4</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ivan</td>
+                        <td>Ivanov</td>
+                        <td>4.54</td>
+                    </tr>
+                    <tr>
+                        <td>Petar</td>
+                        <td>Petrov</td>
+                        <td>4.31</td>
+                    </tr>
+                    <tr>
+                        <td>Kiro</td>
+                        <td>Kirov</td>
+                        <td>4.62</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer> &copy; 2016 </footer>
 </body>
 
 </html>
