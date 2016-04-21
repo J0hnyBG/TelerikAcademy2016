@@ -4,7 +4,7 @@ using System.Numerics;
 
 namespace _02_SecretsOfNumbers
 {
-    internal class Program
+    internal class SecretsofNumbers
     {
         private static void Main()
         {

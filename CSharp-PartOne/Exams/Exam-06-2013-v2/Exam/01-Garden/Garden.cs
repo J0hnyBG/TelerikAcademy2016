@@ -3,7 +3,7 @@
 
 namespace _01_Garden
 {
-    class Program
+    class Garden
     {
         static void Main()
         {
