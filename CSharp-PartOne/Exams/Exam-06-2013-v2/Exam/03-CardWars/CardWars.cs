@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Numerics;
 
 namespace _03_CardWars
 {
@@ -8,8 +8,8 @@ namespace _03_CardWars
         static void Main()
         {
             int n = int.Parse(Console.ReadLine());
-            int firstTotalScore = 0;
-            int secondTotalScore = 0;
+            BigInteger firstTotalScore = 0;
+            BigInteger secondTotalScore = 0;
 
             int firstWonGames = 0;
             int secondWonGames = 0;
@@ -25,16 +25,16 @@ namespace _03_CardWars
                 string[] firstPlayerCards = new string[3];
                 string[] secondPlayerCards = new string[3];
 
-                int firstPlayerRoundScore = 0;
-                int secondPlayerRoundScore = 0;
+                BigInteger firstPlayerRoundScore = 0;
+                BigInteger secondPlayerRoundScore = 0;
 
                 bool firstPlayerX = false;
                 bool secondPlayerX = false;
 
                 for (int j = 0; j < 3; j++)
                 {
-                    firstPlayerCards[i] = Console.ReadLine();
-                    switch (firstPlayerCards[i])
+                    firstPlayerCards[j] = Console.ReadLine();
+                    switch (firstPlayerCards[j])
                     {
                         case "Z":
                             firstTotalScore *= 2;
@@ -46,14 +46,14 @@ namespace _03_CardWars
                             firstTotalScore -= 200;
                             break;
                         default:
-                            firstPlayerRoundScore += Array.IndexOf(cardStrength, firstPlayerCards[i]);
+                            firstPlayerRoundScore += Array.IndexOf(cardStrength, firstPlayerCards[j]);
                             break;
                     }
                 }
                 for (int j = 0; j < 3; j++)
                 {
-                    secondPlayerCards[i] = Console.ReadLine();
-                    switch (secondPlayerCards[i])
+                    secondPlayerCards[j] = Console.ReadLine();
+                    switch (secondPlayerCards[j])
                     {
                         case "Z":
                             secondTotalScore *= 2;
@@ -65,7 +65,7 @@ namespace _03_CardWars
                             secondTotalScore -= 200;
                             break;
                         default:
-                            secondPlayerRoundScore += Array.IndexOf(cardStrength, secondPlayerCards[i]);
+                            secondPlayerRoundScore += Array.IndexOf(cardStrength, secondPlayerCards[j]);
                             break;
                     }
                 }
@@ -119,7 +119,6 @@ namespace _03_CardWars
                     Console.WriteLine("Games won: " + secondWonGames);
                 }
             }
-
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Numerics;
 
 namespace _02_SecretsOfNumbers
 {
+//TODO: Gives wrong output on some tests
     internal class SecretsofNumbers
     {
         private static void Main()
@@ -15,13 +15,14 @@ namespace _02_SecretsOfNumbers
             int specialSum = 0;
             for (int i = 1; i <= nArray.Length; i++)
             {
-                if (i%2 == 0)
+                if(nArray[i - 1] == '-') continue;
+                if (i % 2 == 0)
                 {
-                    specialSum += (nArray[i - 1] - '0')*(nArray[i - 1] - '0')*i;
+                    specialSum += (nArray[i - 1] - '0') * (nArray[i - 1] - '0') * i;
                 }
                 else
                 {
-                    specialSum += (nArray[i - 1] - '0')*i*i;
+                    specialSum += (nArray[i - 1] - '0') * i * i;
                 }
             }
             Console.WriteLine(specialSum);
@@ -33,7 +34,7 @@ namespace _02_SecretsOfNumbers
             }
             else
             {
-                int r = specialSum%26;
+                int r = specialSum % 26;
                 for (int i = 0; i < specialString[specialString.Length - 1] - '0'; i++)
                 {
                     if (r + 65 + i > 90)
