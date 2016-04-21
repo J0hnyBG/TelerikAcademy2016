@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
+using System.Numerics;
 namespace _3SaddyKopper
 {
     class SaddyKopper
@@ -13,12 +12,12 @@ namespace _3SaddyKopper
 
             bool IsOneDigit = false;
             int transformCounter = 0;
-            
+            BigInteger result = 0;
 
             while (!IsOneDigit)
             {
                 bool IsOneDigitInner = false;
-                List<ulong> sumList = new List<ulong>();
+                List<uint> sumList = new List<uint>();
 
                 while (!IsOneDigitInner)
                 {
@@ -27,7 +26,19 @@ namespace _3SaddyKopper
                     IsOneDigitInner = CheckIfLast(number);
                 }
 
-                number = sumList.Aggregate((a, x) => a * x).ToString();
+                //BigInteger result = 0;
+                bool first = true;
+                foreach (var @ulong in sumList)
+                {
+                    if (first)
+                    {
+                        first = false;
+                        result = @ulong;
+                        continue;
+                    }
+                    result = result*@ulong;
+                }
+                number = result.ToString();
 
                 if (transformCounter == 9)
                 {
@@ -39,31 +50,18 @@ namespace _3SaddyKopper
 
             if (transformCounter == 9)
             {
-                Console.WriteLine(number);
+                Console.WriteLine(result);
             }
             else
             {
                 Console.WriteLine(transformCounter);
-                Console.WriteLine(number);
+                Console.WriteLine(result);
             } 
         }
 
         static bool CheckIfLast(string s)
         {
-            if (s.Length == 1)
-            {
-                return true;
-            }
-            else return false;
-        }
-
-        static bool CheckIfLast(ulong n)
-        {
-            if (0 <= n && n <= 9)
-            {
-                return true;
-            }
-            else return false;
+            return s.Length == 1;
         }
 
         static string RemoveLast(string s)
@@ -72,13 +70,12 @@ namespace _3SaddyKopper
             return s;
         }
 
-        static ulong GetSumOfEvens(string s)
+        static uint GetSumOfEvens(string s)
         {
-            ulong sum = 0;
-            s.ToCharArray();
+            uint sum = 0;
             for (int i = 0; i < s.Length; i += 2)
             {
-                sum += (ulong)Char.GetNumericValue(s[i]);
+                sum += (uint)Char.GetNumericValue(s[i]);
             }
             return sum;
         }
