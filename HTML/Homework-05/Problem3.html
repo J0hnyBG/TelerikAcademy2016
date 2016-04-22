@@ -26,13 +26,16 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">What is LinkedIn?</a></li>
                 <li><a href="#">Join Today</a></li>
-                <li>Sign in
+                <li>
                     <form>
-                        <ul>
-                            <li><label for="emailTop">Email: </label><input type="text" name="email" id="emailTop" required></li>
-                            <li><label for="passwordTop">Password: </label><input type="password" name="password" id="passwordTop" required></li>
-                            <li><input type="submit" name="signIn" value="Sign In"></li>
-                        </ul>
+                        <fieldset>
+                            <legend>Sign In</legend>
+                            <ul>
+                                <li><label for="emailTop">Email: </label><input type="text" name="email" id="emailTop" required></li>
+                                <li><label for="passwordTop">Password: </label><input type="password" name="password" id="passwordTop" required></li>
+                                <li><input type="submit" name="signIn" value="Sign In"></li>
+                            </ul>
+                        </fieldset>
                     </form>
                 </li>
             </ul>
@@ -51,18 +54,21 @@
             </article>
         </section>
         <section>
-            <h3>Join LinkedIn Today</h3>
+            <h2>Join LinkedIn Today</h2>
             <form>
-                <h4>Sign up</h4>
-                <ul>
-                    <li><label for="firstName" class="block">First Name</label><input type="text" name="firstName" id="firstName" required></li>
-                    <li><label for="lastName" class="block">Last Name</label><input type="text" name="lastName" id="lastName" required></li>
-                    <li><label for="email" class="block">E-mail</label><input type="text" name="email" id="email" required></li>
-                    <li><label for="password" class="block">Password (6 or more characters)</label><input type="password" name="password" id="password" required></li>
-                </ul>
-                <input type="submit" name="signUp" value="Join Now">
+                <fieldset>
+                    <legend>Sign up</legend>
+                    <ul>
+                        <li><label for="firstName" class="block">First Name</label><input type="text" name="firstName" id="firstName" required></li>
+                        <li><label for="lastName" class="block">Last Name</label><input type="text" name="lastName" id="lastName" required></li>
+                        <li><label for="email" class="block">E-mail</label><input type="text" name="email" id="email" required></li>
+                        <li><label for="password" class="block">Password (6 or more characters)</label><input type="password" name="password" id="password" required></li>
+                    </ul>
+                    <input type="submit" name="signUp" value="Join Now">
+
+                    <p>Already on LinkedIn? <a href="#">Sign in.</a></p>
+                </fieldset>
             </form>
-            <p>Already on LinkedIn? <a href="#">Sign in.</a></p>
         </section>
     </main>
     <hr>

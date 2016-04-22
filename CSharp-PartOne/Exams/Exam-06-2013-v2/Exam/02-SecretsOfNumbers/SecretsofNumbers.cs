@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Numerics;
 
 namespace _02_SecretsOfNumbers
 {
-//TODO: Gives wrong output on some tests
     internal class SecretsofNumbers
     {
         private static void Main()

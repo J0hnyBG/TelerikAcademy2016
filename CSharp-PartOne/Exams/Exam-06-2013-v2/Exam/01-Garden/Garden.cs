@@ -1,41 +1,40 @@
 ﻿using System;
 
-
 namespace _01_Garden
 {
-    class Garden
+    internal class Garden
     {
-        static void Main()
+        private static void Main()
         {
-            int tomatoSeeds = int.Parse(Console.ReadLine());
-            int tomatoArea = int.Parse(Console.ReadLine());
-            double tomatoCost = 0.5d;
+            var tomatoSeeds = int.Parse(Console.ReadLine());
+            var tomatoArea = int.Parse(Console.ReadLine());
+            const double tomatoCost = 0.5d;
 
-            int cucumberSeeds = int.Parse(Console.ReadLine());
-            int cucumberArea = int.Parse(Console.ReadLine());
-            double cucumberCost = 0.4d;
+            var cucumberSeeds = int.Parse(Console.ReadLine());
+            var cucumberArea = int.Parse(Console.ReadLine());
+            const double cucumberCost = 0.4d;
 
-            int potatoSeeds = int.Parse(Console.ReadLine());
-            int potatoArea = int.Parse(Console.ReadLine());
-            double potatoCost = 0.25d;
+            var potatoSeeds = int.Parse(Console.ReadLine());
+            var potatoArea = int.Parse(Console.ReadLine());
+            const double potatoCost = 0.25d;
 
-            int carrotSeeds = int.Parse(Console.ReadLine());
-            int carrotArea = int.Parse(Console.ReadLine());
-            double carrotCost = 0.6d;
+            var carrotSeeds = int.Parse(Console.ReadLine());
+            var carrotArea = int.Parse(Console.ReadLine());
+            const double carrotCost = 0.6d;
 
-            int cabbageSeeds = int.Parse(Console.ReadLine());
-            int cabbageArea = int.Parse(Console.ReadLine());
-            double cabbageCost = 0.3d;
+            var cabbageSeeds = int.Parse(Console.ReadLine());
+            var cabbageArea = int.Parse(Console.ReadLine());
+            const double cabbageCost = 0.3d;
 
-            int beansSeeds = int.Parse(Console.ReadLine());
-            double beansCost = 0.4d;
+            var beansSeeds = int.Parse(Console.ReadLine());
+            const double beansCost = 0.4d;
 
             const int totalArea = 250;
 
-            double totalCost = tomatoCost*tomatoSeeds + cucumberCost*cucumberSeeds + potatoCost*potatoSeeds +
-                                carrotCost*carrotSeeds + cabbageCost*cabbageSeeds + beansCost*beansSeeds;
+            var totalCost = tomatoCost*tomatoSeeds + cucumberCost*cucumberSeeds + potatoCost*potatoSeeds +
+                            carrotCost*carrotSeeds + cabbageCost*cabbageSeeds + beansCost*beansSeeds;
 
-            int beansArea = 250 - (tomatoArea + cucumberArea + potatoArea + carrotArea + cabbageArea);
+            var beansArea = totalArea - (tomatoArea + cucumberArea + potatoArea + carrotArea + cabbageArea);
             Console.WriteLine("Total costs: {0:F2}", totalCost);
 
             if (beansArea > 0)
