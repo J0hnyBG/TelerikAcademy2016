@@ -7,11 +7,25 @@ namespace _03_BullsAndCows
     {
         static void Main()
         {
+            //Find possible guess numbers, when given the secret number, the bulls and the cows
             string secretNumber = "2228";
-            int positionMatches = 2; //bulls
-            int numberMatches = 1; //cows
+            char[] secretArray = secretNumber.ToCharArray();
+            int positionMatches = 2; //bulls - match the position and the number
+            int numberMatches = 1; //cows - match the number, but not the position
+            
+            var allFound = false;
 
             List<int> guessNumbers = new List<int>();
+
+            while (!allFound)
+            {
+
+
+                for (int i = 0; i < 10; i++)
+                {
+                    
+                }
+            }
         }
     }
 }
