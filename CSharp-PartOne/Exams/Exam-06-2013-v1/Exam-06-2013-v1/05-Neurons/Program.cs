@@ -1,66 +1,58 @@
 ﻿using System;
 
-class NeuronMapping
+namespace _05_Neurons
 {
-    static void Main()
+    internal class NeuronMapping
     {
-        const uint BIT = 1;
+        private static void Main()
+        {
+            const uint bit = (uint)1;
 
+            while (true)
+            {
+                string inputString = Console.ReadLine();
+                if (inputString == "-1")
+                {
+                    break;
+                }
+                uint inputNumber = uint.Parse(inputString);
 
+                uint output = 0;
+                bool isInside = false;
+                int consecutiveBits = 0;
 
-        #region Original Solution
+                for (int i = 0; i < 32; ++i)
+                {
+                    //uint currentBit = (inputNumber & (bit << i)) >> i;
+                    uint mask = (bit << i);
 
-        //const uint BIT = (uint)1;
+                    if ((inputNumber & mask) == 0)
+                    {
+                        if (isInside)
+                        {
+                            output = output | mask;
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        consecutiveBits++;
+                        isInside = !isInside;
 
-        //while (true)
-        //{
-        //    string input = Console.ReadLine();
-        //    if (input == "-1")
-        //    {
-        //        break;
-        //    }
+                        while (i < 32 && (inputNumber & (bit << i)) != 0)
+                        {
+                            i += 1;
+                        }
+                        i = i - 1;
+                    }
 
-        //    uint thisRow = uint.Parse(input);
-
-        //    uint output = 0;
-
-        //    bool isInside = false;
-
-        //    int oneBitSequences = 0;
-
-        //    for (int ii = 0; ii < 32; ++ii)
-        //    {
-        //        uint mask = (BIT << ii);
-
-        //        if ((thisRow & mask) == 0)
-        //        {
-        //            if (isInside)
-        //                output = output | mask;
-        //            continue;
-        //        }
-        //        else
-        //        {
-        //            oneBitSequences += 1;
-        //            isInside = !isInside;
-        //            while (ii < 32 && (thisRow & (BIT << ii)) != 0)
-        //            {
-        //                ii += 1;
-        //            }
-        //            // back off one step,
-        //            // the for loop will increment the counter anyway
-        //            ii -= 1;
-        //        }
-        //    }
-
-        //    if (oneBitSequences != 2)
-        //    {
-        //        output = 0;
-        //    }
-
-        //    Console.WriteLine(output);
-        //}
-
-        #endregion
-
+                }
+                if (consecutiveBits != 2)
+                {
+                    output = 0;
+                }
+                Console.WriteLine(output);
+            }
+        }
     }
 }
