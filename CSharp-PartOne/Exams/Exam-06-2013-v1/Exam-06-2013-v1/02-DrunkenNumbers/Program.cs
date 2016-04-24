@@ -5,7 +5,7 @@ namespace _02_DrunkenNumbers
     class Program
     {
         static void Main()
-        {
+        {   
             int n = int.Parse(Console.ReadLine());
 
             int mitkoTotal = 0;
@@ -18,7 +18,9 @@ namespace _02_DrunkenNumbers
                 int mitkoRound = 0;
                 int vladkoRound = 0;
                 int drunkenNumber = int.Parse(Console.ReadLine());
+                drunkenNumber = Math.Abs(drunkenNumber);
                 string drunkenString = drunkenNumber.ToString();
+                
 
                 if (drunkenString.Length % 2 == 0)
                 {

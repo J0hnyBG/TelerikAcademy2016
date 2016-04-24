@@ -7,11 +7,9 @@ namespace _01_CoffeeMachine
     class Program
     {
         static void Main()
-        {
+        {   
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-            //Has enough coins
-            //Waits for more coins
-            //Doesnt have enough coins for change
+
             int n1 = int.Parse(Console.ReadLine());
             int n2 = int.Parse(Console.ReadLine());
             int n3 = int.Parse(Console.ReadLine());
@@ -19,7 +17,7 @@ namespace _01_CoffeeMachine
             int n5 = int.Parse(Console.ReadLine());
 
             double givenAmount = double.Parse(Console.ReadLine());
-            double drinkPrice = double.Parse(Console.ReadLine()); ;
+            double drinkPrice = double.Parse(Console.ReadLine());
 
             if (givenAmount < drinkPrice)
             {
@@ -31,7 +29,7 @@ namespace _01_CoffeeMachine
                 
                 if (givenAmount == drinkPrice)
                 {
-                    Console.WriteLine("Yes " + moneyInTrays);
+                    Console.WriteLine("Yes {0:F2}", moneyInTrays);
                 }
                 else if (givenAmount > drinkPrice)
                 {

@@ -6,8 +6,6 @@ namespace _04_FireInTheMatrix
     {
         private static void Main()
         {
-            Stopwatch st = new Stopwatch();
-            st.Start();
             int width = int.Parse(Console.ReadLine());
             int offset = 0;
             int offset2 = 0;
@@ -115,8 +113,6 @@ namespace _04_FireInTheMatrix
             //    Console.Write(new string('/', N / 2 - (i - 1)));
             //    Console.WriteLine(new string('.', i - 1));
             //}
-            st.Stop();
-            Console.WriteLine(st.Elapsed.ToString());
         }
     }
 }
