@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-ConsoleApplication1", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-PersianRugs", "04-PersianRugs\04-PersianRugs.csproj", "{3F7ED90F-9865-4CB9-8794-A18A78C1D9A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-SearchInBits", "05-SearchInBits\05-SearchInBits.csproj", "{F43A9002-9449-42E1-B3BC-DAF8C1C55E0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3F7ED90F-9865-4CB9-8794-A18A78C1D9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F7ED90F-9865-4CB9-8794-A18A78C1D9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F7ED90F-9865-4CB9-8794-A18A78C1D9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43A9002-9449-42E1-B3BC-DAF8C1C55E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43A9002-9449-42E1-B3BC-DAF8C1C55E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43A9002-9449-42E1-B3BC-DAF8C1C55E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43A9002-9449-42E1-B3BC-DAF8C1C55E0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
