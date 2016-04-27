@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-2-4-8", "01-2-4-8\01-2-4-8.csproj", "{77491EE3-BAEB-4701-84FC-ED86C7B3B3EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-NightmareOnCodeStreet", "02-NightmareOnCodeStreet\02-NightmareOnCodeStreet.csproj", "{0181CA65-D841-406A-9109-53B194512022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-Enigmanation", "03-Enigmanation\03-Enigmanation.csproj", "{316E8309-4685-473D-AA29-F1995B7ECF0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77491EE3-BAEB-4701-84FC-ED86C7B3B3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77491EE3-BAEB-4701-84FC-ED86C7B3B3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77491EE3-BAEB-4701-84FC-ED86C7B3B3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77491EE3-BAEB-4701-84FC-ED86C7B3B3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0181CA65-D841-406A-9109-53B194512022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0181CA65-D841-406A-9109-53B194512022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0181CA65-D841-406A-9109-53B194512022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0181CA65-D841-406A-9109-53B194512022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316E8309-4685-473D-AA29-F1995B7ECF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316E8309-4685-473D-AA29-F1995B7ECF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316E8309-4685-473D-AA29-F1995B7ECF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316E8309-4685-473D-AA29-F1995B7ECF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

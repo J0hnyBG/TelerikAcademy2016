@@ -10,7 +10,7 @@ namespace _04_ExRugs
             int d = int.Parse(Console.ReadLine());
 
             int width = 1 + 2*n;
-
+            #region dnt
             //Top part
 
 
@@ -28,13 +28,14 @@ namespace _04_ExRugs
             //Console.Write(new string('#', 4));
             //Console.Write(new string('#', 5));
             //Console.WriteLine();
+            #endregion
             int offset = 0;
             //Top quarter
             for (int i = 0; i < width/2; i++)
             {
                 if (i < width/4)
                 {
-                    Console.Write(new string('#', (d/2)+1 + i));
+                    Console.Write(new string('#', (d / 2)+1 + i));
                     Console.Write(new string('\\', 1));
                     Console.Write(new string('.', width/2 - (1 + i*2)));
                     Console.Write(new string('/', 1));
