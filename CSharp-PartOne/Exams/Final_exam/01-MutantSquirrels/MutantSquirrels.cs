@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Numerics;
 
 namespace _01_MutantSquirrels
 {
-    class Program
+    class MutantSquirrels
     {
         static void Main()
         {
@@ -18,13 +17,12 @@ namespace _01_MutantSquirrels
 
             if (totalTails % 2 == 0)
             {
-                //Wrong
                 double result = totalTails * 376439;
                 Console.WriteLine("{0:F3}", result);
             }
             else
             {
-                double result = (double)totalTails / (double)7;
+                double result = (double)totalTails /7;
                 result = Math.Round(result, 3);
                 Console.WriteLine("{0:F3}", result);
             }
