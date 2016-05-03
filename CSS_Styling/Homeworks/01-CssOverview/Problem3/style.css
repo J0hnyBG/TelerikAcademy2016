@@ -1,0 +1,45 @@
+body {
+    background-color: #a9a9a9;
+}
+h1 {
+    color: #fafad2;
+    font-size: 2em;
+}
+body p {
+    font-size: 1.2em;
+}
+body > header {
+    text-align: center;
+}
+body > header h1 {
+    font-size: 3em;
+}
+body > header nav ul {
+    list-style-type: none;
+}
+body > header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+body > header nav ul li a:hover {
+    text-decoration: underline;
+}
+body > header nav ul li:nth-child(2) > a {
+    background-color: #d3d3d3;
+}
+body > header nav ul li:last-child > a {
+    text-decoration: underline;
+}
+body > footer {
+    text-align: center;
+    font-size: 1.2em;
+}
+body article footer {
+    font-size: 0.8em;
+}
+body article footer a {
+    text-decoration: none;
+    color: #000;
+}

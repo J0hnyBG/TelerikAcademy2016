@@ -1,0 +1,56 @@
+$bgcolor: #a9a9a9;
+$lightbgcolor: #d3d3d3;
+$headcolor: #fafad2;
+$navcolor: #fff;
+$textcolor: #000;
+body {
+    background-color: $bgcolor;
+}
+h1 {
+    color: $headcolor;
+    font-size: 2em;
+}
+body {
+    p {
+        font-size: 1.2em;
+    }
+    > header {
+        text-align: center;
+        h1 {
+            font-size: 3em;
+        }
+        nav {
+            ul {
+                list-style-type: none;
+                li {
+                    a {
+                        text-decoration: none;
+                        color: $navcolor;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+                li:nth-child(2) > a {
+                    background-color: $lightbgcolor;
+                }
+                li:last-child > a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+     > footer {
+        text-align: center;
+        font-size: 1.2em;
+    }
+    article footer {
+        font-size: 0.8em;
+        a {
+            text-decoration: none;
+            color: $textcolor;
+        }
+    }
+}

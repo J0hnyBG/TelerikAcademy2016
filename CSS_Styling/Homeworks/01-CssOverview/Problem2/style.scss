@@ -1,0 +1,204 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*END RESET*/
+$lightGreen: #5ec306;
+$darkGreen: #47a803;
+$border-color: #c4c3a8;
+$green-border: #388e05;
+* {
+    //padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@mixin gradient($lightColor, $darkColor) {
+    background: $lightColor;
+    background: -moz-linear-gradient(top, $lightColor 0%, $darkColor 100%);
+    background: -webkit-linear-gradient(top, $lightColor 0%,$darkColor 100%);
+    background: linear-gradient(to bottom, $lightColor 0%,$darkColor 100%);
+}
+img {
+    width: 20%;
+}
+body {
+    font-family: Calibri, Sans-serif;
+    font-size: 13px;
+}
+table {
+    width: 456px;
+    text-align: left;
+    table-layout: fixed;
+    border-collapse: collapse;
+    vertical-align: middle;
+    thead {
+        @include gradient($lightGreen, $darkGreen);
+        color: #fff;
+        tr {
+            th {
+                font-weight: 100;
+                padding: 3px 0 5px 6px;
+                border-left: 1px solid $green-border;
+                vertical-align: middle;
+            }
+            > th:nth-child(1) {
+                width: 30.3%;
+            }
+            > th:nth-child(2) {
+                width: 24%;
+            }
+            > th:nth-child(4) {
+                width: 18.3%;
+            }
+        }
+    }
+    tbody {
+        tr:nth-child(even) {
+            background-color: #ececd8;
+        }
+        tr:nth-last-child(1) {
+            border-bottom: 1px solid $border-color;
+        }
+        tr {
+            td {
+                padding: 1px 0 1px 6px;
+                border-left: 1px solid $border-color;
+                vertical-align: middle;
+                > input {
+                    margin-left: 6px;
+                }
+                > span {
+                    padding-left: 4px;
+                    display: inline-block;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
