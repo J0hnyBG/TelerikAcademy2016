@@ -27,7 +27,7 @@ namespace _11_BinarySearch
             {
                 if (high < low)
                 {
-                    Console.Write(x + " doesn't exist in array");
+                    Console.Write("-1");
                     break;
                 }
                 int mid = low + (high - low) / 2;

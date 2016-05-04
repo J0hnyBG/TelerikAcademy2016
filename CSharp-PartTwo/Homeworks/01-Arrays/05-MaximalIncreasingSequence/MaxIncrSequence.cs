@@ -16,7 +16,7 @@ namespace _05_MaximalIncreasingSequence
             {
                 array[i] = int.Parse(Console.ReadLine());
 
-                if (i==0)
+                if (i == 0)
                 {
                     continue;
                 }

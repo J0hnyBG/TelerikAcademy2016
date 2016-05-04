@@ -141,6 +141,7 @@ $green-border: #388e05;
     background: -moz-linear-gradient(top, $lightColor 0%, $darkColor 100%);
     background: -webkit-linear-gradient(top, $lightColor 0%,$darkColor 100%);
     background: linear-gradient(to bottom, $lightColor 0%,$darkColor 100%);
+    //filter: unquote:("progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ec306', endColorstr='#47a803',GradientType=0;");
 }
 img {
     width: 20%;
