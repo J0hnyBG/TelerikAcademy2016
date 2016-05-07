@@ -6,81 +6,36 @@ namespace _03_CompareCharArrays
     {
         private static void Main()
         {
-            string first = Console.ReadLine().ToLower();
-            string second = Console.ReadLine().ToLower();
+            string first = Console.ReadLine();
+            string second = Console.ReadLine();
 
-            int result = first.CompareTo(second);
+            int minLength = Math.Min(first.Length, second.Length);
 
-            switch (result)
+            for (int i = 0; i < minLength; i++)
             {
-                case 1:
+                if (first[i] > second[i])
+                {
                     Console.WriteLine(">");
-                    break;
-                case -1:
+                    return;
+                }
+                if (first[i] < second[i])
+                {
                     Console.WriteLine("<");
-                    break;
-                case 0:
-                    Console.WriteLine("=");
-                    break;
+                    return;
+                }
             }
-
-            //Buggy
-            //int minLength = Math.Min(first.Length, second.Length);
-            //int firstLength = first.Length;
-            //int secondLength = second.Length;
-
-            //for (int i = 0; i < minLength; i++)
-            //{
-            //    if (first[i] > second[i])
-            //    {
-            //        Console.WriteLine(">");
-            //        break;
-            //    }
-            //    if (first[i] < second[i])
-            //    {
-            //        Console.WriteLine("<");
-            //        break;
-            //    }
-            //    if (i == firstLength - 1 || i == secondLength - 1)
-            //    {
-            //        if (firstLength == secondLength)
-            //        {
-            //            Console.WriteLine("=");
-            //            break;
-            //        }
-            //        if (firstLength > secondLength)
-            //        {
-            //            Console.WriteLine(">");
-            //            break;
-            //        }
-            //        if (firstLength < secondLength)
-            //        {
-            //            Console.WriteLine("<");
-            //            break;
-            //        }
-            //    }
-            //}
-
-            //for (int i = 0; i < first.Length; i++)
-            //{
-            //    firstSum += first[i];
-            //}
-            //for (int i = 0; i < second.Length; i++)
-            //{
-            //    secondSum += second[i];
-            //}
-            //if (firstSum == secondSum)
-            //{
-            //    Console.WriteLine("=");
-            //}
-            //else if (firstSum > secondSum)
-            //{
-            //    Console.WriteLine(">");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("<");
-            //}
+            if (first.Length > second.Length)
+            {
+                Console.WriteLine(">");
+            }
+            else if (first.Length < second.Length)
+            {
+                Console.WriteLine("<");
+            }
+            else
+            {
+                Console.WriteLine("=");
+            }
         }
     }
 }

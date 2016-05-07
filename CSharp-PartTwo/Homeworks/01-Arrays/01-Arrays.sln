@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18-RemoveElementsFromArray"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16-SubsetWithSumS", "16-SubsetWithSumS\16-SubsetWithSumS.csproj", "{0FA745B8-B31D-402E-A9E6-695F2216BCAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17-SubsetKWitchSumS", "17-SubsetKWitchSumS\17-SubsetKWitchSumS.csproj", "{27F102AD-AA42-4526-84C2-5288DF8B391A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{0FA745B8-B31D-402E-A9E6-695F2216BCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FA745B8-B31D-402E-A9E6-695F2216BCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FA745B8-B31D-402E-A9E6-695F2216BCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F102AD-AA42-4526-84C2-5288DF8B391A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F102AD-AA42-4526-84C2-5288DF8B391A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F102AD-AA42-4526-84C2-5288DF8B391A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F102AD-AA42-4526-84C2-5288DF8B391A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

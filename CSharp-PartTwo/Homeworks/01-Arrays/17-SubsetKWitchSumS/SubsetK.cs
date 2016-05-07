@@ -6,6 +6,7 @@ namespace _17_SubsetKWitchSumS
     {
         static void Main()
         {
+            //TODO: All
             int n = int.Parse(Console.ReadLine());
             int k = int.Parse(Console.ReadLine());
             int sumToFind = int.Parse(Console.ReadLine());
