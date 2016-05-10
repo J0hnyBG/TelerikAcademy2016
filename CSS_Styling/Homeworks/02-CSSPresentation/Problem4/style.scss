@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+#wrapper {
+background-color: #d3e7fc;
+  width: 450px;
+  //padding: 0px 6px 6px 6px;
+}
+.title {
+  height: 30px;
+  background-color: lightblue;
+  line-height: 30px;
+  display: inline-block;
+  width:100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+ul {
+  width: 100%;
+  margin:0;
+  padding:0;
+  width: 433px;
+  background-color: red;
+  margin: auto;
+  li {
+    display: inline-block;
+
+    &::first-letter {
+      text-decoration: underline;
+    }
+  }
+}
+table {
+  width: 100%;
+  width: 433px;
+}

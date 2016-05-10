@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Edwardian;
+    src: url(ITCEDSCR.TTF);
+}
+body {
+    font-family: Consolas, times, sans-serif;
+    color: #3099ff;
+}
+p::first-letter {
+    font-size: 2em;
+    font-family: Edwardian;
+}
+p::first-line {
+    font-weight: bold;
+}
