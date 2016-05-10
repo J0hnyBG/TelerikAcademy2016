@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09-SortingArray", "09-Sorti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-NFactorial", "10-NFactorial\10-NFactorial.csproj", "{CC1D1223-0EA7-4451-AF04-F70A83ABA7E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11-AddingPolynomials", "11-AddingPolynomials\11-AddingPolynomials.csproj", "{68A70C2A-F5DD-40FF-A4A8-676B249B14FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14-IntegerCalculations", "14-IntegerCalculations\14-IntegerCalculations.csproj", "{9ACF60E3-5CAC-4377-A7C4-1BF60AA34386}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{CC1D1223-0EA7-4451-AF04-F70A83ABA7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC1D1223-0EA7-4451-AF04-F70A83ABA7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC1D1223-0EA7-4451-AF04-F70A83ABA7E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A70C2A-F5DD-40FF-A4A8-676B249B14FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A70C2A-F5DD-40FF-A4A8-676B249B14FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A70C2A-F5DD-40FF-A4A8-676B249B14FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A70C2A-F5DD-40FF-A4A8-676B249B14FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ACF60E3-5CAC-4377-A7C4-1BF60AA34386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ACF60E3-5CAC-4377-A7C4-1BF60AA34386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ACF60E3-5CAC-4377-A7C4-1BF60AA34386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ACF60E3-5CAC-4377-A7C4-1BF60AA34386}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
