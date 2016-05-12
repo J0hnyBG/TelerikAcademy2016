@@ -3,33 +3,34 @@
 namespace _07_OneToAnyOther
 {
     internal class OneToAnyOther
-    {   //TODO: Fails some tests
+    {
+        //TODO: Fails some tests
         private static void Main()
         {
-            int startingBase = int.Parse(Console.ReadLine());
+            uint startingBase = uint.Parse(Console.ReadLine());
             string inputNumber = Console.ReadLine();
-            int targetBase = int.Parse(Console.ReadLine());
+            uint targetBase = uint.Parse(Console.ReadLine());
 
-            long numberInDecimal = GetNumberInDecimal(inputNumber, startingBase);
+            ulong numberInDecimal = GetNumberInDecimal(inputNumber, startingBase);
 
             Console.WriteLine(ConvertToBase(numberInDecimal, targetBase));
         }
 
-        private static string ConvertToBase(long value, int targetBase)
+        private static string ConvertToBase(ulong value, uint targetBase)
         {
             char[] baseChars = GetBaseChars(targetBase);
             string result = string.Empty;
 
             do
             {
-                result = baseChars[Math.Abs(value)%targetBase] + result;
+                result = baseChars[value%targetBase] + result;
                 value = value/targetBase;
             } while (value > 0);
 
             return result;
         }
 
-        private static char[] GetBaseChars(int targetBase)
+        private static char[] GetBaseChars(uint targetBase)
         {
             //Max base = 16
             char[] charArray =
@@ -43,14 +44,19 @@ namespace _07_OneToAnyOther
             return output;
         }
 
-        private static long GetNumberInDecimal(string input, int startingBase)
+        private static ulong GetNumberInDecimal(string input, uint startingBase)
         {
             char[] baseChars = GetBaseChars(startingBase);
-            long result = 0;
+            ulong result = 0;
 
             for (int i = 0; i < input.Length; i++)
             {
-                result += (Array.IndexOf(baseChars, input[input.Length - i - 1]))*(long) Math.Pow(startingBase, i);
+                ulong power = 1;
+                for (int j = 1; j <= i; j++)
+                {
+                    power *= startingBase;
+                }
+                result += (uint) (Array.IndexOf(baseChars, input[input.Length - i - 1]))*power; //(ulong) Math.Pow(startingBase, i);
             }
 
             return result;
