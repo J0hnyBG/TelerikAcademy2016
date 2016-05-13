@@ -7,7 +7,9 @@ body {
 
 #wrapper {
   background-color: #d3e7fc;
-  width: 450px; }
+  width: 436px;
+  border: 1px solid #768290;
+  box-sizing: border-box; }
 
 .title {
   height: 30px;
@@ -26,10 +28,16 @@ ul {
   background-color: red;
   margin: auto; }
   ul li {
-    display: inline-block; }
+    display: inline-block;
+    font-family: Segoe UI;
+    font-size: 13px;
+    margin: 0 5px;
+    padding-left: 1px; }
     ul li::first-letter {
       text-decoration: underline; }
 
 table {
   width: 100%;
   width: 433px; }
+  table tr {
+    height: 55px; }
