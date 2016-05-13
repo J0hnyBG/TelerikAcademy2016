@@ -6,14 +6,14 @@ namespace _03_LoverOfThree
     class LoverOfThree
     {
         private static bool[,] _visitedCells;
-        private static int[] _pawnPosition; //= new int[2];
+        private static int[] _pawnPosition;
 
         static void Main()
         {
             //index 0 - rows, 1 - cols
             int[] fieldDimensions = Console.ReadLine().Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
             int totalNumberOfMoves = int.Parse(Console.ReadLine());
-
+            
             Initialize(fieldDimensions[0], fieldDimensions[1]);
             long totalScore = 0;
 
