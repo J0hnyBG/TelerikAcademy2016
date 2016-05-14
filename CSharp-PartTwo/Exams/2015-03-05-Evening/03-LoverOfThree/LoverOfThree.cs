@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace _03_LoverOfThree
@@ -24,9 +25,9 @@ namespace _03_LoverOfThree
                 string directionOfMoves = userInput[0];
                 //Get the number of moves in the same direction
                 int nOfMoves = int.Parse(userInput[1]) - 1;
-
                 //Get the relative difference between current cell and next cell
                 int[] coordDiff = GetStep(directionOfMoves);
+
                 for (int j = 0; j < nOfMoves; j++)
                 {
                     if (IsMoveOutside(coordDiff))
@@ -35,7 +36,7 @@ namespace _03_LoverOfThree
                     }
                     MovePawn(coordDiff);
                     //if player hasn't visited cell increment total score
-                    if (!_visitedCells[_pawnPosition[0], _pawnPosition[1]])
+                    if (!IsCellVisited(_pawnPosition[0], _pawnPosition[1]))
                     {
                         totalScore += CalculateCellScore(_pawnPosition[0], _pawnPosition[1]);
                         //set cell to visited
@@ -48,6 +49,10 @@ namespace _03_LoverOfThree
 
         }
 
+        static bool IsCellVisited(int row, int col)
+        {
+            return _visitedCells[row, col];
+        }
         //Set starting position of pawn and initialize the array for visited cells
         static void Initialize(int totalRows, int totalCols)
         {
@@ -56,14 +61,12 @@ namespace _03_LoverOfThree
         }
 
         //Check if move is outside
-        static bool IsMoveOutside(int[] coordDiff)
-        {
-            if (coordDiff[0] + _pawnPosition[0] < 0 || coordDiff[1] + _pawnPosition[1] < 0 || 
-                coordDiff[0] + _pawnPosition[0] >= _visitedCells.GetLength(0) || coordDiff[1] + _pawnPosition[1] >= _visitedCells.GetLength(1))
-            {
-                return true;
-            }
-            return false;
+        static bool IsMoveOutside(IReadOnlyList<int> coordDiff)
+        {          
+                   //Check rows
+            return coordDiff[0] + _pawnPosition[0] < 0 || coordDiff[0] + _pawnPosition[0] >= _visitedCells.GetLength(0) ||
+                   //Check cols
+                   coordDiff[1] + _pawnPosition[1] < 0 || coordDiff[1] + _pawnPosition[1] >= _visitedCells.GetLength(1);
         }
 
         //increment player position(index 0 affects rows, 1 affects cols
@@ -91,7 +94,9 @@ namespace _03_LoverOfThree
                 case "RD":
                     return new[] { 1, 1 };
             }
-            throw new FormatException();
+            Console.WriteLine("Please enter a valid direction!");
+            direction = Console.ReadLine();
+            return GetStep(direction);
         }
 
         //0 score is bottom-left, max score is top-right in matrix
