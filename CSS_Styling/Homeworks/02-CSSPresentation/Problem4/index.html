@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Problem 4</title>
@@ -9,22 +10,152 @@
     <!--[if lt IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div id="wrapper">
-      <ul>
-        <li>View</li>
-        <li>Edit</li>
-        <li>Help</li>
-      </ul>
-      <table>
-        <tr rowspan="2">
-          <td colspan="10">8854455</td>
-        </tr>
-        <tr rowspan="2">
-          <td colspan="10">8854455</td>
-        </tr>
-      </table>
+</head>
+
+<body>
+    <div id="outer">
+        <div class="title"><img src="img/calcicon.png" alt="" /><span>Calculator</span></div>
+        <div id="wrapper" class="clearfix">
+            <ul class="clearfix gradient">
+                <li>View</li>
+                <li>Edit</li>
+                <li>Help</li>
+            </ul>
+            <input type="text" name="name" value="8854455">
+            <div class="binaryRepresentation">
+                <ul class="clearfix">
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>0000</li>
+                </ul>
+                <ul class="clearfix">
+                    <li>63</li>
+                    <li>47</li>
+                    <li>32</li>
+                </ul>
+                <ul class="clearfix">
+                    <li>0000</li>
+                    <li>0000</li>
+                    <li>1000</li>
+                    <li>0111</li>
+                    <li>0001</li>
+                    <li>1011</li>
+                    <li>1011</li>
+                    <li>0111</li>
+                </ul>
+                <ul class="clearfix">
+                    <li>31</li>
+                    <li>15</li>
+                    <li>0</li>
+                </ul>
+            </div>
+            <div class="float">
+                <div class="radio border">
+                    <div>
+                        <input type="radio" id="1">
+                        <label for="1">Hex</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="2" checked>
+                        <label for="1">Dec</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="3">
+                        <label for="1">Oct</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="4">
+                        <label for="1">Bin</label>
+                    </div>
+                </div>
+                <div class="radio border">
+                    <div>
+                        <input type="radio" id="5" checked>
+                        <label for="1">Qword</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="6">
+                        <label for="1">Dword</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="7">
+                        <label for="1">Word</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="8">
+                        <label for="1">Byte</label>
+                    </div>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <!-- <td colspan="2" rowspan="3" class="border">8854455</td> -->
+                    <td class="border empty"></td>
+                    <td class="border button inset">Mod</td>
+                    <td class="border empty big">A</td>
+                    <td class="border empty inset">MC</td>
+                    <td class="border empty inset">MR</td>
+                    <td class="border empty inset">MS</td>
+                    <td class="border empty inset">M+</td>
+                    <td class="border empty inset">M-</td>
+                </tr>
+                <tr>
+                    <td class="border button inset">(</td>
+                    <td class="border button inset">)</td>
+                    <td class="border empty big">B</td>
+                    <td class="border button inset">&#8592;</td>
+                    <td class="border button inset">CE</td>
+                    <td class="border button inset">C</td>
+                    <td class="border button inset">&#177</td>
+                    <td class="border empty inset">&radic;</td>
+                </tr>
+                <tr>
+                    <td class="border button inset">RoL</td>
+                    <td class="border button inset">RoR</td>
+                    <td class="border empty big">C</td>
+                    <td class="border decimal inset">7</td>
+                    <td class="border decimal inset">8</td>
+                    <td class="border decimal inset">9</td>
+                    <td class="border button inset">/</td>
+                    <td class="border empty inset">%</td>
+                </tr>
+                <tr>
+                    <!-- <td colspan="2" rowspan="3" class="border">8854455</td> -->
+                    <td class="border button inset">Or</td>
+                    <td class="border button inset">Xor</td>
+                    <td class="border empty big">D</td>
+                    <td class="border decimal inset">4</td>
+                    <td class="border decimal inset">5</td>
+                    <td class="border decimal inset">6</td>
+                    <td class="border button inset big">*</td>
+                    <td class="border empty inset">1/x</td>
+                </tr>
+                <tr>
+                    <td class="border button inset">Lsh</td>
+                    <td class="border button inset">Rsh</td>
+                    <td class="border empty big">E</td>
+                    <td class="border decimal inset">1</td>
+                    <td class="border decimal inset">2</td>
+                    <td class="border decimal inset">3</td>
+                    <td class="border button inset">-</td>
+                    <td class="border button inset bold big" rowspan="2">=</td>
+                </tr>
+                <tr>
+                    <td class="border button inset">Not</td>
+                    <td class="border button inset">And</td>
+                    <td class="border empty big">F</td>
+                    <td class="border decimal inset" colspan="2">0</td>
+                    <td class="border empty big">.</td>
+                    <td class="border decimal inset">+</td>
+                </tr>
+            </table>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
