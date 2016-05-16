@@ -1,30 +1,96 @@
 * {
-  box-sizing: border-box; }
-
+    box-sizing: border-box;
+}
 body {
-  margin: 0;
-  padding: 0; }
-
+    margin: 0;
+    padding: 0;
+}
 main {
-  padding-left: 12px;
-  padding-right: 9px;
-  width: 421px;
-  font-family: sans-serif;
-  background-color: #eeeeee;
-  border-radius: 5px; }
-  main h1 {
+    padding-left: 12px;
+    padding-right: 9px;
+    padding-bottom: 24px;
+    width: 421px;
+    font-family: sans-serif;
+    background-color: #eeeeee;
+    border-radius: 5px;
+}
+main h1 {
     font-weight: normal;
     font-size: 16px;
     margin: 0;
-    padding-top: 12px; }
-
+    padding-top: 12px;
+    margin-bottom: 2px;
+}
+div:last-child {
+    margin-top: 38px;
+    margin-bottom: 0;
+    padding-bottom: 113px;
+}
 div {
-  border: 2px solid #9f9c9f;
-  margin: 38px 0;
-  height: 120px;
-  padding: 15px 17px; }
-  div > img {
+    border: 1px solid #9f9c9f;
+    margin: 36px 0;
+    height: 120px;
+    padding: 15px 16px;
+    background-color: #fff;
+}
+div > p {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 18px;
+    margin-right: 20px;
+}
+div > img {
     float: left;
-    border: 1px solid #9f9c9f; }
-  div a > img {
-    float: right; }
+    border: 1px solid #9f9c9f;
+    margin-right: 16px;
+}
+div > a {
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    float: right;
+    margin-left: 3px;
+    vertical-align: middle;
+    margin-bottom: 16px;
+}
+div > a.add {
+    width: 63px;
+    height: 25px;
+    background-image: url("img/addButton.png");
+}
+div > a.add > span {
+    left: 37%;
+}
+div > a.listen {
+    width: 77px;
+    height: 25px;
+    background-image: url("img/listenButton.png");
+}
+div > a.listen > span {
+    left: 32%;
+}
+div a > span {
+    position: relative;
+    top: 22%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .clearfix {
+    zoom: 1;
+}
+
+/* IE6 */
+
+*:first-child + html .clearfix {
+    zoom: 1;
+}
+
+/* IE7 */
