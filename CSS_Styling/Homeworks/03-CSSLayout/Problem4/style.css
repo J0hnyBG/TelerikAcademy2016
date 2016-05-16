@@ -1,0 +1,218 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*end reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Verdana, Arial, Tahoma;
+}
+.wrapper {
+    width: 788px;
+    height: 579px;
+    margin-left: 1px;
+    margin-top: 3px;
+    margin-right: 2px;
+    background-color: #f1f1f1;
+    border: 1px solid #000;
+}
+#firstCol {
+    float: left;
+    display: inline-block;
+    height: 100%;
+    width: 18%;
+    font-size: 11px;
+    padding-top: 14px;
+    padding-left: 2px;
+}
+#firstCol h2 {
+    font-size: 11px;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+#firstCol ul {
+    margin-top: 14px;
+    list-style: none;
+}
+#firstCol ul li {
+    color: #9c2524;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+#firstCol ul li a {
+    text-decoration: none;
+    font-weight: normal;
+    color: #000;
+}
+#firstCol ul li a:hover {
+    text-decoration: underline;
+}
+hr {
+    width: 98%;
+    margin: 0 auto;
+    margin-bottom: 6px;
+    margin-top: 7px;
+}
+.button {
+    display: inline-block;
+    border: 1px solid #000;
+    width: 99px;
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 10px;
+}
+.button span {
+    position: relative;
+    top: 13%;
+}
+.button .bullet {
+    position: relative;
+}
+.button .left {
+    left: -20px;
+}
+.button .right {
+    right: -30px;
+}
+#secondCol {
+    margin-top: 2px;
+    background-color: #fff;
+    display: inline-block;
+    border: 1px solid #818181;
+    width: 63%;
+    height: 95.4%;
+    float: left;
+}
+#secondCol header {
+    padding-top: 19px;
+    padding-left: 4px;
+    margin-bottom: 7px;
+}
+#secondCol header h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+a {
+    color: #ac4a48;
+}
+main {
+    padding-left: 4px;
+    padding-right: 5px;
+    font-size: 11px;
+}
+main h3 {
+    color: #fff;
+    background-color: #808080;
+    font-weight: normal;
+    font-size: 12px;
+    padding-left: 5px;
+    margin-bottom: 11px;
+    padding: 2px 5px;
+}
+main p {
+    margin-bottom: 13px;
+}
+main > .top > h3 {
+    margin-bottom: 14px;
+}
+main article {
+    margin-bottom: 14px;
+}
+main img {
+    float: left;
+    margin-right: 12px;
+}
+main > .top {
+    margin-bottom: 26px;
+}
+main > .top > p {
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+main > .top > p:nth-child(4) {
+    margin-bottom: 17px;
+    margin-right: 5px;
+}
+#thirdCol {
+    display: inline-block;
+    width: 19%;
+    height: 100%;
+    padding: 2px;
+}
+#thirdCol h3 {
+    color: #fff;
+    background-color: #808080;
+    font-weight: normal;
+    font-size: 12px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 1px;
+    margin-bottom: 5px;
+}
+#thirdCol div:first-child {
+    padding-top: 0;
+}
+#thirdCol div:nth-child(3) {
+    padding-top: 0;
+}
+#thirdCol div:nth-child(3) > h3 {
+    margin-bottom: 0;
+}
+.search input[type="text"] {
+    width: 94px;
+    height: 19px;
+}
+.search input[type="button"] {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 3px;
+}
+.box {
+    background-color: #fff;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 14px;
+    padding: 4px 0px;
+    margin-bottom: 0.8px;
+}
+.box a {
+    font-size: 11px;
+    line-height: 11px;
+}
