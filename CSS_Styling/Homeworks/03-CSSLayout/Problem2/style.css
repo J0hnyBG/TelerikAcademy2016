@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+main {
+  padding-left: 12px;
+  padding-right: 9px;
+  width: 421px;
+  font-family: sans-serif;
+  background-color: #eeeeee;
+  border-radius: 5px; }
+  main h1 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0;
+    padding-top: 12px; }
+
+div {
+  border: 2px solid #9f9c9f;
+  margin: 38px 0;
+  height: 120px;
+  padding: 15px 17px; }
+  div > img {
+    float: left;
+    border: 1px solid #9f9c9f; }
+  div a > img {
+    float: right; }

@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  margin-top: 8px;
+}
+body > ul {
+  width: 300px;
+}
+ul {
+  list-style-type: none;
+  text-decoration: none;
+  padding-left: 15px;
+  margin:0;
+}
+
+li > ul {
+  display: none;
+  color: #8e8e8e;
+  text-decoration: none;
+}
+li:hover >ul {
+  display: block;
+}

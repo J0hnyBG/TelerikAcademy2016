@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+@mixin regular-border($scale) {
+  border: $scale*1px solid #9f9c9f;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-left: 12px;
+  padding-right: 9px;
+  width: 421px;
+  font-family: sans-serif;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  h1 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0;
+    padding-top: 12px;
+    //margin-bottom: 38px;
+  }
+}
+
+div {
+  @include regular-border(2);
+  margin: 38px 0;
+  height: 120px;
+  padding: 15px 17px;
+  >img {
+    float: left;
+    @include regular-border(1);
+  }
+  a>img {
+    float: right;
+  }
+}
