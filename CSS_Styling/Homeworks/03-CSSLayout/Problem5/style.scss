@@ -1,0 +1,126 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+@mixin border {
+    border: 3px solid #000;
+}
+a {
+    color: #00adf0;
+}
+#wrapper {
+    width: 1070px;
+    @include border;
+    padding: 0 14px 14px;
+    text-align: center;
+}
+hr {
+    width: 96%;
+    margin: 0 auto 14px;
+    border-top: 3px solid #000;
+}
+header {
+    font-weight: bold;
+    font-size: 31px;
+    text-align: center;
+    padding: 12px 0;
+}
+form {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+.center {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    img {
+        margin-bottom: 27px;
+    }
+    span {
+        margin-left: 10px;
+    }
+}
+.boxContainer {
+    @include border;
+    float: left;
+    font-size: 24px;
+    width: 695px;
+    display: inline-block;
+    padding-bottom: 17px;
+    margin-right: 20px;
+    > fieldset {
+        @include border;
+        display: inline-block;
+        width: 330px;
+        height: 211px;
+        margin-top: 7px;
+        margin-left: 3px;
+        //padding-left: 9px;
+        padding-top: 7px;
+        position: relative;
+        left: -5px;
+        ul {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+            height: 100%;
+            li {
+                margin-top: 21px;
+            }
+        }
+        > img {
+            float: left;
+        }
+        > p {
+            margin-top: 1px;
+            > span {
+                //float:left;
+            }
+        }
+    }
+}
+form {
+    width: 100%;
+    > fieldset {
+        border: none;
+        font-size: 31px;
+        position: relative;
+        top: 96px;
+        text-align: left;
+        label {
+            display: block;
+            margin-bottom: 31px;
+        }
+        input {
+            margin-bottom: 44px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            display: block;
+        }
+        span {
+            float: right;
+        }
+    }
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .clearfix {
+    zoom: 1;
+}
+/* IE6 */
+*:first-child+html .clearfix {
+    zoom: 1;
+}
+/* IE7 */

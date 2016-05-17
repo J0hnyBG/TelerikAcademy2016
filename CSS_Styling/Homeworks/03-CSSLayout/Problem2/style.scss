@@ -24,6 +24,7 @@ main {
         margin-bottom: 2px;
     }
 }
+main { display: block; }
 div:last-child {
     margin-top: 38px;
     margin-bottom: 0;
@@ -74,8 +75,6 @@ div {
     a > span {
         position: relative;
         top: 22%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
     }
 }
 .clearfix:after {

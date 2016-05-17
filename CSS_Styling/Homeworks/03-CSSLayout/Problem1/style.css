@@ -19,3 +19,6 @@ li > ul {
 
 li:hover > ul {
   display: block; }
+
+main {
+  display: block; }

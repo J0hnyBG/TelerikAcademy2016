@@ -33,6 +33,9 @@ table {
   padding: 0;
   box-sizing: border-box; }
 
+main {
+  display: block; }
+
 body {
   font-family: Verdana, Arial, Tahoma; }
 

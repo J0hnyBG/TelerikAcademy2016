@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 11px; }
+
+.wrapper {
+  width: 611px;
+  background-color: #1e3741;
+  border: 1px solid #1e3741;
+  border-radius: 5px;
+  padding-top: 8px; }
+
+nav {
+  margin-bottom: 11px; }
+
+.navbar {
+  list-style: none;
+  font-size: 0;
+  margin-left: 1px; }
+  .navbar li {
+    font-size: 11px;
+    background-color: #4b5f67;
+    display: inline-block;
+    padding: 9px 13px 9px 12px;
+    margin-right: 1px; }
+
+a {
+  text-decoration: none;
+  color: #99abb6; }
+
+a:hover {
+  text-decoration: underline; }
+
+li.active {
+  background-color: #1e3741;
+  padding-left: 8px; }
+  li.active a {
+    color: #fff; }
+
+#content {
+  float: left;
+  display: inline-block;
+  width: 234px;
+  font-size: 12px; }
+  #content li {
+    border-top: 1px solid #3a4f58;
+    padding: 10px 15px 10px 8px;
+    margin-bottom: 1px; }
+  #content .active {
+    background-color: #00968c; }
+
+img {
+  float: left;
+  position: relative;
+  top: 1px; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+* html .clearfix {
+  zoom: 1; }
+
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1; }
+
+/* IE7 */
