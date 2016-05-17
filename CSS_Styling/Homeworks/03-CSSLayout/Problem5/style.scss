@@ -68,13 +68,15 @@ form {
             list-style: none;
             text-align: left;
             display: inline-block;
-            height: 100%;
+
             li {
                 margin-top: 21px;
             }
         }
         > img {
             float: left;
+            width: 168px;
+            height: 100px;
         }
         > p {
             margin-top: 1px;
