@@ -39,6 +39,7 @@ body {
     visibility: visible;
 }
 .preview {
+    /* height is ~ 260*/
     visibility: hidden;
     background-color: #ccc;
     position: absolute;
@@ -78,3 +79,22 @@ body {
 .skills li:hover {
     text-decoration: underline;
 }
+
+/*
+==========================
+.preview shows on hover
+expected: true
+received: false
+--- Wrong
+==========================
+Height a hovered .preview
+expected: 235
+received: 443
+--- Wrong
+==========================
+Underlined .skills li on hover
+expected: underline
+received: none
+--- Wrong
+==========================
+*/
