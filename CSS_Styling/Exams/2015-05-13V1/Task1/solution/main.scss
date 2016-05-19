@@ -11,13 +11,14 @@ body {
     width: 634px;
 }
 .avengers {
-    list-style: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     font-size: 0;
 }
 .avenger {
     font-size: 16px;
+    list-style-type: none;
     display: inline-block;
     font-weight: bold;
     padding: 10px 15px;
@@ -29,11 +30,8 @@ body {
 .avenger:last-child {
    border-right: 3px solid #000;
 }
-// #root > ul > li:nth-child(6) {
-//     border-right: 3px solid #000;
-// }
+
 .preview {
-    //display: none;
     visibility: hidden;
     background-color: #ccc;
     position: absolute;
@@ -52,6 +50,9 @@ body {
         width: 400px;
         float: left;
     }
+}
+.preview:hover {
+   visibility: visible;
 }
 .skills {
    display: inline-block;

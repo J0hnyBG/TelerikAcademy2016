@@ -35,11 +35,9 @@ body {
     border-bottom: 3px solid #fff;
     text-decoration: underline;
 }
-
-/*.avenger:hover > .preview {
+.avenger:hover > .preview {
     visibility: visible;
-}*/
-
+}
 .preview {
     visibility: hidden;
     background-color: #ccc;
