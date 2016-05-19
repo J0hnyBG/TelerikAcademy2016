@@ -37,9 +37,15 @@ body {
 }
 .avenger:hover > .preview {
     visibility: visible;
+    /*==========================
+    .preview shows on hover
+    expected: true
+    received: false
+    --- Wrong
+    ==========================*/
 }
 .preview {
-    /* height is ~ 260*/
+    /* height is ~ 260 - same as source image*/
     visibility: hidden;
     background-color: #ccc;
     position: absolute;
@@ -61,6 +67,18 @@ body {
 }
 .preview:hover {
     visibility: visible;
+    /*==========================
+    .preview shows on hover
+    expected: true
+    received: false
+    --- Wrong
+    ==========================
+    Height a hovered .preview
+    expected: 235
+    received: 443
+    --- Wrong
+    ==========================
+    Actual height is ~ 260 - same as source image*/
 }
 .skills {
     display: inline-block;
@@ -78,23 +96,10 @@ body {
 }
 .skills li:hover {
     text-decoration: underline;
+    /*==========================
+    Underlined .skills li on hover
+    expected: underline
+    received: none
+    --- Wrong
+    ==========================*/
 }
-
-/*
-==========================
-.preview shows on hover
-expected: true
-received: false
---- Wrong
-==========================
-Height a hovered .preview
-expected: 235
-received: 443
---- Wrong
-==========================
-Underlined .skills li on hover
-expected: underline
-received: none
---- Wrong
-==========================
-*/
