@@ -65,9 +65,10 @@ body {
     width: 400px;
     float: left;
 }
-.preview:hover {
+
+/*.preview:hover {
     visibility: visible;
-    /*==========================
+    ==========================
     .preview shows on hover
     expected: true
     received: false
@@ -78,8 +79,9 @@ body {
     received: 443
     --- Wrong
     ==========================
-    Actual height is ~ 260 - same as source image*/
-}
+    Actual height is ~ 260 - same as source image
+}*/
+
 .skills {
     display: inline-block;
     list-style-type: none;
