@@ -160,7 +160,7 @@ exports.tests = [{
       return parseInt($('.avenger').first().addClass('hover')
         .find('.preview').css('height'));
     },
-    expected: "235",
+    expected: "450",
     compare: "equalDiff",
     compareParam: 50
   }, {
