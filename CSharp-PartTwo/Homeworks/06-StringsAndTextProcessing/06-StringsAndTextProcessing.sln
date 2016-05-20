@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-ReverseAString", "02-ReverseAString\02-ReverseAString.csproj", "{03846F79-2174-48BD-98CE-68B22FD5C456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-CorrectBrakets", "03-CorrectBrakets\03-CorrectBrakets.csproj", "{2F8D445F-B621-4FF6-ABE8-CB5577C98D78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-SubString", "04-SubString\04-SubString.csproj", "{577D5A62-9CF3-48A5-A6F1-A9192056EE4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03846F79-2174-48BD-98CE-68B22FD5C456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03846F79-2174-48BD-98CE-68B22FD5C456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03846F79-2174-48BD-98CE-68B22FD5C456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03846F79-2174-48BD-98CE-68B22FD5C456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F8D445F-B621-4FF6-ABE8-CB5577C98D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F8D445F-B621-4FF6-ABE8-CB5577C98D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F8D445F-B621-4FF6-ABE8-CB5577C98D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F8D445F-B621-4FF6-ABE8-CB5577C98D78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{577D5A62-9CF3-48A5-A6F1-A9192056EE4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{577D5A62-9CF3-48A5-A6F1-A9192056EE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{577D5A62-9CF3-48A5-A6F1-A9192056EE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{577D5A62-9CF3-48A5-A6F1-A9192056EE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
