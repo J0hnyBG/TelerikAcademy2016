@@ -5,22 +5,32 @@ namespace _05_ParseTags
     internal class ParseTags
     {
         private static string _inputString = string.Empty;
-        private const string _openingTag = "<uppercase>";
-        private const string _closingTag = "</uppercase>";
+        private const string _openingTag = "<upcase>";
+        private const string _closingTag = "</upcase>";
 
         private static void Main()
         {
             _inputString = Console.ReadLine();
 
-            int startIndex = GetIndexOfInner(_inputString, _openingTag) + _openingTag.Length;
-            int endIndex = GetIndexOfInner(_inputString, _closingTag);
+            var startIndex = GetIndexOf(_openingTag);
+            var endIndex = GetIndexOf(_closingTag);
+            while (startIndex >= 0 || endIndex >= 0)
+            {
+                var upperCaseStr = _inputString.Substring(startIndex + _openingTag.Length, endIndex - startIndex - _openingTag.Length).ToUpper();
+                _inputString = _inputString.Remove(startIndex, endIndex - startIndex + _closingTag.Length);
 
+                _inputString = _inputString.Insert(startIndex, upperCaseStr);
+
+                startIndex = GetIndexOf(_openingTag);
+                endIndex = GetIndexOf(_closingTag);
+            }
+
+            Console.WriteLine(_inputString);
         }
 
-        private static int GetIndexOfInner(string text, string tag)
+        private static int GetIndexOf(string tag)
         {
-            int index = text.IndexOf(tag);
-            return index;
+            return _inputString.IndexOf(tag);
         }
     }
 }
