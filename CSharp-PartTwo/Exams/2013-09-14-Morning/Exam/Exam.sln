@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-MultiverseCommunication", "01-MultiverseCommunication\01-MultiverseCommunication.csproj", "{DBA77B58-E231-46C9-B8B2-661BA96722A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-MagicWords", "02-MagicWords\02-MagicWords.csproj", "{1463B480-A3B7-49C2-9C80-837A6F6D4571}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-Tron3D", "03-Tron3D\03-Tron3D.csproj", "{1F77AAC8-3015-4E29-B881-D1E8B8920D40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBA77B58-E231-46C9-B8B2-661BA96722A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA77B58-E231-46C9-B8B2-661BA96722A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA77B58-E231-46C9-B8B2-661BA96722A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA77B58-E231-46C9-B8B2-661BA96722A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1463B480-A3B7-49C2-9C80-837A6F6D4571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1463B480-A3B7-49C2-9C80-837A6F6D4571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1463B480-A3B7-49C2-9C80-837A6F6D4571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1463B480-A3B7-49C2-9C80-837A6F6D4571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

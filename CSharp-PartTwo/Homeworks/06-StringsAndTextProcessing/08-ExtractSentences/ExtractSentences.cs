@@ -6,7 +6,7 @@ namespace _08_ExtractSentences
 {
     internal class ExtractSentences
     {
-        //TODO: 90/100
+        //TODO: 20/100
         private static void Main()
         {
             var matchWord = Console.ReadLine().ToUpper();
@@ -17,14 +17,14 @@ namespace _08_ExtractSentences
 
             var filteredSentences = new StringBuilder();
 
-            for (var i = 0; i < sentences.Length; i++)
+            foreach (var sentence in sentences)
             {
-                var words = sentences[i].ToUpper().Split(separators).ToArray();
+                var words = sentence.ToUpper().Split(separators).ToArray();
                 var isMatchWord = words.Any(x => x == matchWord);
 
                 if (isMatchWord)
                 {
-                    filteredSentences.Append(sentences[i] + ".");
+                    filteredSentences.Append(sentence + ".");
                 }
             }
             Console.WriteLine(string.Join(" ", filteredSentences));
