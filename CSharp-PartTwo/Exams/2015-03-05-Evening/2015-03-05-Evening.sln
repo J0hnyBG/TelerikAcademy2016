@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-LoverOfThree", "03-Lover
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-Konspiration", "04-Konspiration\04-Konspiration.csproj", "{A70A2B7D-27E3-40BE-B36C-CFE9C9ADA048}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-BadCat", "05-BadCat\05-BadCat.csproj", "{54E722B5-AC0D-425A-9FB3-1C998B2D8F47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A70A2B7D-27E3-40BE-B36C-CFE9C9ADA048}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A70A2B7D-27E3-40BE-B36C-CFE9C9ADA048}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A70A2B7D-27E3-40BE-B36C-CFE9C9ADA048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E722B5-AC0D-425A-9FB3-1C998B2D8F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E722B5-AC0D-425A-9FB3-1C998B2D8F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E722B5-AC0D-425A-9FB3-1C998B2D8F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E722B5-AC0D-425A-9FB3-1C998B2D8F47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
