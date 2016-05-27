@@ -6,6 +6,7 @@ namespace _04_VariableLengthCodes
     {
         static void Main()
         {
+
         }
     }
 }

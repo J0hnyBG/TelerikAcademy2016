@@ -31,7 +31,7 @@ namespace _02_BunnyFactory
                 {
                     sum += bunniesInCage[j];
                 }
-                if (bunniesInCage.Count < i || bunniesInCage.Count - i < sum)
+                if (bunniesInCage.Count < i || bunniesInCage.Count <= sum + i)
                 {
                     break;
                 }
