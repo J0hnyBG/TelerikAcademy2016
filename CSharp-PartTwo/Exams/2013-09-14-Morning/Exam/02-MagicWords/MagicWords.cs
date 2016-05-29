@@ -9,29 +9,29 @@ namespace _02_MagicWords
         static void Main()
         {
             int n = int.Parse(Console.ReadLine());
+            List<string> list = new List<string>(n);
 
-            var words = new string[n + 1];
-            List<string> list = new List<string>();
-
-            list.Insert();
+            for (int i = 0; i < n; i++)
+            {
+                list.Add("");
+            }
             for (int i = 0; i < n; i++)
             {
                 var word = Console.ReadLine();
-                int position = (word.Length - 1) % (n + 1);
-                words[position] = word;
-                
+                int position = (word.Length ) % ( n + 1 );
+                list.Insert(position, word);
             }
-            //words = words.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-
-            for (int i = 0; i < words.Length; i++)
-            {
-               // Console.Write(words[i][0]);
-            }
+            list.RemoveAll(string.IsNullOrEmpty);
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    int position = ( list[i].Length ) % ( n + 1 );
+            //    Swap(list, position - 1, i);
+            //}
         }
 
-        private static void Swap(IList<int> list, int indexA, int indexB)
+        private static void Swap(IList<string> list, int indexA, int indexB)
         {
-            int tmp = list[indexA];
+            string tmp = list[indexA];
             list[indexA] = list[indexB];
             list[indexB] = tmp;
         }

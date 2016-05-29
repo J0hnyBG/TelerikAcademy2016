@@ -1,27 +1,35 @@
 ﻿using System;
 using System.Linq;
 
-namespace _03_Tron3D
+internal class Tron3D
 {
-    class Tron3D
+    private static bool[,] VisitedCells;
+
+    private static void Main()
     {
-        private static bool[,] _sideA;
-        private static bool[,] _sideB;
-        private static bool[,] _sideC;
-        private static bool[,] _sideD;
-
-        static void Main()
-        {
-            int[] dimensions = Console.ReadLine().Split(' ').Select(n => int.Parse(n)).ToArray();
-
-        }
-
-        static void Initialize(int x, int y, int z)
-        {
-            _sideA = new bool[x,y];
-            _sideC = new bool[x,y];
-            _sideB = new bool[z,y];
-            _sideD = new bool[z,y];
-        }
+        int[] dimensions = Console.ReadLine().Split(' ').Select(n => int.Parse(n)).ToArray();
+        int x = dimensions[0];
+        int y = dimensions[1];
+        int z = dimensions[2];
+        VisitedCells = new bool[2 * x + 2 * z, y];
     }
+
+    private static void Initialize(int x, int y, int z)
+    {
+    }
+}
+
+internal class Player
+{
+    private bool[,] VisitedCells;
+
+    public Player(bool[,] visitedCells, int posX, int posY)
+    {
+        //VisitedCells = new bool[,];
+        PosX = posX;
+        PosY = posY;
+    }
+
+    private int PosX;
+    private int PosY;
 }
