@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-MagicWords", "02-MagicWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-Tron3D", "03-Tron3D\03-Tron3D.csproj", "{1F77AAC8-3015-4E29-B881-D1E8B8920D40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-DecodeAndDectypt", "04-DecodeAndDectypt\04-DecodeAndDectypt.csproj", "{AB039E2B-149A-414B-A411-EA7EEBEE424D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F77AAC8-3015-4E29-B881-D1E8B8920D40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB039E2B-149A-414B-A411-EA7EEBEE424D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB039E2B-149A-414B-A411-EA7EEBEE424D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB039E2B-149A-414B-A411-EA7EEBEE424D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB039E2B-149A-414B-A411-EA7EEBEE424D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
