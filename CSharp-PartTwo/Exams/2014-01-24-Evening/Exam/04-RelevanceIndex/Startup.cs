@@ -3,38 +3,39 @@ using System.Linq;
 
 namespace _04_RelevanceIndex
 {
-    class Startup
+    internal class Startup
     {
-        private static string[] splitChars = {" ", ",", ".", "(", ")", ";", "-", "!", "?"};
-        static void Main()
+        private static readonly string[] SplitChars = {" ", ",", ".", "(", ")", ";", "-", "!", "?"};
+
+        private static void Main()
         {
-            string searchWord = Console.ReadLine().ToLower();
+            var searchWord = Console.ReadLine().ToLower();
 
-            int n = int.Parse(Console.ReadLine());
+            var n = int.Parse(Console.ReadLine());
 
-            string[] paragraphs = new string[n];
-            int[] searchWordCount = new int[n];
+            var paragraphs = new string[n];
+            var searchWordCount = new int[n];
 
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
                 paragraphs[i] = Console.ReadLine();
-                
-                var words = paragraphs[i].Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
-                for (int j = 0; j < words.Length; j++)
+
+                var words = paragraphs[i].Split(SplitChars, StringSplitOptions.RemoveEmptyEntries);
+                for (var j = 0; j < words.Length; j++)
                 {
-                    if (words[j].ToLower() == searchWord)
-                    {
-                        searchWordCount[i]++;
-                        words[j] = words[j].ToUpper();
-                    }
+                    if (words[j].ToLower() != searchWord)
+                        continue;
+
+                    searchWordCount[i]++;
+                    words[j] = words[j].ToUpper();
                 }
                 paragraphs[i] = string.Join(" ", words);
             }
 
-            for (int i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
             {
-                int maxValue = searchWordCount.Max();
-                int maxIndex = Array.IndexOf(searchWordCount, maxValue);
+                var maxValue = searchWordCount.Max();
+                var maxIndex = Array.IndexOf(searchWordCount, maxValue);
                 Console.WriteLine(paragraphs[maxIndex]);
 
                 searchWordCount[maxIndex] = int.MinValue;
