@@ -5,7 +5,8 @@
     public struct Point3D : IComparable
     {
         public int X, Y, Z;
-        private readonly long sum;
+
+        public long Sum => X + Y + Z;
 
         //Problem 2
         private static readonly Point3D o = new Point3D(0, 0, 0);
@@ -15,7 +16,6 @@
             this.X = x;
             this.Y = y;
             this.Z = z;
-            this.sum = x + y + z;
         }
 
         public static Point3D O
@@ -37,7 +37,7 @@
             if (obj is Point3D)
             {
                 Point3D p = (Point3D)obj;
-                return this.sum.CompareTo(p.sum);
+                return this.Sum.CompareTo(p.Sum);
             }
             else
             {

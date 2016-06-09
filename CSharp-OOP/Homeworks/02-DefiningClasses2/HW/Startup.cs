@@ -9,9 +9,13 @@ namespace HW
 
     class Startup
     {
+        private const string FileName = "pathTest";//.txt
         static void Main()
         {
             //Testing the points
+            Console.WriteLine("Homework 2 Demo");
+            Console.WriteLine("Problems 1-4 ".PadRight(50, '#'));
+
             Console.WriteLine("Creating Point3D's and a Path.\n");
             var p1 = new Point3D(10000000, 0, 0);
             var p2 = new Point3D(1, 1, 0);
@@ -26,16 +30,16 @@ namespace HW
 
             //Saves paths in plantext format to root solition folder next to .sln file, aka two folders up from Debug folder
             Console.WriteLine("Saving Path to file.\n");
-            PathStorage.SavePathToDisk(path, "path1");
+            PathStorage.SavePathToDisk(path, FileName);
 
-            Console.WriteLine("Reading and printing Path from file.");
-            var readpath = PathStorage.ReadPathFromDisk("path1");
+            Console.WriteLine("Reading and printing Path from file:");
+            var readpath = PathStorage.ReadPathFromDisk(FileName);
 
             Console.WriteLine(readpath.ToString());
 
-            Console.WriteLine("Creating new GenericList of Point3D's and adding the points:");
+            Console.WriteLine("Problems 5-7 + sorting ".PadRight(50, '#'));
+            Console.WriteLine("\nCreating new GenericList of Point3D's and adding the points:");
 
-            var listInt = new List<int>(10);
             var pointList = new GenericList<Point3D>();
             pointList.Add(p1);
             pointList.Add(p2);
@@ -70,13 +74,39 @@ namespace HW
             var max = pointList.Max();
             var min = pointList.Min();
             Console.WriteLine("Generic list before sorting. Point3D implements IComparable by comparing the sums of all coordinates.");
-            Console.WriteLine($"Max value of unsorted list: {max}. Min value of unsorted list: {min}");
             Console.WriteLine(pointList.ToString());
-
+            Console.WriteLine($"Max value of unsorted list: {max}. Min value of unsorted list: {min}.\n");
 
             pointList.Sort();
             Console.WriteLine("Generic list after sorting:");
             Console.WriteLine(pointList.ToString());
+
+            GenericList<int> intList = new GenericList<int>();
+            intList.Add(5);
+            intList.Add(3);
+            intList.Add(4);
+            intList.Add(1);
+            intList.Add(2);
+
+            Console.WriteLine("GenericList works with other types as long as they implement IComparable:");
+            Console.WriteLine(intList);
+            intList.Sort();
+            Console.WriteLine("And sorts them:");
+            Console.WriteLine(intList);
+
+            GenericList<string> stringList = new GenericList<string>();
+            stringList.Add("Zoo");
+            stringList.Add("Camel");
+            stringList.Add("Why");
+            stringList.Add("Apricot");
+            stringList.Add("Orange");
+
+            Console.WriteLine("Again unsorted:");
+            Console.WriteLine(stringList);
+            stringList.Sort();
+            Console.WriteLine("Sorted:");
+            Console.WriteLine(stringList);
+
         }
     }
 }

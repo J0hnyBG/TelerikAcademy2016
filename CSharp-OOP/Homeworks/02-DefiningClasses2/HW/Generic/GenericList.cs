@@ -17,7 +17,14 @@
         // Indexer declaration
         public T this[int index]
         {
-            get { return this._items[index]; }
+            get
+            {
+                if (index >= this._size)
+                {
+                    throw new ArgumentOutOfRangeException("Index can not be larger than the size of the GenericList!");
+                }
+                return this._items[index];
+            }
             set { this._items[index] = value; }
         }
 
@@ -38,7 +45,6 @@
                 }
                 if (value > 0)
                 {
-                    //Double the size of the current arr
                     T[] objArray = new T[value];
                     if (this._size > 0)
                     {
@@ -82,15 +88,15 @@
 
         }
 
-        public bool Remove(T item)
+        public void Remove(T item)
         {
             int index = this.IndexOf(item);
             if (index < 0)
             {
-                return false;
+                return;
             }
             this.RemoveAt(index);
-            return true;
+            
         }
 
         public void RemoveAt(int index)
@@ -183,7 +189,9 @@
             {
                 return;
             }
+            //Double the size of the current arr if array length != 0
             int num = this._items.Length == 0 ? DefaultCapacity : this._items.Length * 2;
+            //Max capacity
             if ((uint) num > 2146435071U)
             {
                 num = 2146435071;
