@@ -11,9 +11,9 @@
 
         public Call(int durationInSeconds, DateTime dateTime, string dialedNumber)
         {
-            DurationInSeconds = durationInSeconds;
-            DateTime = dateTime;
-            DialedNumber = dialedNumber;
+            this.DurationInSeconds = durationInSeconds;
+            this.DateTime = dateTime;
+            this.DialedNumber = dialedNumber;
         }
 
         public DateTime DateTime

@@ -14,10 +14,10 @@
         public Battery(BatteryType? type = null, string model = null, double? hoursIdle = null,
             double? hoursTalk = null)
         {
-            Model = model;
-            HoursIdle = hoursIdle;
-            HoursTalk = hoursTalk;
-            Type = type;
+            this.Model = model;
+            this.HoursIdle = hoursIdle;
+            this.HoursTalk = hoursTalk;
+            this.Type = type;
         }
 
         public BatteryType? Type { get; set; }

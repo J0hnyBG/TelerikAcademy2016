@@ -10,8 +10,8 @@
 
         public Display(double? size = null, int? numberOfColors = null)
         {
-            NumberOfColors = numberOfColors;
-            Size = size;
+            this.NumberOfColors = numberOfColors;
+            this.Size = size;
         }
 
         public double? Size

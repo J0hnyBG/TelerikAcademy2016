@@ -15,8 +15,6 @@
             "SKU1865", 7.3, 1.256, 7.45, 16000000);
 
         //Fields
-        private Battery battery;
-        private Display display;
         private string manufacturer;
         private string owner;
         private double? price;
@@ -28,22 +26,22 @@
             string batteryModel = null, double? hoursIdle = null, double? hoursTalk = null,
             double? displaySize = null, int? displayColors = null)
         {
-            Model = model;
-            Manufacturer = manufacturer;
-            Price = price;
-            Owner = owner;
-            Battery = new Battery(type, batteryModel, hoursIdle, hoursTalk);
-            Display = new Display(displaySize, displayColors);
-            CallHistory = new List<Call>();
+            this.Model = model;
+            this.Manufacturer = manufacturer;
+            this.Price = price;
+            this.Owner = owner;
+            this.Battery = new Battery(type, batteryModel, hoursIdle, hoursTalk);
+            this.Display = new Display(displaySize, displayColors);
+            this.CallHistory = new List<Call>();
         }
 
         public Gsm(string manufacturer, string model)
         {
-            Manufacturer = manufacturer;
-            Model = model;
-            Battery = new Battery();
-            Display = new Display();
-            CallHistory = new List<Call>();
+            this.Manufacturer = manufacturer;
+            this.Model = model;
+            this.Battery = new Battery();
+            this.Display = new Display();
+            this.CallHistory = new List<Call>();
         }
 
         //Problem 5 - Properties
@@ -105,17 +103,9 @@
             }
         }
 
-        public Display Display
-        {
-            get { return display; }
-            set { display = value; }
-        }
+        public Display Display { get; set; }
 
-        public Battery Battery
-        {
-            get { return battery; }
-            set { battery = value; }
-        }
+        public Battery Battery { get; set; }
 
         //Problem 9 - Call History
         public List<Call> CallHistory { get; }
@@ -161,10 +151,10 @@
         //Problem 11 - Call Price
         public double GetTotalPriceOfCalls(double ppm)
         {
-            double totalPrice = 0;
+            
             int totalDuration = CallHistory.Sum(call => call.DurationInSeconds);
             return ((double) totalDuration/60)*ppm;
-            ;
+            
         }
     }
 }

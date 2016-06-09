@@ -1,12 +1,11 @@
 ﻿namespace HW.Tests
 {
     using System;
-    using Calls;
+    //using Calls;
 
     internal static class GsmCallHistoryTest
     {
         private const double PricePerMin = 0.37;
-        private const int callsToAdd = 6;
 
         //Problem 12
         public static void StartTest()
