@@ -123,7 +123,7 @@
             }
             if (Owner != null)
             {
-                output.AppendFormat("Price: {0}\n", Owner);
+                output.AppendFormat("Owner: {0}\n", Owner);
             }
 
             output.AppendFormat(Battery.ToString());
