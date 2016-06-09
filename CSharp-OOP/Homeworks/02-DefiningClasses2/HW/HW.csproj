@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generic\GenericList.cs" />
     <Compile Include="PointMath.cs" />
     <Compile Include="Points\Point3D.cs" />
     <Compile Include="Paths\Path.cs" />
