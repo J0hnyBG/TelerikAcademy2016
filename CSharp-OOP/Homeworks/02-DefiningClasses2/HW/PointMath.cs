@@ -22,7 +22,6 @@
                 result *= a;
             }
             return result;
-
         }
 
 

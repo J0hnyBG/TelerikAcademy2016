@@ -1,17 +1,22 @@
-﻿using System;
-
-namespace HW
+﻿namespace HW
 {
+    using System;
     using System.Collections.Generic;
+    using System.Reflection;
     using Generic;
     using Points;
     using Paths;
+    using Matrix;
+    using Version;
 
+    [Version("1.81")]
     class Startup
     {
         private const string FileName = "pathTest";//.txt
+
         static void Main()
         {
+            #region Problems 1-4
             //Testing the points
             Console.WriteLine("Homework 2 Demo");
             Console.WriteLine("Problems 1-4 ".PadRight(50, '#'));
@@ -36,7 +41,9 @@ namespace HW
             var readpath = PathStorage.ReadPathFromDisk(FileName);
 
             Console.WriteLine(readpath.ToString());
+            #endregion
 
+            #region Problems 5-7
             Console.WriteLine("Problems 5-7 + sorting ".PadRight(50, '#'));
             Console.WriteLine("\nCreating new GenericList of Point3D's and adding the points:");
 
@@ -106,7 +113,108 @@ namespace HW
             stringList.Sort();
             Console.WriteLine("Sorted:");
             Console.WriteLine(stringList);
+            #endregion
 
+            #region Problems 8-10
+            //Matrices
+            Console.WriteLine("Problems 8-10 ".PadRight(50, '#'));
+            Console.WriteLine("Creating two Matrix objects holding doubles.");
+            double[,] arr =
+            {
+                {1.12, 4.213, 6.123},
+            };
+            double[,] arr2 =
+            {
+                {2.123, 3.123},
+                {5.123, 8.123},
+                {7.123, 9.123},
+            };
+
+            Matrix<double> matrix = new Matrix<double>(arr);
+            Matrix<double> matrix2 = new Matrix<double>(arr2); 
+            Console.WriteLine(matrix);
+            Console.WriteLine(matrix2);
+
+            //var res = matrix2 + matrix;
+            
+            Console.WriteLine("Multiplying the matrices: ");
+            Console.WriteLine(matrix * matrix2);
+            Console.WriteLine("Creating two new Matrix objects holding ints:");
+            int[,] mat1 =
+            {
+                {1, 4, 6, 12},
+                {24, 48, 96, 192},
+                {384, 768, 1536, 3072},
+                {6144, 12288, 24576, 49152},
+            };
+            int[,] mat2 =
+            {
+                {12, 6, 4, 1},
+                {192, 96, 48, 24},
+                {3072, 1536, 768, 384},
+                {49152, 24576, 12288, 6144},
+            };
+
+            Matrix<int> intMat1 = new Matrix<int>(mat1);
+            Matrix<int> intMat2 = new Matrix<int>(mat2);
+            Console.WriteLine(intMat1.ToString());
+            Console.WriteLine(intMat2.ToString());
+            Console.WriteLine("Adding the two matrices: ");
+            Console.WriteLine(intMat1 + intMat2);
+            Console.WriteLine("Substracting the two matrices: ");
+            Console.WriteLine(intMat1 - intMat2);
+
+            var emptyMatrix = new Matrix<int>(5, 5);
+            Console.WriteLine("Testing boolean operators matrix with zeros. Should return false.");
+
+            if (emptyMatrix)
+            {
+                Console.WriteLine("True\n");
+            }
+            else if (!emptyMatrix)
+            {
+                Console.WriteLine("False\n");
+            }
+
+            Console.WriteLine("Testing boolean operators on non-empty matrix. Should return true: ");
+            if (intMat1)
+            {
+                Console.WriteLine("True\n");
+            }
+            else if ( !intMat1 )
+            {
+                Console.WriteLine("False\n");
+            }
+            #endregion
+
+            #region Problem 11
+            //Versions
+            Console.WriteLine("Problem 11 ".PadRight(50, '#'));
+
+            Console.WriteLine("Starting version cheking: ");
+            Type type = typeof(Startup);
+            object[] allAttributes = type.GetCustomAttributes(false);
+            foreach (var attr in allAttributes)
+            {
+                Console.WriteLine($"Startup class's version is {attr.ToString()}");
+            }
+            type = typeof(Matrix<>);
+            allAttributes = type.GetCustomAttributes(false);
+            
+            Console.WriteLine($"Matrix class's version is {allAttributes[1].ToString()}");
+            
+            foreach ( MethodInfo method in ( typeof(Matrix<>) ).GetMethods() )
+            {
+                allAttributes =  method.GetCustomAttributes(true);
+                foreach (var attr in allAttributes)
+                {
+                    if (attr is VersionAttribute)
+                    {
+                        Console.WriteLine($"Matrix's {method.Name} method is version {attr.ToString()}");
+                    } 
+                } 
+            }
+            #endregion
         }
     }
 }

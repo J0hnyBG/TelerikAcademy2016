@@ -44,12 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generic\GenericList.cs" />
+    <Compile Include="Matrix\Matrix.cs" />
     <Compile Include="PointMath.cs" />
     <Compile Include="Points\Point3D.cs" />
     <Compile Include="Paths\Path.cs" />
     <Compile Include="Paths\PathStorage.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Version\VersionAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
