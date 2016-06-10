@@ -1,27 +1,33 @@
 ﻿namespace HW.Version
-{   //Problem 11
+{
+    //Problem 11
     using System;
     using System.Linq;
-    [AttributeUsage(AttributeTargets.Struct | AttributeTargets.Class | AttributeTargets.Enum| AttributeTargets.Interface| AttributeTargets.Method)]
+
+    [AttributeUsage(
+        AttributeTargets.Struct | AttributeTargets.Class | AttributeTargets.Enum | AttributeTargets.Interface |
+        AttributeTargets.Method)]
     public class VersionAttribute : Attribute
     {
-        public int MajorVersion { get; private set; }
-        public int MinorVersion { get; private set; }
+        public int MajorVersion { get; }
+        public int MinorVersion { get; }
 
         public VersionAttribute(int majorVersion, int minorVersion)
         {
             MajorVersion = majorVersion;
             MinorVersion = minorVersion;
         }
+
         public VersionAttribute()
         {
             MajorVersion = 1;
             MinorVersion = 0;
         }
+
         public VersionAttribute(string version)
         {
             var ver =
-                version.Split(new char[] {' ', '.', ',', ';',':' }, StringSplitOptions.RemoveEmptyEntries)
+                version.Split(new char[] {' ', '.', ',', ';', ':'}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
             if (ver.Length != 2)

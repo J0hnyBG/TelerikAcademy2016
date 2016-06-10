@@ -2,8 +2,9 @@
 {
     using System;
     using System.Text;
+
     //Problem 5
-    public class GenericList<T> where T: IComparable
+    public class GenericList<T> where T : IComparable
     {
         private const int DefaultCapacity = 4;
         private readonly T[] _emptyArray = new T[0];
@@ -36,7 +37,8 @@
                 //Problem 6
                 if (value < this._size)
                 {
-                    throw new ArgumentOutOfRangeException("Generic List capacity can not be less than the number of items contained!");
+                    throw new ArgumentOutOfRangeException(
+                        "Generic List capacity can not be less than the number of items contained!");
                 }
 
                 if (value == this._items.Length)
@@ -58,18 +60,19 @@
                 }
             }
         }
-        
+
 
         public GenericList(int capacity = DefaultCapacity)
         {
             this._items = _emptyArray;
             this.Capacity = capacity;
         }
+
         public void Clear()
         {
-            if ( this._size > 0 )
+            if (this._size > 0)
             {
-                Array.Clear((Array)this._items, 0, this._size);
+                Array.Clear((Array) this._items, 0, this._size);
                 this._size = 0;
             }
         }
@@ -85,7 +88,6 @@
             int index = num;
             T obj = item;
             _items[index] = obj;
-
         }
 
         public void Remove(T item)
@@ -96,7 +98,6 @@
                 return;
             }
             this.RemoveAt(index);
-            
         }
 
         public void RemoveAt(int index)
@@ -108,7 +109,7 @@
             this._size = this._size - 1;
             if (index < this._size)
             {
-                Array.Copy((Array)this._items, index + 1, (Array)this._items, index, this._size - index);
+                Array.Copy((Array) this._items, index + 1, (Array) this._items, index, this._size - index);
             }
             this._items[this._size] = default(T);
         }
@@ -125,11 +126,12 @@
             }
             if (index < this._size)
             {
-                Array.Copy((Array)this._items, index, (Array)this._items, index + 1, this._size - index);
+                Array.Copy((Array) this._items, index, (Array) this._items, index + 1, this._size - index);
             }
             this._items[index] = item;
             this._size = this._size + 1;
         }
+
         public int IndexOf(T item)
         {
             return Array.IndexOf<T>(this._items, item, 0, this._size);
@@ -139,6 +141,7 @@
         {
             Array.Sort<T>(this._items, 0, this.Count, null);
         }
+
         //Problem 7
         public T Max()
         {
@@ -156,22 +159,24 @@
             }
             return max;
         }
+
         public T Min()
         {
-            if ( _size <= 0 )
+            if (_size <= 0)
             {
                 return default(T);
             }
             var min = _items[0];
-            for ( int i = 0; i < _size; i++ )
+            for (int i = 0; i < _size; i++)
             {
-                if ( min.CompareTo(_items[i]) > 0 )
+                if (min.CompareTo(_items[i]) > 0)
                 {
                     min = _items[i];
                 }
             }
             return min;
         }
+
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -184,13 +189,13 @@
         }
 
         private void Grow(int min)
-        {   
+        {
             if (this._items.Length >= min)
             {
                 return;
             }
             //Double the size of the current arr if array length != 0
-            int num = this._items.Length == 0 ? DefaultCapacity : this._items.Length * 2;
+            int num = this._items.Length == 0 ? DefaultCapacity : this._items.Length*2;
             //Max capacity
             if ((uint) num > 2146435071U)
             {

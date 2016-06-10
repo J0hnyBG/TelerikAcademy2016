@@ -1,11 +1,10 @@
-﻿using System;
-using System.Text;
-
-namespace HW.Paths
+﻿namespace HW.Paths
 {
     //Problem 4
+    using System;
+    using System.Text;
     using System.Collections.Generic;
-    using HW.Points;
+    using Points;
 
     public class Path
     {

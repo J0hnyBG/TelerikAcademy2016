@@ -12,11 +12,12 @@
     [Version("1.81")]
     class Startup
     {
-        private const string FileName = "pathTest";//.txt
+        private const string FileName = "pathTest"; //.txt
 
         static void Main()
         {
             #region Problems 1-4
+
             //Testing the points
             Console.WriteLine("Homework 2 Demo");
             Console.WriteLine("Problems 1-4 ".PadRight(50, '#'));
@@ -30,7 +31,11 @@
 
             var path = new Path(new List<Point3D>()
             {
-                p1, p2, p3 ,p4, p5
+                p1,
+                p2,
+                p3,
+                p4,
+                p5
             });
 
             //Saves paths in plantext format to root solition folder next to .sln file, aka two folders up from Debug folder
@@ -41,9 +46,11 @@
             var readpath = PathStorage.ReadPathFromDisk(FileName);
 
             Console.WriteLine(readpath.ToString());
+
             #endregion
 
             #region Problems 5-7
+
             Console.WriteLine("Problems 5-7 + sorting ".PadRight(50, '#'));
             Console.WriteLine("\nCreating new GenericList of Point3D's and adding the points:");
 
@@ -80,7 +87,8 @@
 
             var max = pointList.Max();
             var min = pointList.Min();
-            Console.WriteLine("Generic list before sorting. Point3D implements IComparable by comparing the sums of all coordinates.");
+            Console.WriteLine(
+                "Generic list before sorting. Point3D implements IComparable by comparing the sums of all coordinates.");
             Console.WriteLine(pointList.ToString());
             Console.WriteLine($"Max value of unsorted list: {max}. Min value of unsorted list: {min}.\n");
 
@@ -113,9 +121,11 @@
             stringList.Sort();
             Console.WriteLine("Sorted:");
             Console.WriteLine(stringList);
+
             #endregion
 
             #region Problems 8-10
+
             //Matrices
             Console.WriteLine("Problems 8-10 ".PadRight(50, '#'));
             Console.WriteLine("Creating two Matrix objects holding doubles.");
@@ -131,14 +141,12 @@
             };
 
             Matrix<double> matrix = new Matrix<double>(arr);
-            Matrix<double> matrix2 = new Matrix<double>(arr2); 
+            Matrix<double> matrix2 = new Matrix<double>(arr2);
             Console.WriteLine(matrix);
             Console.WriteLine(matrix2);
 
-            //var res = matrix2 + matrix;
-            
             Console.WriteLine("Multiplying the matrices: ");
-            Console.WriteLine(matrix * matrix2);
+            Console.WriteLine(matrix*matrix2);
             Console.WriteLine("Creating two new Matrix objects holding ints:");
             int[,] mat1 =
             {
@@ -165,7 +173,7 @@
             Console.WriteLine(intMat1 - intMat2);
 
             var emptyMatrix = new Matrix<int>(5, 5);
-            Console.WriteLine("Testing boolean operators matrix with zeros. Should return false.");
+            Console.WriteLine("Boolean operators matrix with zeros. Should return false.");
 
             if (emptyMatrix)
             {
@@ -176,18 +184,20 @@
                 Console.WriteLine("False\n");
             }
 
-            Console.WriteLine("Testing boolean operators on non-empty matrix. Should return true: ");
+            Console.WriteLine("Boolean operators on non-empty matrix. Should return true: ");
             if (intMat1)
             {
                 Console.WriteLine("True\n");
             }
-            else if ( !intMat1 )
+            else if (!intMat1)
             {
                 Console.WriteLine("False\n");
             }
+
             #endregion
 
             #region Problem 11
+
             //Versions
             Console.WriteLine("Problem 11 ".PadRight(50, '#'));
 
@@ -200,20 +210,21 @@
             }
             type = typeof(Matrix<>);
             allAttributes = type.GetCustomAttributes(false);
-            
+
             Console.WriteLine($"Matrix class's version is {allAttributes[1].ToString()}");
-            
-            foreach ( MethodInfo method in ( typeof(Matrix<>) ).GetMethods() )
+
+            foreach (MethodInfo method in (typeof(Matrix<>)).GetMethods())
             {
-                allAttributes =  method.GetCustomAttributes(true);
+                allAttributes = method.GetCustomAttributes(true);
                 foreach (var attr in allAttributes)
                 {
                     if (attr is VersionAttribute)
                     {
                         Console.WriteLine($"Matrix's {method.Name} method is version {attr.ToString()}");
-                    } 
-                } 
+                    }
+                }
             }
+
             #endregion
         }
     }

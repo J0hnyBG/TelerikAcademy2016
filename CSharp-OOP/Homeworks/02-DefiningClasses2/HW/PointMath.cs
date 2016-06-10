@@ -2,7 +2,7 @@
 {
     //Problem 3
     using System;
-    using HW.Points;
+    using Points;
 
     public static class PointMath
     {
@@ -23,7 +23,5 @@
             }
             return result;
         }
-
-
     }
 }
