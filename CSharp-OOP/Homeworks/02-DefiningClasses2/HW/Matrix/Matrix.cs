@@ -6,7 +6,12 @@
     using Version;
 
     [Version("3.1")]
-    public class Matrix<T> where T : struct, IFormattable
+    public class Matrix<T> where T :  struct,
+                                      IComparable,
+                                      IComparable<T>,
+                                      IConvertible,
+                                      IEquatable<T>,
+                                      IFormattable
     {
         private T[,] _matrix;
 

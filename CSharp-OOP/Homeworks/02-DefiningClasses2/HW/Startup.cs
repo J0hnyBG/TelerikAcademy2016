@@ -13,7 +13,7 @@
     class Startup
     {
         private const string FileName = "pathTest"; //.txt
-
+        //All the tasks are in one solution for convenience.
         static void Main()
         {
             #region Problems 1-4
@@ -38,7 +38,7 @@
                 p5
             });
 
-            //Saves paths in plantext format to root solition folder next to .sln file, aka two folders up from Debug folder
+            //Currently saves paths in plantext format to root solition folder next to .sln file, aka two folders up from Debug folder
             Console.WriteLine("Saving Path to file.\n");
             PathStorage.SavePathToDisk(path, FileName);
 

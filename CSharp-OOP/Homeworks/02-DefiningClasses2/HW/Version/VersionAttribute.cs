@@ -27,7 +27,7 @@
         public VersionAttribute(string version)
         {
             var ver =
-                version.Split(new char[] {' ', '.', ',', ';', ':'}, StringSplitOptions.RemoveEmptyEntries)
+                version.Split(new char[] {' ', '.', ',', ';', ':', '\"'}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
             if (ver.Length != 2)
