@@ -1,5 +1,5 @@
 ﻿namespace _03_ExtensionMethodsAndStuff.ExtensionMethods
-{
+{   //Problem 1
     using System;
     using System.Text;
     public static class StringBuilderExtensions
