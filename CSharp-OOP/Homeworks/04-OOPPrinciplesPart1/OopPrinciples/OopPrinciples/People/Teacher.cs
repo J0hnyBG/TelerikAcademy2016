@@ -6,9 +6,9 @@
     {
         private HashSet<Discipline> setOfDisciplines;
 
-        public Teacher(HashSet<Discipline> setOfDisciplines)
+        public Teacher(string name, HashSet<Discipline> setOfDisciplines, string comment = null) : base(name, comment)
         {
-            this.setOfDisciplines = setOfDisciplines;
+            this.SetOfDisciplines = setOfDisciplines;
         }
 
         public HashSet<Discipline> SetOfDisciplines

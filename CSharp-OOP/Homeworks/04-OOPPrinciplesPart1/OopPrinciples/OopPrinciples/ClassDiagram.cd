@@ -1,26 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="OopPrinciples.People.Person">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAEAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>People\Person.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OopPrinciples.People.Student">
-    <Position X="4.75" Y="2.75" Width="2" />
+    <Position X="7.25" Y="3.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>People\Student.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OopPrinciples.People.Teacher">
-    <Position X="2.5" Y="2.75" Width="2" />
+    <Position X="5" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>People\Teacher.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="setOfDisciplines" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="OopPrinciples.Disciplines.Discipline">
     <Position X="0.5" Y="2.75" Width="1.75" />
@@ -31,14 +34,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OopPrinciples.Class.Class">
-    <Position X="2.5" Y="5.25" Width="2" />
+    <Position X="4.75" Y="6" Width="2" />
+    <AssociationLine Name="SetOfTeachers" Type="OopPrinciples.People.Teacher">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.141" Y="0.321" Height="0.182" Width="2.243" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAgAAAAAAgAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Class\Class.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SetOfTeachers" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Interface Name="OopPrinciples.Interfaces.ICommentable">
-    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Position X="4" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ICommentable.cs</FileName>

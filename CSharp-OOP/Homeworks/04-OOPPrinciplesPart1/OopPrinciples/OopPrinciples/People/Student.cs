@@ -1,20 +1,27 @@
-﻿namespace OopPrinciples.People
+﻿using System;
+
+namespace OopPrinciples.People
 {
     internal class Student : Person
     {
-        private string name;
         private int classNumber;
 
-        public string Name
+        public Student(string comment, string name, int classNumber) : base(comment, name)
         {
-            get { return name; }
-            set { name = value; }
+            this.ClassNumber = classNumber;
         }
 
         public int ClassNumber
         {
             get { return classNumber; }
-            set { classNumber = value; }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Invalid class number!");
+                }
+                classNumber = value;
+            }
         }
     }
 }

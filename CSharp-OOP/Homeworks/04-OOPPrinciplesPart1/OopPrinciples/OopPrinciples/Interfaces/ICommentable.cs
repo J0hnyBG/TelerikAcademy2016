@@ -1,6 +1,6 @@
 ﻿namespace OopPrinciples.Interfaces
 {
-    interface ICommentable
+    internal interface ICommentable
     {
         string Comment { get; set; }
     }

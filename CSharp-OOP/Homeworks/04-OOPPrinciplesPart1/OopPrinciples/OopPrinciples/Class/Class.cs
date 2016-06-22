@@ -7,16 +7,22 @@
         private string uniqueIdentifier;
         private HashSet<Teacher> setOfTeachers;
 
-        internal HashSet<Teacher> SetOfTeachers
+        public Class(string uniqueIdentifier, HashSet<Teacher> setOfTeachers)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            this.UniqueIdentifier = uniqueIdentifier;
+            this.SetOfTeachers = setOfTeachers;
+        }
 
-            set
-            {
-            }
+        public string UniqueIdentifier
+        {
+            get { return uniqueIdentifier; }
+            set { uniqueIdentifier = value; }
+        }
+
+        public HashSet<Teacher> SetOfTeachers
+        {
+            get { return setOfTeachers; }
+            set { setOfTeachers = value; }
         }
     }
 }

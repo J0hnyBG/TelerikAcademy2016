@@ -10,6 +10,14 @@
 
         private string comment;
 
+        public Discipline(string name, int numberOfLectures, int numberOfExercises, string comment = null)
+        {
+            this.name = name;
+            this.numberOfLectures = numberOfLectures;
+            this.numberOfExercises = numberOfExercises;
+            this.comment = comment;
+        }
+
         public string Name
         {
             get { return name; }
