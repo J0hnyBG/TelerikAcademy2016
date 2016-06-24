@@ -8,11 +8,9 @@ function group(people) {
         }
         out[people[i].age].push(people[i]);
     }
-
     return out;
 }
 
-//noinspection SpellCheckingInspection
 var people = [
     { firstname: 'Gosho', lastname: 'Petrov', age: 32 },
     { firstname: 'Bay', lastname: 'Ivan', age: 81 },
