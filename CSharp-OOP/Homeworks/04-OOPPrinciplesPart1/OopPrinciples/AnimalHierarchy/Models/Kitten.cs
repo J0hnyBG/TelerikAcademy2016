@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal class TomCat : Cat
+    internal class Kitten : Cat
     {
         private char sex;
 
@@ -11,15 +11,15 @@
             get { return sex; }
             set
             {
-                if ( value != 'M' && value != 'm' )
+                if ( value != 'F' && value != 'f' )
                 {
-                    throw new ArgumentException("Tomcats must be male!!");
+                    throw new ArgumentException("Kittens must be female!");
                 }
                 sex = value;
             }
         }
 
-        public TomCat(int age, string name, char sex) : base(age, name, sex)
+        public Kitten(int age, string name, char sex) : base(age, name, sex)
         {
             this.Sex = sex;
         }

@@ -9,6 +9,3 @@ function solve(args) {
     console.log(arr.sort().join(' '));
 }
 solve(["6\n3 4 1 5 2 6"]);
-/**
- * Created by Ivan on 24.06.2016 г..
- */

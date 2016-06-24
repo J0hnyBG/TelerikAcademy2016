@@ -26,7 +26,7 @@
 
         public override void ProduceSound()
         {
-            Console.WriteLine("I'm a frog. I dont know what sound frogs make..");
+            Console.WriteLine("Croak croak, I'm a frog.");
         }
     }
 }

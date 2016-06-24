@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal class Cat : Animal
+    internal abstract class Cat : Animal
     {
         private char sex;
 
@@ -19,14 +19,14 @@
             }
         }
 
-        public Cat(int age, string name, char sex) : base(age, name)
+        protected Cat(int age, string name, char sex) : base(age, name)
         {
             this.Sex = sex;
         }
 
         public override void ProduceSound()
         {
-            Console.WriteLine("Miao miao female miao.");
+            Console.WriteLine("Miao miao miao.");
         }
     }
 }

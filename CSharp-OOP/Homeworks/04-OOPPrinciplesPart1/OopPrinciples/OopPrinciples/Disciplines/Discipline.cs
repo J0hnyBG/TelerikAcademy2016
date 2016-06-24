@@ -1,8 +1,9 @@
 ﻿namespace OopPrinciples.Disciplines
 {
+    using System;
     using Interfaces;
 
-    class Discipline : ICommentable
+    internal class Discipline : ICommentable
     {
         private string name;
         private int numberOfLectures;
@@ -21,25 +22,58 @@
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set
+            {
+                if (AssertNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty!");
+                }
+                name = value;
+            }
         }
 
         public int NumberOfLectures
         {
             get { return numberOfLectures; }
-            set { numberOfLectures = value; }
+            set
+            {
+                if (AssertLessThanZero(value))
+                {
+                    throw new ArgumentException("Number of lectures cannot be negative!");
+
+                }
+                numberOfLectures = value;
+            }
         }
 
         public int NumberOfExercises
         {
             get { return numberOfExercises; }
-            set { numberOfExercises = value; }
+            set
+            {
+                if ( AssertLessThanZero(value) )
+                {
+                    throw new ArgumentException("Number of exercises cannot be negative!");
+
+                }
+                numberOfExercises = value;
+            }
         }
 
         public string Comment
         {
             get { return comment; }
             set { comment = value; }
+        }
+
+        private static bool AssertNullOrEmpty(string s)
+        {
+            return string.IsNullOrEmpty(s);
+        }
+
+        private static bool AssertLessThanZero(int i)
+        {
+            return i < 0;
         }
     }
 }

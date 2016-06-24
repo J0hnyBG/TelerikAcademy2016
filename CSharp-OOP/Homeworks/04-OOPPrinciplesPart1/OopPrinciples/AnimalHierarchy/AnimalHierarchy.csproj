@@ -48,6 +48,7 @@
     <Compile Include="Models\Cat.cs" />
     <Compile Include="Models\Dog.cs" />
     <Compile Include="Models\Frog.cs" />
+    <Compile Include="Models\Kitten.cs" />
     <Compile Include="Models\Tomcat.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

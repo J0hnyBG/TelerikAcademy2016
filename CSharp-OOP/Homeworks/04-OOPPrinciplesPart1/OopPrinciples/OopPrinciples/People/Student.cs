@@ -1,9 +1,10 @@
-﻿using System;
-
-namespace OopPrinciples.People
+﻿namespace OopPrinciples.People
 {
+    using System;
+    using System.Collections.Generic;
     internal class Student : Person
     {
+        internal static List<int> uniqueClassNumbers = new List<int>();
         private int classNumber;
 
         public Student(string comment, string name, int classNumber) : base(comment, name)
@@ -20,7 +21,12 @@ namespace OopPrinciples.People
                 {
                     throw new ArgumentException("Invalid class number!");
                 }
-                classNumber = value;
+                if (Student.uniqueClassNumbers.Contains(value))
+                {
+                    throw new ArgumentException("This class number already exists!");
+                }
+                Student.uniqueClassNumbers.Add(value);
+                this.classNumber = value;
             }
         }
     }

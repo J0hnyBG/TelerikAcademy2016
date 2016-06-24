@@ -8,18 +8,18 @@
     {
         private static void Main()
         {
-            var cats = new List<Cat>
+            var kittens = new List<Cat>
             {
-                new Cat(12, "Cat1", 'F'),
-                new Cat(13, "Cat2", 'F'),
-                new Cat(1, "Cat3", 'F'),
-                new Cat(22, "Cat4", 'F'),
-                new Cat(2, "Cat5", 'F'),
-                new Cat(6, "Cat6", 'F'),
-                new Cat(5, "Cat7", 'F')
+                new Kitten(12, "Cat1", 'F'),
+                new Kitten(13, "Cat2", 'F'),
+                new Kitten(1, "Cat3", 'F'),
+                new Kitten(22, "Cat4", 'F'),
+                new Kitten(2, "Cat5", 'F'),
+                new Kitten(6, "Cat6", 'F'),
+                new Kitten(5, "Cat7", 'F')
             };
 
-            var averageAgeOfCats = cats.Sum(x => x.Age)/(double) cats.Count;
+            var averageAgeOfKittens = kittens.Sum(x => x.Age)/(double)kittens.Count;
 
             var tomCats = new List<TomCat>
             {
@@ -61,14 +61,14 @@
             var averageAgeOfFrogs = frogs.Sum(x => x.Age)/(double) frogs.Count;
 
 
-            Console.WriteLine($"Average age of cats: {averageAgeOfCats:F2}");
+            Console.WriteLine($"Average age of cats: {averageAgeOfKittens:F2}");
             Console.WriteLine($"Average age of tomcats: {averageAgeOfTomCats:F2}");
             Console.WriteLine($"Average age of dogs: {averageAgeOfDogs:F2}");
             Console.WriteLine($"Average age of frogs: {averageAgeOfFrogs:F2}");
 
             Console.WriteLine("\nTesting animal sounds: ");
 
-            cats[0].ProduceSound();
+            kittens[0].ProduceSound();
             tomCats[0].ProduceSound();
             dogs[0].ProduceSound();
             frogs[0].ProduceSound();
