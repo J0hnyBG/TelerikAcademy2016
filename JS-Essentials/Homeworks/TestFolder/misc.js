@@ -1,26 +1,24 @@
-'use strict';
-function group(people) {
-    var out = {};
+//TODO: 90/100
+function solve(args) {
+    var numbers = (args[0]).split('\n'),
+        n = +numbers[0],
+        maximalSequence = 1,
+        currentSequence = 1;
+    numbers.shift();
+    var maxNum;
 
-    for (var i = 0; i < people.length; i++) {
-        if (!out[people[i].age]) {
-            out[people[i].age] = [];
+    for (var i = 1; i < numbers.length; i++) {
+        if (+numbers[i - 1] === +numbers[i]) {
+            currentSequence++;
+            if (currentSequence >= maximalSequence) {
+                maximalSequence =currentSequence;
+                maxNum = numbers[i];
+            }
         }
-        out[people[i].age].push(people[i]);
+        else {
+            currentSequence = 1;
+        }
     }
-
-    return out;
+    console.log(maximalSequence);
 }
-
-//noinspection SpellCheckingInspection
-var people = [
-    { firstname: 'Gosho', lastname: 'Petrov', age: 32 },
-    { firstname: 'Bay', lastname: 'Ivan', age: 81 },
-    { firstname: 'John', lastname: 'Doe', age: 42 },
-    { firstname: 'Pesho', lastname: 'Pesho', age: 22 },
-    { firstname: 'Asdf', lastname: 'Xyz', age: 81 },
-    { firstname: 'Gosho', lastname: 'Gosho', age: 22 }
-];
-
-var groupedByAge = group(people);
-var a = 1+2;
+solve(["10\n2\n1\n1\n2\n3\n3\n2\n2\n2\n1"]);
