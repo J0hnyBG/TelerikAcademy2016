@@ -10,7 +10,7 @@ function group(people) {
     }
     return out;
 }
-
+ 
 var people = [
     { firstname: 'Gosho', lastname: 'Petrov', age: 32 },
     { firstname: 'Bay', lastname: 'Ivan', age: 81 },
