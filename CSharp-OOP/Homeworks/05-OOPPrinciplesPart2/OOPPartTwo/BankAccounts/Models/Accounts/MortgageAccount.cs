@@ -29,7 +29,7 @@
             }
             if (this.Customer is Individual)
             {
-                return months >= 6 ? base.CalculateInterest(months - 6) : 0;
+                return months >= 6 ? base.CalculateInterest(months - 6) : this.Balance;
             }
             return base.CalculateInterest(months);
         }

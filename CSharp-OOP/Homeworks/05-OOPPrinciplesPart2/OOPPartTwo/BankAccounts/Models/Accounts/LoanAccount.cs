@@ -14,11 +14,25 @@ namespace BankAccounts.Models.Accounts
         {
             if (this.Customer is Company)
             {
-                months -= 2;
+                if (months >= 2)
+                {
+                    months -= 2;
+                }
+                else
+                {
+                    return this.Balance;
+                }
             }
             else if ( this.Customer is Individual )
             {
-                months -= 3;
+                if ( months >= 3 )
+                {
+                    months -= 3;
+                }
+                else
+                {
+                    return this.Balance;
+                }
             }
             return base.CalculateInterest(months);
         }

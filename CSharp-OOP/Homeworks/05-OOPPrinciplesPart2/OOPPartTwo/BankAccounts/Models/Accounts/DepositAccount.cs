@@ -17,7 +17,7 @@
         {
             if (this.Balance > 0 && this.Balance < 1000)
             {
-                return 0;
+                return Balance;
             }
             return base.CalculateInterest(months);
         }
