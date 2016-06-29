@@ -258,7 +258,17 @@ function solve(params) {
 
     return result;
 }
+var fs = require('fs');
 
+var testId = '010';
+
+fs.readFile('./Tests/test.' + testId + '.in.txt', 'utf8', function (err, data) {
+    var input = data.split('\r\n');
+    console.log(input);
+    var result = solve(input);
+    fs.writeFile('./Tests/test.' + testId + '.out.txt', result);
+    console.log(result);
+})
 
 var input = [
     '6',
