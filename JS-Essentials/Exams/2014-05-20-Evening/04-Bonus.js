@@ -1,0 +1,1 @@
+function s(x){function c(x){return x?(4+6/~x)*c(x-1):1}return c(x)/2}

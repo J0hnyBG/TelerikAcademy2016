@@ -1,15 +1,16 @@
-//todo: 60/100
 function solve(args) {
-
     String.prototype.bind = function (data) {
-        var out = this;
-        var index,
-            matches = [],
-            regex = /data-bind-(.+?)="(.+?)"/gm;
-        
-        while (matches = regex.exec(out)) {
+        var out = this,
+            index,
+            regex = /data-bind-(.*?)="(.*?)"/gm,
+            matches;
+
+        while (matches = regex.exec(this)) {
             index = out.indexOf('>');
 
+            if (out[index - 1] === '/') {
+                index--;
+            }
             if (matches[1] === 'content') {
                 out = out.slice(0, index + 1) + data[matches[2]] + out.slice(index + 1);
             }
@@ -17,13 +18,13 @@ function solve(args) {
                 out = out.slice(0, index) + " " + matches[1] + '="' + data[matches[2]] + '"' + out.slice(index);
             }
         }
-
         return out;
     };
 
     var obj = JSON.parse(args[0]),
         html = args[1],
         result = html.bind(obj);
+
 
     console.log(result);
 }
@@ -34,6 +35,6 @@ solve([
 ]);
 
 solve([
-    '{ "name": "Elena", "link": "http://telerikacademy.com", "id": "NOIMNOTID", "burgas": "Burgas" }',
-    '<a data-bind-href="link" data-bind-class="name" data-bind-id="id" data-bind-content="name" data-bind-notpernik="burgas"></а>'
+    '{ "name": "Elena", "link": "http://telerikacademy.com" }',
+    '<a data-bind-href="link" data-bind-class="name" data-bind-content="name"></а>'
 ]);

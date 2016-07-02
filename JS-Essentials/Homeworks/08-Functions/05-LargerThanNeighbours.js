@@ -1,7 +1,7 @@
 function solve(args) {
-    var input = (args[0]).split('\n'),
+    var input = args,
         n = +input[0],
-        arr = input[1].slice(1).split(' ').map(
+        arr = input[1].split(' ').map(
             function(item) {
                 return parseInt(item, 10);
             }),
@@ -16,4 +16,4 @@ function solve(args) {
     console.log(count);
 }
 
-solve(["8\n-26 -25 -28 31 2 27"])
+solve(["8", '-26 -25 -28 31 2 27']);

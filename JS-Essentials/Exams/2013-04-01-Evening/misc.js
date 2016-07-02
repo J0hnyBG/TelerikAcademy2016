@@ -1,7 +1,7 @@
 //todo: 66/100
 function solve(params) {
-        var variables = {};
-    Array.prototype.clean = function(deleteValue) {
+    var variables = {};
+    Array.prototype.clean = function (deleteValue) {
         for (var i = 0; i < this.length; i++) {
             if (this[i] == deleteValue) {
                 this.splice(i, 1);
@@ -14,14 +14,14 @@ function solve(params) {
         return (typeof obj !== 'undefined' &&
         obj && obj.constructor === Array);
     }
+
     function findSum(arr) {
         var sum = 0;
-        if(isArray(arr)) {
+        if (isArray(arr)) {
             var numArr = arr.map(Number);
-
             for (var i = 0; i < arr.length; i++) {
                 var num = numArr[i];
-                if(isNaN(num)) {
+                if (isNaN(num)) {
                     var nextArr = variables[arr[i]];
                     if (isArray(nextArr)) {
                         num = findSum(nextArr);
@@ -38,9 +38,10 @@ function solve(params) {
         }
         return sum;
     }
+
     function findAvg(arr) {
         var sum = 0;
-        if(isArray(arr)) {
+        if (isArray(arr)) {
             var numArr = arr.map(Number);
             for (var i = 0; i < arr.length; i++) {
                 var num = numArr[i];
@@ -62,10 +63,10 @@ function solve(params) {
         }
         return Math.floor(sum / numArr.length);
     }
+
     function findMin(arr) {
         var min = +Infinity;
-
-        if(isArray(arr)) {
+        if (isArray(arr)) {
             var numArr = arr.map(Number);
             for (var i = 0; i < arr.length; i++) {
                 var num = numArr[i];
@@ -88,9 +89,10 @@ function solve(params) {
         }
         return min;
     }
+
     function findMax(arr) {
         var max = -Infinity;
-        if(isArray(arr)) {
+        if (isArray(arr)) {
             var numArr = arr.map(Number);
             for (var i = 0; i < arr.length; i++) {
                 var num = numArr[i];
@@ -103,23 +105,23 @@ function solve(params) {
                         num = nextArr;
                     }
                 }
-
                 max = Math.max(num, max);
             }
         }
         else {
-                max = +arr;
-            }
+            max = +arr;
+        }
         return max;
     }
+
     function fillArray(arr) {
         var numArr = arr.map(Number);
         var out = [];
         for (var i = 0; i < arr.length; i++) {
             var num = numArr[i];
-            if(isNaN(num)) {
+            if (isNaN(num)) {
                 var nextArr = variables[arr[i]];
-                if(isArray(nextArr)) {
+                if (isArray(nextArr)) {
                     out = out.concat(nextArr);
                 }
                 else {
@@ -138,7 +140,7 @@ function solve(params) {
         var line = params[i].split(' ');
         line = line.clean('');
 
-        if(line[0] === 'def') {
+        if (line[0] === 'def') {
             var varValue = line.splice(2);
             variables[line[1]] = varValue.join('');
         }
@@ -149,59 +151,54 @@ function solve(params) {
                     var operation = splitPropertyValue[0];
                     var numbers = splitPropertyValue[1].replace(']', '').split(',');
 
-                    if(operation === '') {
-                        variables[property] = fillArray(numbers);
+                    switch (operation) {
+                        case '':
+                            variables[property] = fillArray(numbers);
+                            break;
+                        case 'sum':
+                            variables[property] = findSum(numbers);
+                            break;
+                        case 'avg':
+                            variables[property] = findAvg(numbers);
+                            break;
+                        case 'min':
+                            variables[property] = findMin(numbers);
+                            break;
+                        case 'max':
+                            variables[property] = findMax(numbers);
+                            break;
                     }
-                    else if(operation === 'sum') {
-                        variables[property] = findSum(numbers);
-
-                    }
-                    else if(operation === 'avg') {
-                        variables[property] = findAvg(numbers);
-
-                    }
-                    else if(operation === 'min') {
-                        variables[property] = findMin(numbers);
-                    }
-                    else if(operation === 'max') {
-                        variables[property] = findMax(numbers);
-                    }
-
                 }
             }
         }
     }
     var finalLine = params[params.length - 1].split(' ');
     finalLine = finalLine.clean('').join('');
-
-
     finalLine = finalLine.split('[');
+
     numbers = finalLine[1].replace(']', '').split(',');
     numbers = numbers.clean('');
-
     operation = finalLine[0];
     var result = 0;
-    if(operation === '') {
-        console.log(variables[property]);
+    switch (operation) {
+        case '':
+            result = variables[numbers[0]];
+            break;
+        case 'sum':
+            result = findSum(numbers);
+            break;
+        case 'avg':
+            result = findAvg(numbers);
+            break;
+        case 'min':
+            result = findMin(numbers);
+            break;
+        case 'max':
+            result = findMax(numbers);
+            break;
     }
-    else if(operation === 'sum') {
-        result = findSum(numbers);
-        console.log(result);
-    }
-    else if(operation === 'avg') {
-        result = findAvg(numbers);
-        console.log(result);
-    }
-    else if(operation === 'min') {
-        result = findMin(numbers);
-        console.log(result);
-    }
-    else if(operation === 'max') {
-        result = findMax(numbers);
-        console.log(result);
-    }
+    console.log(result);
 }
-
 
 
 solve([
@@ -219,5 +216,5 @@ solve([
     'def func sum[1, 2, 3, -6]',
     'def newList [func, 10, 1]',
     'def newFunc sum[func, 100, newList]',
-     '[newFunc]'
+    '[newFunc]'
 ]);

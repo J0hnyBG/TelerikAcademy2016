@@ -1,27 +1,23 @@
-//todo: 60/100
 function solve(args) {
-
     String.prototype.bind = function (data) {
-        var out = this;
-        var index;
-        // openIndex;
+        var out = this,
+            index,
+            regex = /data-bind-(.*?)="(.*?)"/gm,
+            matches;
 
-        var regex = /data-bind-(.+?)="(.+?)"/gm;
-
-        var matches = [];
         while (matches = regex.exec(this)) {
             index = out.indexOf('>');
 
+            if (out[index - 1] === '/') {
+                index--;
+            }
             if (matches[1] === 'content') {
-                // openIndex = out.indexOf('<', 1);
                 out = out.slice(0, index + 1) + data[matches[2]] + out.slice(index + 1);
-
             }
             else {
                 out = out.slice(0, index) + " " + matches[1] + '="' + data[matches[2]] + '"' + out.slice(index);
             }
         }
-
         return out;
     };
 

@@ -1,13 +1,46 @@
 function solve(args) {
+    var text = args[0],
+        inTag = false,
+        currentTag = '',
+        tags = [],
+        result = [];
 
-    var match = args[0].match(/<a href=([^<]+)[^>]+>([^<]+)<\/a>/);
+    for (var i = 0; i < text.length; i++) {
+        if (text[i] === '<') {
+            inTag = true;
+        } else if (text[i] === '>' && inTag) {
+            inTag = false;
+            currentTag += text[i];
+            tags.push(currentTag);
+            currentTag = '';
+        } else if (!inTag) {
+            if (tags.length === 0) {
+                result.push(text[i]);
+            } else if (tags[tags.length - 1].indexOf('upcase') !== -1) {
+                result.push(text[i].toUpperCase());
+            } else if (tags[tags.length - 1].indexOf('lowcase') !== -1) {
+                result.push(text[i].toLowerCase());
+            } else {
+                result.push(text[i]);
+            }
+        }
 
-    while (match != null) {
-        match[1] = match[1].replace('\"', '');
-        args[0] = args[0].replace(match[0], '[' + match[2] + ']' + '(' + match[1] + ')');
-        match = args[0].match(/<a href=([^<]+)[^>]+>([^<]+)<\/a>/);
+        if (inTag || text[i] === '>') {
+            currentTag += text[i];
+        }
+
+        if (tags.length !== 0 && tags[tags.length - 1].indexOf('</') !== -1) {
+            tags.pop();
+            tags.pop();
+        }
     }
-    console.log(args[0]);
+
+    console.log(result.join(''));
 }
 
-solve(['<p>Please visit <a href="http://academy.telerik.com">our site</a> to choose a training course. Also visit <a href="www.devbg.org">our forum</a> to discuss the courses.</p>']);
+solve([
+    'We are <orgcase>liViNg</orgcase> in a <upcase>yellow submarine</upcase>. We <orgcase>doN\'t</orgcase> have <lowcase>anything</lowcase> else.'
+]);
+solve([
+    'We are <orgcase>liViNg</orgcase> in a <upcase>yellow <orgcase>sub<upcase>mar</upcase>ine</orgcase></upcase>. We <orgcase>doN\'t</orgcase> have <lowcase>anything</lowcase> else.'
+]);

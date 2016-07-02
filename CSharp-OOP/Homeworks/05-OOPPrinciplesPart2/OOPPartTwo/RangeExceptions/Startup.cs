@@ -21,7 +21,7 @@
 
             try
             {
-                var date = new DateTime(1979, 12, 31);
+                var date = new DateTime(1981, 12, 31);
 
                 if ( date < new DateTime(1980, 01, 01) || date > new DateTime(2013, 12, 31) )
                 {
