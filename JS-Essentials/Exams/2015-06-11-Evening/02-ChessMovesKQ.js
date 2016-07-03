@@ -15,11 +15,9 @@ function solve(params) {
 
     for (var j = 2, i = 0; j < rows + 2; j++, i++) {
         board[i] = params[j];
-
     }
     board.reverse();
-
-
+    
     for (i = 0; i < tests; i++) {
         var isValid = true;
 
@@ -43,6 +41,10 @@ function solve(params) {
         if (chessPiece === 'Q') {
             while (currCoords.col != nextCoords.col || currCoords.row != nextCoords.row) {
                 movePiece();
+                if(isOutSide()) {
+                    isValid = false;
+                    break;
+                }
                 chessPiece = board[currCoords.row][currCoords.col];
                 if (isInvalidPosition()) {
                     isValid = false;
@@ -98,6 +100,9 @@ function solve(params) {
         else {
             direction.y = 0;
         }
+    }
+    function isOutSide() {
+        return currCoords.col >= cols || currCoords.col < 0 || currCoords.row >= rows || currCoords.row < 0;
     }
 
     function movePiece() {

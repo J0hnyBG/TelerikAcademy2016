@@ -1,107 +1,56 @@
-//TODO: 50/100
-function solve(args) {
-    Array.prototype.clean = function (deleteValue) {
-        for (var i = 0; i < this.length; i++) {
-            if (this[i] == deleteValue) {
-                this.splice(i, 1);
-                i--;
-            }
-        }
-        return this;
-    };
+function solve(params) {
+    var nk = params[0].split(' ').map(Number),
+        array = params[1].split(' ').map(Number),
+        previous,
+        next,
+        n = nk[0],
+        k = nk[1],
+        result = array.slice();
+    //Loop through number of transformations
 
-    var lines = args.map(function (s) {
-            return s.trim()
-        }),
-        inSelector = false,
-        selectors = {},
-        props = [],
-        selectorName = '',
-        i;
+    for (var j = 0; j < k; j++) {
+        //Transformation loop
+        for (var i = 0; i < n; i++) {
+            var current = array[i];
 
-
-    for (i = 0; i < lines.length; i++) {
-        var line = lines[i];
-
-        if (line[line.length - 1] === '{') {
-            inSelector = true;
-            line = line.split('{');
-            selectorName = minifySelector(line[0]);
-        }
-        else if (line[0] === '}') {
-            inSelector = false;
-            if (selectors[selectorName]) {
-                mergeSelectors(selectors[selectorName], props);
+            if (i === 0) {
+                previous = array[n - 1];
             }
             else {
-                selectors[selectorName] = props.slice();
+                previous = array[i - 1];
             }
-            props = [];
-        }
-        else {
-            props.push(parseProperty(line));
-        }
-    }
-    var result = '';
-    for (var sel in selectors) {
-        if (selectors.hasOwnProperty(sel)) {
-            result = result + sel + selectors[sel].join(';') + '}';
-        }
-    }
-    console.log(result);
-
-    function parseProperty(str) {
-        return str.replace(/ |;/g, '');
-    }
-
-    function mergeSelectors(sel, props) {
-        for (var j = 0; j < props.length; j++) {
-            if (sel.indexOf(props[j]) < 0) {
-                sel.push(props[j]);
+            if (i === n - 1) {
+                next = array[0];
             }
-        }
-    }
-
-    function minifySelector(str) {
-        str = str.split(' ');
-        str.clean('');
-        for (var i = 1; i < str.length; i++) {
-            if (isLetter(str[i][0])) {
-                str[i] = ' ' + str[i];
+            else {
+                next = array[i + 1];
             }
-        }
-        return str.join('') + '{';
-    }
 
-    function isLetter(str) {
-        return str.length === 1 && str.match(/[a-z]/i);
+            if (current === 0) {
+                current = Math.abs(next - previous);
+            }
+            else if (current === 1) {
+                current = next + previous;
+            }
+            else if (current % 2 === 0) {
+                current = Math.max(next, previous);
+            }
+            else {
+                current = Math.min(next, previous);
+            }
+            result[i] = current;
+        }
+        array = result.slice();
+
     }
+    console.log(result.reduce(function (a, b) {
+        return a + b
+    }, 0));
+
 }
 
-
-solve([
-    '        #the-big-b{',
-    '    color: yellow;',
-    '    size: big;',
-    '}',
-    '.muppet         {   ',
-    '    powers: all;',
-    '    skin: fluffy;',
-    '}',
-    '.water-spirit         {',
-    '    powers: water;',
-    '    alignment    : not-good;',
-    '}',
-    'all{',
-    '    meant-for: nerdy-children;',
-    '}',
-    '.muppet      {',
-    '    powers: everything;',
-    '}',
-    'all            .muppet {',
-    '    alignment             :             good                             ;',
-    '}',
-    '.muppet+             .water-sprit{',
-    'power: everything-a-muppet-can-do-and-water;',
-    '}'
-]);
+//215
+solve(['65 0', '2 2 6 0 1 3 6 3 7 7 0 6 3 3 1 1 2 0 4 4 1 0 4 1 1 3 2 0 8 1 9 0 9 3 5 7 4 5 6 4 3 9 6 1 1 0 9 6 0 0 7 5 5 8 4 8 0 0 0 1 0 7 0 1 0']);
+solve(['10 3', '1 9 1 9 1 9 1 9 1 9']);
+solve(['10 10', '0 1 2 3 4 5 6 7 8 9']);
+solve(['10 1', '1 36 1 36 1 36 1 36 1 36']);

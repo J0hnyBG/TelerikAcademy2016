@@ -10,14 +10,13 @@ function solve(params) {
 
     // Selector.prototype = {};
 
-    var sel = [Selector.create("asd", "content"), Selector.create("asd", "content"), Selector.create("asd", "content")];
+    var sel = Selector.create("asd", "content");
+    console.log(sel.name);
+    console.log(sel.content);
 
-    sel.pop();
-    sel.push(Selector.create("push", "content"));
-    console.log(sel);
-    for (var i = 0; i < 10000; i++) {
-        console.log(Math.floor(Math.random() * 100));
-    }
+    // for (var i = 0; i < 10000; i++) {
+    //     console.log(Math.floor(Math.random() * 100));
+    // }
 }
 solve([
 '#the-big-b{',

@@ -1,8 +1,7 @@
 function solve(params) {
-    var sizes = params[0].split(' ');
-    var fieldSize = {rows: +sizes[0], cols: +sizes[1]},
+    var sizes = params[0].split(' '),
+        fieldSize = {rows: +sizes[0], cols: +sizes[1]},
         score = 0,
-        fieldScores = [],
         visitedCells = [],
         field = [],
         currentCoords = {row: fieldSize.rows - 1, col: fieldSize.cols - 1},
@@ -20,12 +19,10 @@ function solve(params) {
         jumps = 0;
     //Initialize score and visited matrices & fill field with moves
     for (var row = 0; row < fieldSize.rows; row++) {
-        fieldScores[row] = [];
         visitedCells[row] = [];
         field[row] = params[row + 1];
-
+        
         for (var col = 0; col < fieldSize.cols; col++) {
-            fieldScores[row][col] = Math.pow(2, row) - col;
             visitedCells[row][col] = false;
         }
     }
@@ -47,7 +44,8 @@ function solve(params) {
     console.log(steppedOnPrevious ? "Sadly the horse is doomed in " + jumps + " jumps" : "Go go Horsy! Collected " + score + " weeds");
 
     function collectScore() {
-        score += fieldScores[currentCoords.row][currentCoords.col];
+        score += getPoints(currentCoords.row,currentCoords.col);
+
     }
 
     function movePawn(indexOfMove) {
@@ -55,12 +53,16 @@ function solve(params) {
         currentCoords.col += moves[indexOfMove][1];
         jumps++;
     }
+
     function currentCellIsVisited() {
         return visitedCells[currentCoords.row][currentCoords.col];
     }
 
     function setVisited() {
         visitedCells[currentCoords.row][currentCoords.col] = true;
+    }
+    function getPoints(row, col) {
+        return Math.pow(2, row) - col;
     }
 }
 solve([

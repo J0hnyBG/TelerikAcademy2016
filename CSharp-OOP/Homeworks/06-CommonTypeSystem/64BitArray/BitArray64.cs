@@ -4,7 +4,7 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal class BitArray64 :IEnumerable<int>
+    internal class BitArray64 : IEnumerable<int>
     {
         public BitArray64(ulong number)
         {
