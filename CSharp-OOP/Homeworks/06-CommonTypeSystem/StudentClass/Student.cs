@@ -12,8 +12,17 @@
         private string _mobilePhone;
         private string _ssn;
 
-        public Student(string firstName, string middleName, string lastName, string ssn, string address,
-            string mobilePhone, string email, uint course, SpecialitiesEnum speciality, UniversitiesEnum university,
+        public Student(
+            string firstName, 
+            string middleName, 
+            string lastName, 
+            string ssn, 
+            string address,
+            string mobilePhone, 
+            string email, 
+            uint course, 
+            SpecialitiesEnum speciality, 
+            UniversitiesEnum university,
             FacultiesEnum faculty)
         {
             this.FirstName = firstName;
@@ -23,15 +32,18 @@
             this.Address = address;
             this.MobilePhone = mobilePhone;
             this.Email = email;
-            Course = course;
-            Speciality = speciality;
-            University = university;
-            Faculty = faculty;
+            this.Course = course;
+            this.Speciality = speciality;
+            this.University = university;
+            this.Faculty = faculty;
         }
 
         internal string FirstName
         {
-            get { return _firstName; }
+            get
+            {
+                return _firstName;
+            }
             set
             {
                 if (string.IsNullOrEmpty(value))
