@@ -8,20 +8,10 @@
 
     public class ExtendedCreaturesFactory : CreaturesFactory
     {
-        public override Creature CreateCreature(string name)
+         public override Creature CreateCreature(string name)
         {
-            switch ( name )
+            switch (name)
             {
-                case "Angel":
-                    return new Angel();
-                case "Archangel":
-                    return new Archangel();
-                case "ArchDevil":
-                    return new ArchDevil();
-                case "Behemoth":
-                    return new Behemoth();
-                case "Devil":
-                    return new Devil();
                 case "AncientBehemoth":
                     return new AncientBehemoth();
                 case "CyclopsKing":
@@ -33,8 +23,7 @@
                 case "WolfRaider":
                     return new WolfRaider();
                 default:
-                    throw new ArgumentException(
-                        string.Format(CultureInfo.InvariantCulture, "Invalid creature type \"{0}\"!", name));
+                    return base.CreateCreature(name);
             }
         }
     }
