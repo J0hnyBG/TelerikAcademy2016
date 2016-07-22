@@ -1,106 +1,74 @@
 document.addEventListener("DOMContentLoaded", function (ev) {
-    var c = document.getElementById('game'),
+    var circles = [],
+        c = document.getElementById('game'),
         ctx = c.getContext('2d');
-    ctx.rect(0, 0, 800, 600);
-    ctx.stroke();
-    var circles = [
-        {
-            radius: 20,
-            x: 20,
-            y: 20,
-            direction: {x: 1, y: 1},
-            speed: 5,
-            color: "#090"
-        },
-        {
-            radius: 30,
-            x: 150,
-            y: 500,
-            direction: {x: 1, y: 1},
-            speed: 2,
-            color: "#2980b9"
-        },
-        {
-            radius: 10,
-            x: 200,
-            y: 550,
-            direction: {x: -1, y: 1},
-            speed: 7,
-            color: "#009"
-        },
-        {
-            radius: 20,
-            x: 138,
-            y: 20,
-            direction: {x: 1, y: -1},
-            speed: 3,
-            color: "#d35400"
-        },
-        {
-            radius: 14,
-            x: 200,
-            y: 550,
-            direction: {x: 1, y: -1},
-            speed: 4,
-            color: "#8e44ad"
-        },
-        {
-            radius: 7,
-            x: 300,
-            y: 300,
-            direction: {x: -1, y: 1},
-            speed: 3.5,
-            color: "#2c3e50"
-        },
-        {
-            radius: 18,
-            x: 600,
-            y: 20,
-            direction: {x: 1, y: 1},
-            speed: 3,
-            color: "#c0392b"
-        },
-        {
-            radius: 8,
-            x: 20,
-            y: 550,
-            direction: {x: -1, y: -1},
-            speed: 2,
-            color: "#16a085"
-        }];
-    requestAnimationFrame(repeatOften);
-    function repeatOften() {
-        drawCircles();
-        for (var i = 0; i < circles.length; i++) {
-            var cir = circles[i];
-            moveCircle(cir);
-            checkOutOfBounds(cir);
+    const numberOfCircles = 25;
+    const maxSpeed = 5;
+    const minSpeed = 1;
+    const maxRadius = 30;
+    const minRadius = 4;
+
+    //Initialize circles
+    for (var i = 0; i < numberOfCircles; i++) {
+        circles[i] = {
+            //Get radius between minRadius and maxRadius
+            radius: Math.floor(Math.random() * (maxRadius - minRadius)) + minRadius,
+            //Initially not positioned, because we need a radius, otherwise they'll get stuck
+            x: 0,
+            y: 0,
+            //Get x and y directions -1 or 1
+            direction: {
+                x: Math.random() < 0.5 ? -1 : 1,
+                y: Math.random() < 0.5 ? -1 : 1
+            },
+            //Get speed between minSpeed and maxSpeed
+            speed: Math.floor((Math.random() * maxSpeed)) + minSpeed,
+            color: getRandomColor()
         }
-        requestAnimationFrame(repeatOften);
+        circles[i].x = Math.floor(Math.random() * (c.width - circles[i].radius * 2 )) + circles[i].radius;
+        circles[i].y = Math.floor(Math.random() * (c.height - circles[i].radius * 2 )) + circles[i].radius;
     }
 
-    function moveCircle(circle) {
-        circle.x += circle.direction.x * circle.speed;
-        circle.y += circle.direction.y * circle.speed;
+    requestAnimationFrame(mainLogic);
+
+    //Gets random number and converts it to hex color
+    function getRandomColor() {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
 
-    function drawCircles() {
+    //Contains the animation and movement main logic
+    function mainLogic() {
+        //Clear canvas for redrawing
         ctx.clearRect(0, 0, c.width, c.height);
-        for (var i = 0; i < circles.length; i++) {
-            ctx.beginPath();
-            ctx.arc(circles[i].x, circles[i].y, circles[i].radius, 0, 2 * Math.PI, true);
-            ctx.closePath();
-            ctx.fillStyle = circles[i].color;
-            ctx.fill();
-        }
-    }
 
-    function checkOutOfBounds(actor) {
-        if (actor.y + actor.radius > c.height || actor.y - actor.radius < 0) {
-            actor.direction.y = -actor.direction.y;
+        for (var i = 0; i < circles.length; i++) {
+            var circle = circles[i];
+            drawCircle(circle);
+            moveActor(circle);
+            changeCircleDirectionIfNessesary(circle);
         }
-        if (actor.x + actor.radius > c.width || actor.x - actor.radius < 0) {
-            actor.direction.x = -actor.direction.x;
+        requestAnimationFrame(mainLogic);
+    }
+    //Move a specific circle
+    function moveActor(actor) {
+        actor.x += actor.direction.x * actor.speed;
+        actor.y += actor.direction.y * actor.speed;
+    }
+    //Draw a specific circle
+    function drawCircle(circle) {
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI, true);
+        ctx.closePath();
+        ctx.fillStyle = circle.color;
+        ctx.fill();
+    }
+    //Inverts direction if the circle has hit a wall
+    function changeCircleDirectionIfNessesary(circle) {
+        if (circle.y + circle.radius > c.height || circle.y - circle.radius < 0) {
+            circle.direction.y = - circle.direction.y;
+        }
+        if (circle.x + circle.radius > c.width || circle.x - circle.radius < 0) {
+            circle.direction.x = - circle.direction.x;
         }
     }
 });
