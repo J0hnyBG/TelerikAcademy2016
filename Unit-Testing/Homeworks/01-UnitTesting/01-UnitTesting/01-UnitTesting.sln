@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsAndCourses", "StudentsAndCourses\StudentsAndCourses.csproj", "{EAFA520E-76B9-4EFC-BE2C-42A0395A328D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsAndCourses.Tests", "StudentsAndCourses.Tests\StudentsAndCourses.Tests.csproj", "{D76B1BBB-DFA9-4D98-9AA5-EE2BC2703917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santase.Logic", "SantaseGameEngine\Source\Santase.Logic\Santase.Logic.csproj", "{C82BEBF4-ED79-48FB-A2AB-4E0D1767B95F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santase.Logic.Tests", "Santase.Logic.Deck.Tests\Santase.Logic.Tests.csproj", "{DCC7CCBA-3393-43F4-9949-864C670C599C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAFA520E-76B9-4EFC-BE2C-42A0395A328D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFA520E-76B9-4EFC-BE2C-42A0395A328D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFA520E-76B9-4EFC-BE2C-42A0395A328D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFA520E-76B9-4EFC-BE2C-42A0395A328D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76B1BBB-DFA9-4D98-9AA5-EE2BC2703917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76B1BBB-DFA9-4D98-9AA5-EE2BC2703917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76B1BBB-DFA9-4D98-9AA5-EE2BC2703917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76B1BBB-DFA9-4D98-9AA5-EE2BC2703917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82BEBF4-ED79-48FB-A2AB-4E0D1767B95F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82BEBF4-ED79-48FB-A2AB-4E0D1767B95F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82BEBF4-ED79-48FB-A2AB-4E0D1767B95F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82BEBF4-ED79-48FB-A2AB-4E0D1767B95F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCC7CCBA-3393-43F4-9949-864C670C599C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCC7CCBA-3393-43F4-9949-864C670C599C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCC7CCBA-3393-43F4-9949-864C670C599C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCC7CCBA-3393-43F4-9949-864C670C599C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
