@@ -1,16 +1,23 @@
 function solve() {
     return function (selector, isCaseSensitive) {
-        var element = document.querySelector(selector),
-            addElement = createAddElement(),
-            searchElement = createSearchElement(),
-            resultsElement = createResultsElement();
-
+        var element = document.querySelector(selector);
         isCaseSensitive = isCaseSensitive || false;
-
+        var addElement = createAddElement();
+        var searchElement = createSearchElement();
+        var resultsElement = createResultsElement();
         element.className += ' items-control';
         element.appendChild(addElement);
         element.appendChild(searchElement);
         element.appendChild(resultsElement);
+
+        function createResultsElement() {
+            var el = document.createElement('div');
+            el.className += ' result-controls';
+            var list = document.createElement('ul');
+            list.className += ' items-list';
+            el.appendChild(list);
+            return el;
+        }
 
         function createAddElement() {
             var el = document.createElement('div');
@@ -46,16 +53,6 @@ function solve() {
             return el;
         }
 
-        function createResultsElement() {
-            var el = document.createElement('div');
-            el.className += ' result-controls';
-            var list = document.createElement('ul');
-            list.className += ' items-list';
-            list.addEventListener('click', deleteParent, false);
-            el.appendChild(list);
-            return el;
-        }
-
         function addNewListItem(ev) {
             var list = document.querySelector('.items-list');
             var listItem = document.createElement('li');
@@ -67,6 +64,8 @@ function solve() {
             button.innerHTML = 'X';
             button.className += ' button';
 
+            button.addEventListener('click', deleteParent, false);
+
             listItem.appendChild(button);
             listItem.appendChild(text);
             list.appendChild(listItem);
@@ -75,18 +74,19 @@ function solve() {
 
         function searchListItems(ev) {
             var listItems = document.getElementsByClassName('list-item');
-            var textToSearch = ev.target.value;
+            var searchInput = ev.target;
 
             for (var i = 0; i < listItems.length; i++) {
                 var item = listItems[i],
-                    contentToSearch = item.lastElementChild.innerHTML.trim();
+                    search = searchInput.value,
+                    textToSearch = item.innerText.substr(1).trim();
 
                 if (!isCaseSensitive) {
+                    search = search.toLowerCase();
                     textToSearch = textToSearch.toLowerCase();
-                    contentToSearch = contentToSearch.toLowerCase();
                 }
 
-                if (contentToSearch.indexOf(textToSearch) < 0) {
+                if (textToSearch.indexOf(search) < 0) {
                     item.style.display = 'none';
                 }
                 else {
@@ -97,10 +97,7 @@ function solve() {
 
         function deleteParent(ev) {
             var parent = ev.target.parentNode;
-            var target = ev.target;
-            if (target.tagName === 'BUTTON') {
-                parent.outerHTML = '';
-            }
+            parent.parentNode.removeChild(parent);
         }
     };
 }
