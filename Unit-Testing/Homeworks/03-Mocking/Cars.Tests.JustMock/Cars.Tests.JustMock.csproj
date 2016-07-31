@@ -42,9 +42,8 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-    <Reference Include="Telerik.JustMock, Version=2015.3.929.5, Culture=neutral, PublicKeyToken=721b6c5bc0326b3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\JustMock.2015.3.929.5\lib\Net35\Telerik.JustMock.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Telerik.JustMock">
+      <HintPath>../packages/JustMock.2015.3.929.5/lib/Net35/Telerik.JustMock.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

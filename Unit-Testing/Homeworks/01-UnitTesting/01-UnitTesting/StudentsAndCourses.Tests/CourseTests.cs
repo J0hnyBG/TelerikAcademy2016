@@ -3,12 +3,15 @@
     using System;
     using MSTestExtensions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using StudentsAndCourses.Models;
+    using StudentsAndCourses.Common;
 
     [TestClass]
     public class CourseTests
     {
+
         [TestMethod]
-        public void Course_TryToAddExistingStudent_ShouldThrow()
+        public void AddStudent_WhenStudentAlreadyExists_ShouldThrowInvalidOperationExceptionWithCorrectMessage()
         {
             School.ListOfStudents.Clear();
             var student = new Student("Petar", 12345u);
@@ -16,20 +19,23 @@
 
             course.AddStudent(student);
 
-            ThrowsAssert.Throws<InvalidOperationException>(() => course.AddStudent(student));
+            var ex = ThrowsAssert.Throws<InvalidOperationException>(() => course.AddStudent(student));
+            StringAssert.Contains(GlobalErrorMessages.CannodAddSameStudentTwiceErrorMessage, ex.Message);
         }
 
         [TestMethod]
-        public void Course_TryToAddNullStudent_ShouldThrow()
+        public void AddStudent_WhenStudentIsNull_ShouldThrowArgumentNullExceptionWithCorrectMessage()
         {
             School.ListOfStudents.Clear();
             var course = new Course();
 
-            ThrowsAssert.Throws<ArgumentNullException>(() => course.AddStudent(null));
+            var ex = ThrowsAssert.Throws<ArgumentNullException>(() => course.AddStudent(null));
+            StringAssert.Contains(ex.Message, "student");
+
         }
 
         [TestMethod]
-        public void Course_AddStudentStudent_ShouldAdd()
+        public void AddStudent_ShouldAddStudentToListOfStudentsCorrectly()
         {
             School.ListOfStudents.Clear();
             var course = new Course();
@@ -40,15 +46,16 @@
         }
 
         [TestMethod]
-        public void Course_TryToRemoveNullStudent_ShouldThrow()
+        public void RemoveStudent_WhenStudentIsNull_ShouldThrowArgumentExceptionWithCorrectMessage()
         {
             var course = new Course();
 
-            ThrowsAssert.Throws<ArgumentException>(() => course.RemoveStudent(null));
+            var ex = ThrowsAssert.Throws<ArgumentException>(() => course.RemoveStudent(null));
+            StringAssert.Contains(GlobalErrorMessages.CannotRemoveNullStudentErrorMessage, ex.Message);
         }
 
         [TestMethod]
-        public void Course_RemoveStudent_ShouldRemoveStudent()
+        public void RemoveStudent_ShouldRemoveStudent()
         {
             School.ListOfStudents.Clear();
             var student = new Student("Petar Petrov", 56487u);
@@ -61,7 +68,7 @@
         }
 
         [TestMethod]
-        public void Student_TryToAddMoreThan30Students_ShouldThrow()
+        public void AddMoreThan30Students_ShouldThrowInvalidOperationExceptionWithCorrectMessage()
         {
             School.ListOfStudents.Clear();
             var course = new Course();
@@ -71,7 +78,9 @@
                course.AddStudent(new Student("Student " + i, 12000 + i));
             }
 
-            ThrowsAssert.Throws<InvalidOperationException>(() => course.AddStudent(new Student("Petar", 21365u)));
+            var ex = ThrowsAssert.Throws<InvalidOperationException>(() => course.AddStudent(new Student("Petar", 21365u)));
+            StringAssert.Contains(GlobalErrorMessages.StudentsCannotBeMoreThan30ErrorMessage, ex.Message);
+
         }
 
     }

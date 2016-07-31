@@ -1,6 +1,7 @@
-﻿namespace StudentsAndCourses
+﻿namespace StudentsAndCourses.Models
 {
     using System;
+    using StudentsAndCourses.Common;
 
     public class Student
     {
@@ -21,7 +22,7 @@
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Student _name cannot be empty!");
+                    throw new ArgumentException(GlobalErrorMessages.StudentNameCannotBeEmpty);
                 }
                 this._name = value;
             }
@@ -32,9 +33,9 @@
             get { return this._number; }
             private set
             {
-                if (value > 99999 || value < 10000)
+                if (value > Constants.MaxStudentNumber || value < Constants.MinStudentNumber)
                 {
-                    throw new ArgumentException("Student _number must be between 10000 and 99999");
+                    throw new ArgumentException(GlobalErrorMessages.StudentNumberNotInRange);
                 }
                 this._number = value;
             }

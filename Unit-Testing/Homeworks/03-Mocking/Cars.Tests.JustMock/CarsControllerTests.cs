@@ -55,7 +55,7 @@
         [ExpectedException(typeof(ArgumentException))]
         public void SortingCars_ShouldThrowArgumentException_WhenInvalidCritetiaIsProvided()
         {
-            this.controller.Sort("byInvalidCriteria");
+            this.controller.Sort("byInvalidCriteria_sdf45dfruyuXsdASDAs34324432#$AS@!");
         }
 
         [TestMethod]

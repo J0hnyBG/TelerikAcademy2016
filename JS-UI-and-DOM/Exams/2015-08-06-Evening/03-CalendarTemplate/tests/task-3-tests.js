@@ -29,9 +29,9 @@ describe('Task #3 Tests', function () {
     it('expect to generate the HTML with the example data', function () {
         document.body.innerHTML = '<script id="template"></script>';
         var $You_WhatIt_BUT_NO = $;
-        $ = undefined; // disable jQuery for the result
+        //$ = undefined; // disable jQuery for the result
         result('template');
-        $ = $You_WhatIt_BUT_NO;
+        //$ = $You_WhatIt_BUT_NO;
 
         var data = {
             year: 2015,

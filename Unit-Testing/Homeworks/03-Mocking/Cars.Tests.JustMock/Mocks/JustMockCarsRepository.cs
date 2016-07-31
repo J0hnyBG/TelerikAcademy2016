@@ -18,9 +18,13 @@ namespace Cars.Tests.JustMock.Mocks
             Mock.Arrange(() => this.CarsData.All()).Returns(this.FakeCarCollection);
             Mock.Arrange(() => this.CarsData.Search(Arg.AnyString)).Returns(this.FakeCarCollection.Where(c => c.Make == "BMW").ToList());
             //HW
+            //Valid indexes
             Mock.Arrange(() => this.CarsData.GetById(Arg.IsInRange(1, int.MaxValue, RangeKind.Inclusive))).Returns(this.FakeCarCollection.First());
+            //Invalid indexes
             Mock.Arrange(() => this.CarsData.GetById(Arg.IsInRange(int.MinValue, 0, RangeKind.Inclusive))).Returns((Car)null);
+            //Return fake car collection sorted by make
             Mock.Arrange(() => this.CarsData.SortedByMake()).Returns(this.FakeCarCollection.OrderBy(x => x.Make).ToList());
+            //Return fake car collection sorted by year
             Mock.Arrange(() => this.CarsData.SortedByYear()).Returns(this.FakeCarCollection.OrderBy(x => x.Year).ToList());
         }
     }

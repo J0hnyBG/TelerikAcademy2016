@@ -29,3 +29,6 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: InternalsVisibleTo("Santase.Logic.Tests")]
+[assembly: InternalsVisibleTo("NUnit.Framework")]
+
+// [assembly: InternalsVisibleTo("Santase.Logic.Tests")]

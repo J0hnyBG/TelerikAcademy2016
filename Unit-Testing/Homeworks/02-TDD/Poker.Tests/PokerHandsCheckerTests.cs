@@ -15,7 +15,7 @@
         }
 
         [TestCaseSource(nameof(IsValidHandTestCases))]
-        public void IsValidHand(bool expected, Hand hand)
+        public void IsValidHand_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsValidHand(hand);
 
@@ -28,10 +28,9 @@
         {
             new object[]
             {
-                true,
+                true, //Valid hand
                 new Hand(new List<ICard>()
                 {
-                    //Valid hand
                     new Card(CardFace.Five, CardSuit.Spades),
                     new Card(CardFace.Two, CardSuit.Spades),
                     new Card(CardFace.Ten, CardSuit.Spades),
@@ -41,10 +40,9 @@
             },
             new object[]
             {
-                false,
+                false, //Invalid hand - two equal cards
                 new Hand(new List<ICard>()
                 {
-                    //Invalid hand - two equal cards
                     new Card(CardFace.Ace, CardSuit.Diamonds),
                     new Card(CardFace.Queen, CardSuit.Diamonds),
                     new Card(CardFace.King, CardSuit.Clubs),
@@ -54,10 +52,21 @@
             },
             new object[]
             {
-                false,
+                false, //Invalid hand - four equal cards
                 new Hand(new List<ICard>()
                 {
-                    //Invalid hand - too few cards
+                    new Card(CardFace.Ace, CardSuit.Diamonds),
+                    new Card(CardFace.Ace, CardSuit.Diamonds),
+                    new Card(CardFace.King, CardSuit.Clubs),
+                    new Card(CardFace.Ace, CardSuit.Diamonds),
+                    new Card(CardFace.Ace, CardSuit.Diamonds),
+                }),
+            },
+            new object[]
+            {
+                false, //Invalid hand - too few cards
+                new Hand(new List<ICard>()
+                {
                     new Card(CardFace.Ace, CardSuit.Diamonds),
                     new Card(CardFace.Queen, CardSuit.Diamonds),
                     new Card(CardFace.King, CardSuit.Clubs),
@@ -66,10 +75,9 @@
             },
             new object[]
             {
-                false,
+                false, //Invalid hand - too many cards
                 new Hand(new List<ICard>()
                 {
-                    //Invalid hand - too many cards
                     new Card(CardFace.Ace, CardSuit.Diamonds),
                     new Card(CardFace.Queen, CardSuit.Diamonds),
                     new Card(CardFace.King, CardSuit.Clubs),
@@ -83,7 +91,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsFlushTestCases))]
-        public void IsFlushHand(bool expected, Hand hand)
+        public void IsFlushHand_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsFlush(hand);
 
@@ -124,8 +132,8 @@
         #endregion
 
         [TestCaseSource(nameof(IsStraightFlushTestCases))]
-        public void IsStraightFlushHand(bool expected,
-            Hand hand)
+        public void IsStraightFlushHand_ShouldReturnExpectedValue(bool expected,
+            IHand hand)
         {
             var result = PokerHandsChecker.IsStraightFlush(hand);
 
@@ -179,7 +187,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsFourOfAKindTestCases))]
-        public void IsFourOfAKind(bool expected, Hand hand)
+        public void IsFourOfAKind_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsFourOfAKind(hand);
 
@@ -188,6 +196,7 @@
 
         private static List<object> IsFourOfAKindTestCases = new List<object>()
             #region IsFourOfAKindTestCases
+
         {
             new object[]
             {
@@ -233,7 +242,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsStraightTestCases))]
-        public void IsStraight(bool expected, Hand hand)
+        public void IsStraight_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsStraight(hand);
 
@@ -288,7 +297,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsThreeOfAKindTestCases))]
-        public void IsThreeOfAKind(bool expected, Hand hand)
+        public void IsThreeOfAKind_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsThreeOfAKind(hand);
 
@@ -343,7 +352,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsTwoPairTestCases))]
-        public void IsTwoPair(bool expected, Hand hand)
+        public void IsTwoPair_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsTwoPair(hand);
 
@@ -398,7 +407,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsFullHouseTestCases))]
-        public void IsFullHouse(bool expected, Hand hand)
+        public void IsFullHouse_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsFullHouse(hand);
 
@@ -466,7 +475,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsOnePairTestCases))]
-        public void IsOnePair(bool expected, Hand hand)
+        public void IsOnePair_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsOnePair(hand);
 
@@ -547,7 +556,7 @@
         #endregion
 
         [TestCaseSource(nameof(IsHighCardTestCases))]
-        public void IsHighCard(bool expected, Hand hand)
+        public void IsHighCard_ShouldReturnExpectedValue(bool expected, IHand hand)
         {
             var result = PokerHandsChecker.IsHighCard(hand);
 
@@ -650,6 +659,7 @@
                 }),
             }
         };
+
         #endregion
     }
 }

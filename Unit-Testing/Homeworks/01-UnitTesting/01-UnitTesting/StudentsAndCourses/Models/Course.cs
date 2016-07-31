@@ -1,7 +1,8 @@
-﻿namespace StudentsAndCourses
+﻿namespace StudentsAndCourses.Models
 {
     using System;
     using System.Collections.Generic;
+    using StudentsAndCourses.Common;
 
     public class Course
     {
@@ -18,13 +19,13 @@
             {
                 throw new ArgumentNullException(nameof(student));
             }
-            if (this.Students.Count > 30)
+            if (this.Students.Count > Constants.MaxStudentsPerCourse)
             {
-                throw new InvalidOperationException("Students in a course can not be more than 30!");
+                throw new InvalidOperationException(GlobalErrorMessages.StudentsCannotBeMoreThan30ErrorMessage);
             }
             if (this.Students.Contains(student))
             {
-                throw new InvalidOperationException("Cannot add the same student twice!");
+                throw new InvalidOperationException(GlobalErrorMessages.CannodAddSameStudentTwiceErrorMessage);
             }
             this.Students.Add(student);
         }
@@ -33,7 +34,7 @@
         {
             if ( st == null )
             {
-                throw new ArgumentException("Cannot remove null student!");
+                throw new ArgumentException(GlobalErrorMessages.CannotRemoveNullStudentErrorMessage);
             }
             return this.Students.Remove(st);
         }
