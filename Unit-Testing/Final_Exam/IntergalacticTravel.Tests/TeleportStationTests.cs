@@ -280,7 +280,7 @@ namespace IntergalacticTravel.Tests
             mockedCostToTravel.SetupGet(x => x.GoldCoins).Returns(1);
             mockedCostToTravel.SetupGet(x => x.SilverCoins).Returns(1);
             mockedPath.SetupGet(x => x.Cost).Returns(mockedCostToTravel.Object);
-            mockedUnit.Setup(x => x.Pay(It.IsAny<IResources>())).Returns(mockedCostToTravel.Object);
+            mockedUnit.Setup(x => x.Pay(mockedCostToTravel.Object)).Returns(mockedCostToTravel.Object);
 
             mockedPath.SetupGet(x => x.TargetLocation).Returns(mockedLocationToTeleportTo.Object);
             mockedPath.SetupGet(x => x.TargetLocation.Planet.Galaxy.Name).Returns("Milky Way");
@@ -296,7 +296,7 @@ namespace IntergalacticTravel.Tests
             //Act
             teleportStation.TeleportUnit(mockedUnit.Object, mockedLocationToTeleportTo.Object);
             //Assert
-            mockedUnit.Verify(x => x.Pay(It.IsAny<IResources>()), Times.Once);
+            mockedUnit.Verify(x => x.Pay(mockedCostToTravel.Object), Times.Once);
         }
 
         [Test]
