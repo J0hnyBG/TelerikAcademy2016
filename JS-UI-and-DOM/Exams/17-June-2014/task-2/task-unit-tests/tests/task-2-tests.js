@@ -81,8 +81,8 @@ describe('Task #1 Tests', function () {
     document.body.innerHTML = html;
     var rootId = 'gallery';
     result();
-    $('#' + rootId).gallery();
-    expect($('.gallery')).to.has.length(1);
+    $('.' + rootId).gallery();
+    expect($('.gallery')).to.has.length == 1;
   });
 
   it('expect to have 4 columns, without passing a param', function () {
