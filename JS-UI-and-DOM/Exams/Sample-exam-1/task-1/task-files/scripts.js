@@ -25,7 +25,7 @@ function createCalendar(selector, data) {
 
         var itemBody = document.createElement('div');
 
-        var dayTasks = data.filter(function( obj ) {
+        var dayTasks = data.filter(function(obj) {
             return +obj.date == (i + 1);
         });
 

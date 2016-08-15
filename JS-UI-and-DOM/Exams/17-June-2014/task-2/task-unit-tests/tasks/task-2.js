@@ -1,7 +1,9 @@
-function solve() {
-  return function () {
+function solve(cols) {
+  return function (cols) {
     /* globals $ */
-    $.fn.gallery = function () {
+    $.fn.gallery = function (cols) {
+        cols = cols || 4;
+      
     };
   };
 }
