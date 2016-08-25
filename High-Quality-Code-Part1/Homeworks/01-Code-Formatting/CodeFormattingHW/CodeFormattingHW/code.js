@@ -1,15 +1,18 @@
 ﻿b = navigator.appName;
 addScroll = false;
+
+var off = 0,
+    txt = "",
+    pX = 0,
+    pY = 0;
+
 if ((navigator.userAgent.indexOf('MSIE 5') > 0) || (navigator.userAgent.indexOf('MSIE 6')) > 0) {
     addScroll = true;
 }
-var off = 0;
-var txt = "";
-var pX = 0;
-var pY = 0;
+
 document.onmousemove = mouseMove;
 if (b == "Netscape") {
-    document.captureEvents(Event.MOUSEMOVE)
+    document.captureEvents(Event.MOUSEMOVE);
 };
 
 function mouseMove(evn) {
