@@ -94,3 +94,10 @@
          showBookDetails(Number(bookItem.getAttribute('data-id')));
      });
  };
+
+ const k = 5;
+ let i = 0;
+
+ for (var j of [0]) {
+
+ }

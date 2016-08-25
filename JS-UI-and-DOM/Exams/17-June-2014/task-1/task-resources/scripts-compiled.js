@@ -1,5 +1,7 @@
+'use strict';
+
 function createImagesPreviewer(selector, items) {
-    const root = document.querySelector(selector);
+    var root = document.querySelector(selector);
     root.className += ' image-previewer';
 
     var table = document.createElement('table');
@@ -68,7 +70,8 @@ function createImagesPreviewer(selector, items) {
 
     /* End of right panel */
 
-
     theRow.appendChild(leftPanel);
     theRow.appendChild(rightPanel);
 }
+
+//# sourceMappingURL=scripts-compiled.js.map
