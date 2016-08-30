@@ -94,7 +94,6 @@ function ShowMenu1() {
     }
 }
 
-//
 function HideMenu2() {
     if (b == "Netscape") {
         document.layers['menu2'].visibility = 'hide';
@@ -112,4 +111,3 @@ function ShowMenu2() {
         theLayer.style.visibility = 'visible';
     }
 }
-// fostata

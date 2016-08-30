@@ -1,20 +1,21 @@
-﻿
-namespace FurnitureManufacturer.Models
+﻿namespace FurnitureManufacturer.Models
 {
     using FurnitureManufacturer.Models.Common;
     using FurnitureManufacturer.Interfaces;
 
     public class ConvertibleChair : Chair, IConvertibleChair
     {
-        public ConvertibleChair(string model, MaterialType material, decimal price, decimal height, int numberOfLegs) : base(model, material, price, height, numberOfLegs)
+        public ConvertibleChair(string model, MaterialType material, decimal price, decimal height, int numberOfLegs)
+            : base(model, material, price, height, numberOfLegs)
         {
             this.IsConverted = false;
         }
 
         public bool IsConverted { get; private set; }
+
         public void Convert()
         {
-            if (IsConverted)
+            if (this.IsConverted)
             {
                 this.Height -= Constants.ConvertibleChairHeightDelta;
                 this.IsConverted = false;
