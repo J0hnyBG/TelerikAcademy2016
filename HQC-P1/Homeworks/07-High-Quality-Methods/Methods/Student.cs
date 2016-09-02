@@ -26,10 +26,10 @@
         /// <returns>True if this instance's date of birth precedes the other ones, false otherwise.</returns>
         public bool IsOlderThan(Student other)
         {
-            var firstDateAsString = ExtractDateOfBirthStringFromOtherInfo(this);
+            var firstDateAsString = this.ExtractDateOfBirthStringFromOtherInfo(this);
             var firstDate = DateTime.Parse(firstDateAsString);
 
-            var secondDateAsString = ExtractDateOfBirthStringFromOtherInfo(other);
+            var secondDateAsString = this.ExtractDateOfBirthStringFromOtherInfo(other);
             var secondDate = DateTime.Parse(secondDateAsString);
 
             return firstDate < secondDate;
@@ -40,7 +40,7 @@
         /// </summary>
         /// <param name="student">The Student object.</param>
         /// <returns>A date string.</returns>
-        private static string ExtractDateOfBirthStringFromOtherInfo(Student student)
+        private string ExtractDateOfBirthStringFromOtherInfo(Student student)
         {
             var dateAsString = student.OtherInfo.Substring(student.OtherInfo.Length - 10);
 

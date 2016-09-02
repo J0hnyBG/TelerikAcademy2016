@@ -1,9 +1,10 @@
 ﻿namespace Methods
 {
     using System;
+    using System.Numerics;
 
     /// <summary>
-    /// A collection of methods for a homework.
+    /// A collection of methods for the high quality methods homework.
     /// </summary>
     public class Methods
     {
@@ -90,12 +91,29 @@
         }
 
         /// <summary>
-        /// Prints a number to the console, according to a specified format.
+        /// Prints a number to the console according to a specified format.
         /// </summary>
         /// <param name="number">The number to be printed.</param>
         /// <param name="format">The format string.</param>
         private static void PrintAsNumber(object number, string format)
         {
+            if (number == null || (
+                !(number is sbyte) 
+                && !(number is byte) 
+                && !(number is short) 
+                && !(number is ushort) 
+                && !(number is int) 
+                && !(number is uint)
+                && !(number is long) 
+                && !(number is ulong) 
+                && !(number is float) 
+                && !(number is double) 
+                && !(number is decimal)
+                && !(number is BigInteger)))
+            {
+                throw new ArgumentException("Passed value is not a number!");
+            }
+
             switch (format)
             {
                 case "f":
@@ -127,7 +145,7 @@
         }
 
         /// <summary>
-        /// Converts two points in a plane to two booleans, indicating whether there is a horizontal or vertical distance between them. 
+        /// Accepts two points in a plane and outputs two booleans, indicating whether there is a horizontal or vertical distance between the points. 
         /// </summary>
         /// <param name="x1">First point x coordinate.</param>
         /// <param name="y1">First point y coordinate.</param>
@@ -143,11 +161,11 @@
             out bool isHorizontal,
             out bool isVertical)
         {
-            // Compare the absolute difference between two points with an arbitrary tolerance 
+            // Compare the absolute difference between two points with a tolerance 
             // to prevent rounding errors.
             const double Tolerance = 0.000000000001;
-            isHorizontal = Math.Abs(y1 - y2) < Tolerance;
-            isVertical = Math.Abs(x1 - x2) < Tolerance;
+            isHorizontal = Math.Abs(y1 - y2) > Tolerance;
+            isVertical = Math.Abs(x1 - x2) > Tolerance;
         }
 
         /// <summary>
@@ -171,7 +189,7 @@
             var y1 = 3;
             var y2 = 2.5;
             Console.WriteLine(CalcDistance(x1, x2, y1, y2));
-            GetDirections(x1, x2, y1, y2, out horizontal, out vertical);
+            GetDirections(x1, y1, x2, y2, out horizontal, out vertical);
             Console.WriteLine("Horizontal? " + horizontal);
             Console.WriteLine("Vertical? " + vertical);
 

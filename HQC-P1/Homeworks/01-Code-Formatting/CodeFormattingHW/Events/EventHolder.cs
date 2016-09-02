@@ -37,6 +37,7 @@
         {
             OrderedBag<Event>.View eventsToShow = this.byDate.RangeFrom(new Event(date, string.Empty, string.Empty), true);
             var showed = 0;
+
             foreach (var eventToShow in eventsToShow)
             {
                 if (showed == count)

@@ -80,6 +80,7 @@
                                           out string eventLocation)
         {
             dateAndTime = GetDate(commandForExecution, commandType);
+
             var firstPipeIndex = commandForExecution.IndexOf('|');
             var lastPipeIndex = commandForExecution.LastIndexOf('|');
 
