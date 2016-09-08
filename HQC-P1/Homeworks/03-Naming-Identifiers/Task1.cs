@@ -12,7 +12,7 @@
 
     public static void WriteTrueToConsole()
     {
-        Writer.ConsoleWriter consoleWriter = new Writer.ConsoleWriter();
+        ConsoleWriter consoleWriter = new ConsoleWriter();
         consoleWriter.WriteBoolToConsole(true);
     }
 }

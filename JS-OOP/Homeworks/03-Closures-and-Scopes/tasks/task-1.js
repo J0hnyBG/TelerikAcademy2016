@@ -25,7 +25,7 @@ function solve() {
 		var books = [];
 		var categories = [];
 		function listBooks(args) {
-		    if(args && args.category) {
+            if(args && args.category) {
 		        return books.filter(x => x.category === args.category);
             }
 

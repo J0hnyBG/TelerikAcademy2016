@@ -2,39 +2,33 @@
 {
     public static class CuboidCalculator
     {
-        public static double Width { get; set; }
-
-        public static double Height { get; set; }
-
-        public static double Depth { get; set; }
-
-        public static double CalcVolume()
+        public static double CalcVolume(double width, double height, double depth)
         {
-            double volume = Width * Height * Depth;
+            double volume = width * height * depth;
             return volume;
         }
 
-        public static double CalcDiagonalXYZ()
+        public static double CalcDiagonalXYZ(double width, double height, double depth)
         {
-            double distance = EuclideanDistanceCalculator.CalcDistance3D(0, 0, 0, Width, Height, Depth);
+            double distance = EuclideanDistanceCalculator.CalcDistance3D(0, 0, 0, width, height, depth);
             return distance;
         }
 
-        public static double CalcDiagonalXY()
+        public static double CalcDiagonalXY(double width, double height)
         {
-            double distance = EuclideanDistanceCalculator.CalcDistance2D(0, 0, Width, Height);
+            double distance = EuclideanDistanceCalculator.CalcDistance2D(0, 0, width, height);
             return distance;
         }
 
-        public static double CalcDiagonalXZ()
+        public static double CalcDiagonalXZ(double width, double height)
         {
-            double distance = EuclideanDistanceCalculator.CalcDistance2D(0, 0, Width, Depth);
+            double distance = EuclideanDistanceCalculator.CalcDistance2D(0, 0, width, height);
             return distance;
         }
 
-        public static double CalcDiagonalYZ()
+        public static double CalcDiagonalYZ(double width, double height)
         {
-            double distance = EuclideanDistanceCalculator.CalcDistance2D(0, 0, Height, Depth);
+            double distance = EuclideanDistanceCalculator.CalcDistance2D(0, 0, width, height);
             return distance;
         }
     }

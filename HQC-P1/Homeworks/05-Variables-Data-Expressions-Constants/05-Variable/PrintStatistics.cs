@@ -8,6 +8,7 @@
             max = arr[i];
         }
     }
+
     PrintMax(max);
 
     double min = Double.MaxValue;
@@ -18,6 +19,7 @@
             min = arr[i];
         }
     }
+
     PrintMin(min);
 
     double sum = 0;
@@ -25,5 +27,6 @@
     {
         sum += arr[i];
     }
+
     PrintAvg(sum / count);
 }

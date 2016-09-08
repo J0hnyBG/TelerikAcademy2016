@@ -15,11 +15,19 @@
         /// <param name="b">Second triangle side.</param>
         /// <param name="c">Third triangle side.</param>
         /// <returns>The calculated area.</returns>
+        /// <exception cref="ArgumentException"></exception>
         private static double CalcTriangleArea(double a, double b, double c)
         {
             if (a <= 0 || b <= 0 || c <= 0)
             {
                 throw new ArgumentException("All sides should be positive!");
+            }
+
+            if ((a + b) > c
+                || (b + c) > a
+                || (c + a) > b)
+            {
+                throw new ArgumentException("The three sides do not make a triangle!");
             }
 
             double s = (a + b + c) / 2;
@@ -32,6 +40,7 @@
         /// </summary>
         /// <param name="number">The digit to be converted.</param>
         /// <returns>An English string representation of the digit.</returns>
+        /// <exception cref="ArgumentException"></exception>
         private static string DigitToString(int number)
         {
             switch (number)
@@ -66,6 +75,8 @@
         /// </summary>
         /// <param name="numbers">The variable number of parameters to be processed.</param>
         /// <returns>The max value of the passed parameters.</returns>
+        /// <exception cref="ArgumentNullException">.</exception>
+        /// <exception cref="ArgumentException"></exception>
         private static int FindMax(params int[] numbers)
         {
             if (numbers == null)
@@ -95,6 +106,7 @@
         /// </summary>
         /// <param name="number">The number to be printed.</param>
         /// <param name="format">The format string.</param>
+        /// <exception cref="ArgumentException"></exception>
         private static void PrintAsNumber(object number, string format)
         {
             if (number == null || (
