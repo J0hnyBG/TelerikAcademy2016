@@ -11,7 +11,7 @@ function solve() {
                 result += template(obj);
             }
 
-            $(this).html(result);
+            $(this).append(result);
             return $(this);
         };
     };

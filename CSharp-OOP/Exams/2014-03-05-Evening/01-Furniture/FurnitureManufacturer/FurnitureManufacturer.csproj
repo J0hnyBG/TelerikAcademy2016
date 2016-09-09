@@ -57,7 +57,9 @@
     <Compile Include="Models\Common\Constants.cs" />
     <Compile Include="Models\Common\ErrorMessages.cs" />
     <Compile Include="Models\Common\Validator.cs" />
-    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Company.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Models\ConvertibleChair.cs" />
     <Compile Include="Models\Furniture.cs" />
     <Compile Include="Models\MaterialType.cs" />

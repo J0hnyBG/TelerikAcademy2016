@@ -1,5 +1,5 @@
 function createImagesPreviewer(selector, items) {
-    var root = document.querySelector(selector);
+    const root = document.querySelector(selector);
     root.className += ' image-previewer';
 
     var table = document.createElement('table');
@@ -22,6 +22,7 @@ function createImagesPreviewer(selector, items) {
 
     leftPanel.appendChild(title);
     leftPanel.appendChild(bigImage);
+
     /* End of left panel */
 
     /* Right panel */

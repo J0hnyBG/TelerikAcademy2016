@@ -1,0 +1,124 @@
+"use strict";
+function solve() {
+    let Playlist = (function () {
+        function getNextId() {
+            currentPlayListId += 1;
+            return currentPlayListId;
+        }
+
+        let currentPlayListId = 0,
+            playlist =  {
+                init: function(name) {
+                    this.id = getNextId();
+                    this.name = name;
+                    this.playlist = [];
+
+                    return this;
+                },
+                addPlayable: function(playable) {
+                    this.playlist.push(playable);
+                },
+                getPlayableById: function(id) {
+                    let playable = this.playlist.filter(x => x.id === id);
+
+                    return playable.length === 1 ? playable[0] : null;
+                },
+                removePlayable: function (args) {
+                    let playable;
+                    if(typeof args === 'number') {
+                        playable = this.playlist.filter(x => x.id === args);
+
+                        if(playable.length != 1) {
+                            throw new Error("No Playable with this id!")
+                        }
+                    }
+                    else {
+                        playable = args;
+                    }
+
+                    let playableIndex = this.playlist.indexOf(playable);
+                    this.playlist = this.playlist.splice(playableIndex, 1);
+
+                    return this;
+                },
+            };
+
+        return playlist;
+    }());
+
+    let Player = (function () {
+        let player = {
+            init: function (name) {
+                this.name = name;
+            }
+        };
+
+        return player;
+    }());
+
+    let Playable = (function () {
+        let currentId = 0,
+            playable = Object.create({});
+
+        return playable;
+    }());
+
+    let audio = (function (parent) {
+        let audio = Object.create(parent);
+
+        return audio;
+    }(Playable));
+
+    let video = (function (parent) {
+        let video = Object.create(parent);
+
+        return video;
+    }(Playable));
+
+    return {
+        getPlayer: function (name) {
+            return new Player.init(name);
+        },
+        getPlaylist: function (name) {
+            return new Playlist.init(name);
+        },
+        getAudio: function (title, author, length) {
+            //return Object.create(audio).init(title, author, length);
+        },
+        getVideo: function (title, author, imdbRating) {
+            //return Object.create(video).init(title, author, imdbRating);
+        }
+    };
+}
+
+let result = solve();
+// let audio = result.getAudio('asd', 'sdf', 4);
+// audio = result.getAudio('asd', 'sdf', 4);
+
+let playList = result.getPlaylist("john");
+let player = result.getPlayer("Media player");
+console.log(playList);
+console.log(player);
+
+/*let pl = result.getPlaylist('asd');
+
+let playable = {id: 1, name: 'Rock', author: 'Stephen'};
+pl.addPlayable(playable);
+console.log(pl.getPlayableById(1));
+
+console.log(pl.listPlayables(0, 10));
+pl.removePlayable(1);
+console.log(pl.getPlayableById(1));
+
+let list = result.getPlaylist('Rock');
+for (let i = 0; i < 35; i += 1) {
+    list.addPlayable({id: (i + 1), name: 'Rock' + (9 - (i % 10))});
+}
+
+//console.log(list.listPlayables(0, 10));
+
+/*returnedPlayables = list.listPlaylables(2,10);
+ returnedPlayables = list.listPlaylables(3,10);
+ console.log(returnedPlayables);*/
+
+module.exports = solve;

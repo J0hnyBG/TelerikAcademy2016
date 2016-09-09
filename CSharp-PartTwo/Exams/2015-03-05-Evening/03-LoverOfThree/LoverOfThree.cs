@@ -14,7 +14,7 @@ namespace _03_LoverOfThree
             //index 0 - rows, 1 - cols
             int[] fieldDimensions = Console.ReadLine().Split(' ').Select(n => Convert.ToInt32(n)).ToArray();
             int totalNumberOfMoves = int.Parse(Console.ReadLine());
-            
+
             Initialize(fieldDimensions[0], fieldDimensions[1]);
             long totalScore = 0;
 
@@ -34,6 +34,7 @@ namespace _03_LoverOfThree
                     {
                         break;
                     }
+
                     MovePawn(coordDiff);
                     //if player hasn't visited cell increment total score
                     if (!IsCellVisited(_pawnPosition[0], _pawnPosition[1]))
@@ -46,24 +47,24 @@ namespace _03_LoverOfThree
             }
 
             Console.WriteLine(totalScore);
-
         }
 
         static bool IsCellVisited(int row, int col)
         {
             return _visitedCells[row, col];
         }
+
         //Set starting position of pawn and initialize the array for visited cells
         static void Initialize(int totalRows, int totalCols)
         {
-            _pawnPosition = new[] { (totalRows - 1), 0 };
+            _pawnPosition = new[] {(totalRows - 1), 0};
             _visitedCells = new bool[totalRows, totalCols];
         }
 
         //Check if move is outside
         static bool IsMoveOutside(IReadOnlyList<int> coordDiff)
-        {          
-                   //Check rows
+        {
+            //Check rows
             return coordDiff[0] + _pawnPosition[0] < 0 || coordDiff[0] + _pawnPosition[0] >= _visitedCells.GetLength(0) ||
                    //Check cols
                    coordDiff[1] + _pawnPosition[1] < 0 || coordDiff[1] + _pawnPosition[1] >= _visitedCells.GetLength(1);
@@ -83,17 +84,18 @@ namespace _03_LoverOfThree
             {
                 case "UR":
                 case "RU":
-                    return new[] { -1, 1 };
+                    return new[] {-1, 1};
                 case "LU":
                 case "UL":
-                    return new[] { -1, -1 };
+                    return new[] {-1, -1};
                 case "DL":
                 case "LD":
-                    return new[] { 1, -1 };
+                    return new[] {1, -1};
                 case "DR":
                 case "RD":
-                    return new[] { 1, 1 };
+                    return new[] {1, 1};
             }
+
             Console.WriteLine("Please enter a valid direction!");
             direction = Console.ReadLine();
             return GetStep(direction);
@@ -102,7 +104,7 @@ namespace _03_LoverOfThree
         //0 score is bottom-left, max score is top-right in matrix
         static int CalculateCellScore(int row, int col)
         {
-            return 3 * (_visitedCells.GetLength(0) - row - 1) + col * 3;
+            return 3*(_visitedCells.GetLength(0) - row - 1) + col*3;
         }
     }
 }

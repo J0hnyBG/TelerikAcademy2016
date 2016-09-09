@@ -1,9 +1,10 @@
 ﻿namespace FurnitureManufacturer.Models
 {
-    using System.Linq;
     using System.Collections.Generic;
-    using FurnitureManufacturer.Models.Common;
+    using System.Linq;
+
     using FurnitureManufacturer.Interfaces;
+    using FurnitureManufacturer.Models.Common;
 
     public class Company : ICompany
     {
@@ -20,33 +21,63 @@
 
         public string Name
         {
-            get { return this.name; }
+            get
+            {
+                return this.name;
+            }
+
             private set
             {
-                Validator.CheckIfStringLengthIsValid(value,
-                    string.Format(ErrorMessages.InvalidStringLengthErrorMessage, "Company name", Constants.MinCompanyNameLength), Constants.MinCompanyNameLength);
-                Validator.CheckIfStringIsNullOrEmpty(value,
-                    string.Format(ErrorMessages.NullorEmptyErrorMessage, "Company name"));
+                var message = string.Format(
+                                            ErrorMessages.InvalidStringLengthErrorMessage, 
+                                            "Company name",
+                                            Constants.MinCompanyNameLength);
+
+                Validator.CheckIfStringLengthIsValid(
+                                                     value,
+                                                     message,
+                                                     Constants.MinCompanyNameLength);
+
+                message = string.Format(ErrorMessages.NullorEmptyErrorMessage, "Company name");
+
+                Validator.CheckIfStringIsNullOrEmpty(value, message);
                 this.name = value;
             }
         }
 
         public string RegistrationNumber
         {
-            get { return this.registrationNumber; }
+            get
+            {
+                return this.registrationNumber;
+            }
+
             private set
             {
-                Validator.CheckIfStringIsExactLength(value, Constants.CompanyRegistrationNumberLength,
-                    string.Format(ErrorMessages.StringNotExactLength, "Registration number", Constants.CompanyRegistrationNumberLength));
-                Validator.CheckIfStringIsNumbersOnly(value,
-                    string.Format(ErrorMessages.StringNotOnlyNumericsErrorMessage, "Registration number"));
+                var message = string.Format(
+                                            ErrorMessages.StringNotExactLength, 
+                                            "Registration number",
+                                            Constants.CompanyRegistrationNumberLength);
+
+                Validator.CheckIfStringIsExactLength(
+                                                     value, 
+                                                     Constants.CompanyRegistrationNumberLength,
+                                                     message);
+
+                message = string.Format(ErrorMessages.StringNotOnlyNumericsErrorMessage, "Registration number");
+
+                Validator.CheckIfStringIsNumbersOnly(value, message);
                 this.registrationNumber = value;
             }
         }
 
         public ICollection<IFurniture> Furnitures
         {
-            get { return new List<IFurniture>(this.furnitures); }
+            get
+            {
+                return new List<IFurniture>(this.furnitures);
+            }
+
             private set
             {
                 Validator.CheckIfNull(value, string.Format(ErrorMessages.NullorEmptyErrorMessage, "Furnitures"));
@@ -57,7 +88,6 @@
         public void Add(IFurniture furniture)
         {
             this.furnitures.Add(furniture);
-            //this.Furnitures = this.Furnitures.OrderBy(x => x.Price).ThenBy(x => x.Model).ToList();
         }
 
         public void Remove(IFurniture furniture)
@@ -67,8 +97,7 @@
 
         public IFurniture Find(string model)
         {
-            Validator.CheckIfStringIsNullOrEmpty(model,
-                string.Format(ErrorMessages.NullorEmptyErrorMessage, "Model"));
+            Validator.CheckIfStringIsNullOrEmpty(model, string.Format(ErrorMessages.NullorEmptyErrorMessage, "Model"));
             IFurniture furniture;
             try
             {
@@ -79,26 +108,32 @@
             {
                 furniture = null;
             }
+
             return furniture;
         }
 
         public string Catalog()
         {
-            var output = string.Format("{0} - {1} - {2} {3}", this.Name, this.RegistrationNumber,
-                this.Furnitures.Count != 0 ? this.Furnitures.Count.ToString() : "no",
-                this.Furnitures.Count != 1 ? "furnitures" : "furniture");
+            var output = string.Format(
+                                       "{0} - {1} - {2} {3}", 
+                                       this.Name, 
+                                       this.RegistrationNumber,
+                                       this.Furnitures.Count != 0 ? this.Furnitures.Count.ToString() : "no",
+                                       this.Furnitures.Count != 1 ? "furnitures" : "furniture");
+
             if (this.Furnitures.Count == 0)
             {
                 return output;
             }
             else
             {
-                var orderedFurnitures = furnitures.OrderBy(x => x.Price).ThenBy(x => x.Model);
+                var orderedFurnitures = this.furnitures.OrderBy(x => x.Price).ThenBy(x => x.Model);
                 foreach (var furniture in orderedFurnitures)
                 {
                     output = output + "\n" + furniture;
                 }
             }
+
             return output;
         }
     }

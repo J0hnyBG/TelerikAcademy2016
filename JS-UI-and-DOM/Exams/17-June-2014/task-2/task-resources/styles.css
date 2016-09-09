@@ -13,6 +13,8 @@
 .gallery .image-container img {
     width: 100%;
     height: 100%;
+    cursor: pointer;
+
 }
 
 .gallery .selected {
@@ -40,6 +42,7 @@
     position: absolute;
     left: 0;
     top: 100px;
+    cursor: pointer;
     width: 25%;
 }
 
@@ -47,6 +50,7 @@
     position: absolute;
     left: 25%;
     width: 50%;
+    cursor: pointer
 }
 
 .gallery .selected .next-image {
@@ -54,6 +58,7 @@
     left: 75%;
     top: 100px;
     width: 25%;
+    cursor: pointer
 }
 
 .gallery .blurred {
