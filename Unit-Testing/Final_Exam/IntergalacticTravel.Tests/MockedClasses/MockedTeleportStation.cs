@@ -12,7 +12,6 @@ namespace IntergalacticTravel.Tests.MockedClasses
         public MockedTeleportStation(IBusinessOwner owner, IEnumerable<IPath> galacticMap, ILocation location) 
             : base(owner, galacticMap, location)
         {
-
         }
 
         public IEnumerable<IPath> GalacticMap { get { return this.galacticMap; } }

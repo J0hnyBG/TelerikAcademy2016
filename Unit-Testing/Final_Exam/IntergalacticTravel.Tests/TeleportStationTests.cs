@@ -36,9 +36,8 @@ namespace IntergalacticTravel.Tests
             var mockedBusinessOwner = new Mock<IBusinessOwner>();
             var mockedLocation = new Mock<ILocation>();
             var mockedGalacticMap = new List<IPath>();
-            //Act
             var teleportStation = new TeleportStation(mockedBusinessOwner.Object, mockedGalacticMap, mockedLocation.Object);
-            //Assert
+            //Act and Assert
             Assert.That(
                     () => teleportStation.TeleportUnit(null, mockedLocation.Object), 
                     Throws.ArgumentNullException.With.Message
@@ -54,9 +53,8 @@ namespace IntergalacticTravel.Tests
             var mockedLocation = new Mock<ILocation>();
             var mockedUnit = new Mock<IUnit>();
             var mockedGalacticMap = new List<IPath>();
-            //Act
             var teleportStation = new TeleportStation(mockedBusinessOwner.Object, mockedGalacticMap, mockedLocation.Object);
-            //Assert
+            //Act and Assert
             Assert.That(
                     () => teleportStation.TeleportUnit(mockedUnit.Object, null),
                     Throws.ArgumentNullException.With.Message
@@ -494,7 +492,7 @@ namespace IntergalacticTravel.Tests
             mockedLocation.Setup(x => x.Planet.Units.Remove(It.IsAny<IUnit>()));
 
             mockedLocationToTeleportTo.Setup(x => x.Planet.Units.Add(mockedUnit.Object));
-
+            
             mockedUnit.SetupGet(x => x.CurrentLocation).Returns(mockedLocation.Object);
             mockedUnit.SetupSet(p => p.CurrentLocation = It.IsAny<ILocation>());
 
