@@ -119,8 +119,8 @@ function solve() {
 
         function Item(name, description) {
             this.id = idGenerator.getNext();
-            this.name = name;
-            this.description = description;
+            this._name = name;
+            this._description = description;
         }
         Item.prototype = Object.create(Parent.prototype);
         Object.defineProperty(Item.prototype, 'name', {
@@ -133,7 +133,7 @@ function solve() {
             }
         });
 
-        Object.defineProperty(Item.prototype, 'description', {
+        Object.defineProperty(Item.prototype, '_description', {
             get: function () {
                 return this._description;
             },

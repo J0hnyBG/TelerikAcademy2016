@@ -139,7 +139,7 @@ describe('Academy Catalogs', function () {
     describe('Book tests', function () {
         describe('Valid tests', function () {
             // test 1
-            it('expect getBook to exist, to be a function and to return object with properties unique id, name, description, isbn and ganre', function () {
+            it('expect getBook to exist, to be a function and to return object with properties unique id, _name, description, isbn and ganre', function () {
                 var name,
                     isbn,
                     genre,
@@ -159,6 +159,7 @@ describe('Academy Catalogs', function () {
 
                 book = result.getBook(name, utils.valid.getISBN13(), genre, description);
                 book = result.getBook(name, isbn, genre, description);
+
                 expect(book).to.be.a('object');
                 expect(book.name).to.be.a('string');
                 expect(book.name).to.equal(name);
@@ -186,7 +187,7 @@ describe('Academy Catalogs', function () {
         });
         describe('Invalid tests', function () {
             // test 2
-            it('Expect invalid name to throw', function () {
+            it('Expect invalid _name to throw', function () {
 
                 expect(result.getBook).to.exist;
                 function testName_undefined() {
@@ -427,7 +428,7 @@ describe('Academy Catalogs', function () {
     describe('Media tests', function () {
         describe('Valid tests', function () {
             // test 6
-            it('expect getMedia to exist, to be a function and to return object with properties unique id, name, description, duration and rating', function () {
+            it('expect getMedia to exist, to be a function and to return object with properties unique id, _name, description, duration and rating', function () {
                 var name,
                     duration,
                     rating,
@@ -471,7 +472,7 @@ describe('Academy Catalogs', function () {
         });
         describe('Invalid tests', function () {
             // test 7
-            it('Expect invalid name to throw', function () {
+            it('Expect invalid _name to throw', function () {
 
                 function testName_undefined() {
                     /*jshint ignore: start */
@@ -789,7 +790,7 @@ describe('Academy Catalogs', function () {
                 result = require('../tasks/solution')();
                 done();
             });
-            it('expect getBookCatalog to exist, to be a function and to return object with properties name and unique id and methods: add(), find() with 1 param and search() with 1 param', function () {
+            it('expect getBookCatalog to exist, to be a function and to return object with properties _name and unique id and methods: add(), find() with 1 param and search() with 1 param', function () {
                 var name = utils.valid.getName(),
                     catalog = result.getBookCatalog(name);
 
@@ -936,11 +937,11 @@ describe('Academy Catalogs', function () {
 
                 // test with multiple books
                 for (i = 0; i < len; i += 1) {
-                    /*name = utils.valid.getName();
+                    /*_name = utils.valid.getName();
                      isbn = utils.valid.getISBN13();
                      genre = utils.valid.getGenre();
                      description = utils.valid.getDescription();
-                     //book = result.getBook(name, isbn, genre, description); // dependant on getBook method //*/
+                     //book = result.getBook(_name, isbn, genre, description); // dependant on getBook method //*/
                     book = {
                         id: (i + len),
                         name: utils.valid.getName(),
@@ -1031,7 +1032,7 @@ describe('Academy Catalogs', function () {
                 expect(findResult).to.exits;
                 expect(findResult.length).to.equal(1);
                 expect(findResult[0]).to.equal(books[2]);
-
+                //
                 // test search by genre
                 findResult = catalog.find({genre: 'generic1'});
                 expect(findResult).to.exits;
@@ -1127,7 +1128,7 @@ describe('Academy Catalogs', function () {
                 expect(testSearch_EmptyString).to.throw();
             });
             // test 19
-            it('expect invalid name to throw', function () {
+            it('expect invalid _name to throw', function () {
                 var catalog,
                     name,
                     count,
@@ -1147,7 +1148,7 @@ describe('Academy Catalogs', function () {
                     ids[catalog.id] = 1;
                 }
 
-                // test name exceptions
+                // test _name exceptions
                 function testName_undefined() {
                     result.getBookCatalog();
                 }
@@ -1259,7 +1260,7 @@ describe('Academy Catalogs', function () {
                 result = require('../tasks/solution')();
                 done();
             });
-            it('expect getMediaCatalog to exist, to be a function and to return object with properties name and unique id and methods: add(), find() with 1 param and search() with 1 param', function () {
+            it('expect getMediaCatalog to exist, to be a function and to return object with properties _name and unique id and methods: add(), find() with 1 param and search() with 1 param', function () {
                 var name = utils.valid.getName(),
                     catalog = result.getMediaCatalog(name);
 
@@ -1292,7 +1293,7 @@ describe('Academy Catalogs', function () {
                 expect(catalog.getSortedByDuration.length).to.equal(0);
             });
             // test 22
-            it('expect mediaCatalog.add() to add media only and to work with array or media separated with comma', function () {
+            it('expect mediaCatalog.add() to add catalog only and to work with array or catalog separated with comma', function () {
                 var catalog,
                     name,
                     description,
@@ -1360,7 +1361,7 @@ describe('Academy Catalogs', function () {
                 expect(findResult[0].name).to.equal(name);
                 expect(findResult[0].rating).to.not.exist;
                 expect(findResult[0].duration).to.not.exist;
-                expect(findResult[0].description).to.not.exist;
+                expect(findResult[0]._description).to.not.exist;
 
                 // test with multiple books
                 for (i = 0; i < len; i += 1) {
@@ -1398,7 +1399,7 @@ describe('Academy Catalogs', function () {
                 expect(testGetTop_ltOne).to.throw();
             });
             // test 24
-            it('expect mediaCatalog.find() by id to find the leftmost media in the items array or return null', function () {
+            it('expect mediaCatalog.find() by id to find the leftmost catalog in the items array or return null', function () {
                 var catalog,
                     media,
                     book,
@@ -1461,7 +1462,7 @@ describe('Academy Catalogs', function () {
                 expect(testFindID_string).to.throw();//*/
             });
             // test 25
-            it('expect mediaCatalog.find() by options to find an array of media in the items array or return null', function () {
+            it('expect mediaCatalog.find() by options to find an array of catalog in the items array or return null', function () {
                 var catalog,
                     media,
                     findResult,
@@ -1567,7 +1568,7 @@ describe('Academy Catalogs', function () {
                 expect(catalog.search(pattern)).to.eql(matchingMedia);
             });
             // test 27
-            it('Expect mediaCatalog.search() to return empty array, when no media in catalog and when no media that contain the pattern ', function () {
+            it('Expect mediaCatalog.search() to return empty array, when no catalog in catalog and when no catalog that contain the pattern ', function () {
                 var catalog,
                     i,
                     pattern,
@@ -1615,7 +1616,7 @@ describe('Academy Catalogs', function () {
                 expect(testSearch_EmptyString).to.throw();
             });
             // test 29
-            it('expect invalid name to throw', function () {
+            it('expect invalid _name to throw', function () {
                 var catalog,
                     name,
                     count,
@@ -1635,7 +1636,7 @@ describe('Academy Catalogs', function () {
                     ids[catalog.id] = 1;
                 }
 
-                // test name exceptions
+                // test _name exceptions
                 function testName_undefined() {
                     result.getMediaCatalog();
                 }

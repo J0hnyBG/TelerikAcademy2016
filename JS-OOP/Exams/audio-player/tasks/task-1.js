@@ -1,6 +1,6 @@
 "use strict";
 function solve() {
-    var idGenerator = (function () {
+    var idGenerator = (() => {
         var currentId = 0;
 
         function getNextId() {
@@ -202,6 +202,7 @@ function solve() {
             return result;
         }
     }
+
     class Playable {
         constructor(title, author) {
             this.id = idGenerator.getNextId();

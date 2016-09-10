@@ -432,7 +432,7 @@ function solve() { // start 11:30
 
                 for (i in arr) {
                     if (typeof arr[i] !== 'function' && !validate.isMedia(arr[i])) {
-                        throw Error('cannot add non-media item');
+                        throw Error('cannot add non-catalog item');
                     }
                 }
 
