@@ -484,12 +484,12 @@ describe('Regular tests', () => {
                     const spells = {
                         psionicStorm: MANAGER.getSpell('Psionic Storm', 15, target => { target.count -= ((target.health * target.count) - 400) / target.health; psiStormEffectExecuted = true }),
                         transfuse: MANAGER.getSpell('Transfuse', 10, target => { target.health += 5; transfuseEffectExecuted = true })
-                    }
+                    };
 
                     const units = {
                         marines: MANAGER.getArmyUnit({ name: 'Marines', alignment: 'neutral', damage: 20, health: 10, speed: 15, count: 100 }),
                         zerglings: MANAGER.getArmyUnit({ name: 'Zerglings', alignment: 'evil', damage: 10, health: 5, speed: 25, count: 150 })
-                    }
+                    };
 
                     MANAGER
                         .addCommanders(mengsk, kerrigan)
@@ -497,11 +497,11 @@ describe('Regular tests', () => {
                         .addArmyUnitTo('Arcturus Mengsk', units.marines)
                         .addArmyUnitTo('Sarah Kerrigan', units.zerglings)
                         .spellcast('Sarah Kerrigan', 'Psionic Storm', units.marines.id)
-                        .spellcast('Sarah Kerrigan', 'Transfuse', units.zerglings.id)
+                        .spellcast('Sarah Kerrigan', 'Transfuse', units.zerglings.id);
 
-                    expect(psiStormEffectExecuted).to.be.true
-                    expect(transfuseEffectExecuted).to.be.true
-                })
+                    expect(psiStormEffectExecuted).to.be.true;
+                    expect(transfuseEffectExecuted).to.be.true;
+                });
 
                 it('should decrease the casters mana when spellcasting', () => {
                     const mengsk = MANAGER.getCommander('Arcturus Mengsk', 'evil', 20),

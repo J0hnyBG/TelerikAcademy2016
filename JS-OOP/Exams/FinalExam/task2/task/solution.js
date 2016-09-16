@@ -32,13 +32,12 @@ function solve() {
                 getNext
             }
         })();
-        let Validator = (function () {
+        let IsValid = (function () {
             function isInRange(value, min, max) {
                 return min < value && value < max;
-
             }
 
-            function validateName(name) {
+            function Name(name) {
                 if (typeof name !== 'string') {
                     throw new Error(ERROR_MESSAGES.INVALID_NAME_TYPE);
                 }
@@ -52,61 +51,64 @@ function solve() {
                 }
             }
 
-            function validateAlignment(alignment) {
+            function Alignment(alignment) {
                 if (alignment == null || alignment !== 'good' && alignment !== 'neutral' && alignment !== 'evil') {
                     throw new Error(ERROR_MESSAGES.INVALID_ALIGNMENT);
                 }
             }
 
-            function validateDamage(damage) {
+            function Damage(damage) {
                 if (isNaN(damage) || !isInRange(damage, 0, 100)) {
                     throw new Error(ERROR_MESSAGES.INVALID_DAMAGE);
                 }
             }
 
-            function validateHealth(health) {
+            function Health(health) {
                 if (isNaN(health) || !isInRange(health, 0, 200)) {
                     throw new Error(ERROR_MESSAGES.INVALID_DAMAGE);
                 }
             }
 
-            function validateCount(count) {
+            function Count(count) {
                 if (!isInRange(count, -1, Infinity)) {
                     throw new Error(ERROR_MESSAGES.INVALID_COUNT);
                 }
             }
 
-            function validateSpeed(speed) {
+            function Speed(speed) {
                 if (!isInRange(speed, 0, 100)) {
                     throw new Error(ERROR_MESSAGES.INVALID_SPEED);
                 }
             }
 
-            function validateMana(mana) {
+            function Mana(mana) {
                 if (isNaN(mana) || mana < 0) {
                     throw new Error(ERROR_MESSAGES.INVALID_MANA);
                 }
             }
 
-            function validateSpellEffect(effect) {
+            function SpellEffect(effect) {
                 if (!(effect instanceof Function) || effect.length != 1) {
                     throw new Error(ERROR_MESSAGES.INVALID_EFFECT);
                 }
             }
 
-            function validateIsSpellLike(spell) {
-
+            function Unit(unit) {
+                IsValid.Health(unit.health);
+                IsValid.Damage(unit.damage);
+                IsValid.Count(unit.count);
             }
 
             return {
-                validateName,
-                validateAlignment,
-                validateDamage,
-                validateHealth,
-                validateSpeed,
-                validateMana,
-                validateSpellEffect,
-                validateCount
+                Name,
+                Alignment,
+                Damage,
+                Health,
+                Speed,
+                Mana,
+                SpellEffect,
+                Count,
+                Unit
             }
         })();
 
@@ -118,7 +120,7 @@ function solve() {
             }
 
             set name(value) {
-                Validator.validateName(value);
+                IsValid.Name(value);
                 this._name = value;
             }
 
@@ -127,7 +129,7 @@ function solve() {
             }
 
             set manaCost(value) {
-                Validator.validateMana(value);
+                IsValid.Mana(value);
                 this._manaCost = value;
             }
 
@@ -136,7 +138,7 @@ function solve() {
             }
 
             set effect(value) {
-                Validator.validateSpellEffect(value);
+                IsValid.SpellEffect(value);
                 this._effect = value;
             }
 
@@ -152,7 +154,7 @@ function solve() {
             }
 
             set name(value) {
-                Validator.validateName(value);
+                IsValid.Name(value);
                 this._name = value;
             }
 
@@ -161,7 +163,7 @@ function solve() {
             }
 
             set alignment(value) {
-                Validator.validateAlignment(value);
+                IsValid.Alignment(value);
                 this._alignment = value;
             }
 
@@ -185,7 +187,7 @@ function solve() {
             }
 
             set damage(value) {
-                Validator.validateDamage(value);
+                IsValid.Damage(value);
                 this._damage = value;
             }
 
@@ -194,7 +196,7 @@ function solve() {
             }
 
             set health(value) {
-                Validator.validateHealth(value);
+                IsValid.Health(value);
                 this._health = value;
             }
 
@@ -203,7 +205,7 @@ function solve() {
             }
 
             set count(value) {
-                Validator.validateCount(value);
+                IsValid.Count(value);
                 this._count = value;
             }
 
@@ -212,7 +214,7 @@ function solve() {
             }
 
             set speed(value) {
-                Validator.validateSpeed(value);
+                IsValid.Speed(value);
                 this._speed = value;
             }
 
@@ -230,7 +232,7 @@ function solve() {
             }
 
             set mana(value) {
-                Validator.validateMana(value);
+                IsValid.Mana(value);
                 this._mana = value;
             }
 
@@ -306,16 +308,16 @@ function solve() {
             addSpellsTo(commanderName, ...spells) {
                 spells.forEach(x => {
                     try {
-                        Validator.validateMana(x.manaCost);
-                        Validator.validateName(x.name);
-                        Validator.validateSpellEffect(x.effect);
+                        IsValid.Mana(x.manaCost);
+                        IsValid.Name(x.name);
+                        IsValid.SpellEffect(x.effect);
                     }
                     catch (ex) {
                         throw new Error(ERROR_MESSAGES.INVALID_SPELL_OBJECT);
 
                     }
-                    if (!(x instanceof Spell)
-                    ) {
+
+                    if (!(x instanceof Spell)) {
                         throw new Error(ERROR_MESSAGES.INVALID_SPELL_OBJECT);
                     }
                 });
@@ -325,10 +327,10 @@ function solve() {
                 return this;
             }
 
-            findCommanders(x) {
+            findCommanders(options) {
                 let result = this.commanders.filter(function (item) {
-                    return Object.keys(x).every(function (prop) {
-                        return x[prop] === item[prop];
+                    return Object.keys(options).every(function (prop) {
+                        return options[prop] === item[prop];
                     });
                 });
 
@@ -337,13 +339,14 @@ function solve() {
 
             findArmyUnitById(id) {
                 let result = [];
-                this.commanders.forEach(x => {
-                    x.army.forEach(y => {
-                        if (y.id === id) {
-                            result.push(y);
+                this.commanders.forEach(commander => {
+                    commander.army.forEach(unit => {
+                        if (unit.id === id) {
+                            result.push(unit);
                         }
                     });
                 });
+
                 if (result.length === 0) {
                     return undefined;
                 }
@@ -358,36 +361,32 @@ function solve() {
                             return query[prop] === y[prop];
                         })
                     });
+
                     soldiers.forEach(x => result.push(x));
                 });
 
-                // return result;
-                //todo:
                 return result.sort(sortBySpeedAndName);
             }
 
             spellcast(casterName, spellName, targetUnitId) {
                 let caster = this.commanders.filter(x => x.name === casterName);
-
                 if (caster.length === 0) {
-                    // throw new Error("Can't cast with non-existant commander " + casterName + "!")
+                    throw new Error("Can\'t cast with non-existant commander " + casterName + "!")
                 }
 
                 caster = caster[0];
 
                 let spell = caster.spellbook.filter(x => x.name === spellName);
-
                 if (spell.length === 0) {
-                    // throw new Error(casterName + " doesn't know " + spellName)
+                    throw new Error(casterName + " doesn\'t know " + spellName)
                 }
-                spell = spell[0];
 
+                spell = spell[0];
                 if (spell.manaCost > caster.mana) {
                     throw new Error(ERROR_MESSAGES.NOT_ENOUGH_MANA)
                 }
 
                 let unit = this.findArmyUnitById(targetUnitId);
-
                 if (!unit) {
                     throw new Error(ERROR_MESSAGES.TARGET_NOT_FOUND)
                 }
@@ -398,12 +397,8 @@ function solve() {
 
             battle(attacker, defender) {
                 try {
-                    Validator.validateHealth(attacker.health);
-                    Validator.validateHealth(defender.health);
-                    Validator.validateDamage(attacker.damage);
-                    Validator.validateDamage(defender.damage);
-                    Validator.validateCount(defender.count);
-                    Validator.validateCount(attacker.count);
+                    IsValid.Unit(attacker);
+                    IsValid.Unit(defender);
                 }
                 catch (ex) {
                     throw new Error(ERROR_MESSAGES.INVALID_BATTLE_PARTICIPANT);
@@ -417,10 +412,8 @@ function solve() {
                     defender.count = 0;
                     return this;
                 }
-                let newCount = Math.ceil(defenderTotalHealth / defender.health);
 
-                defender.count = newCount;
-
+                defender.count = Math.ceil(defenderTotalHealth / defender.health);
                 return this;
             }
         }

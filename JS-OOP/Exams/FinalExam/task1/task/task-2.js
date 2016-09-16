@@ -21,7 +21,6 @@ function solve() {
         }
 
         remove(product) {
-            //todo:
             if (this.products.length === 0) {
                 throw "Shoping cart is empty!"
             }
@@ -41,7 +40,7 @@ function solve() {
                 return 0;
             }
 
-            var totalCost = 0;
+            let totalCost = 0;
             this.products.forEach(x => totalCost += x.price);
 
             return totalCost;
@@ -70,10 +69,8 @@ function solve() {
             }
 
             let product = {},
-                products = [],
-                totalPriceShoppingCart = 0;
+                products = [];
             this.products.forEach(x => {
-                totalPriceShoppingCart += x.price;
                 if (!product[x.name]) {
                     product[x.name] = {
                         name: x.name,
@@ -89,10 +86,10 @@ function solve() {
                 }
 
             });
-            console.log(products);
+
             return  {
                 products,
-                totalPrice: totalPriceShoppingCart
+                totalPrice: this.showCost()
             };
         }
     }

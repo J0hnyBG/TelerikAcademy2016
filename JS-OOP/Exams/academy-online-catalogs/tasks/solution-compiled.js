@@ -37,21 +37,21 @@ function solve() {
             }
             if (typeof min === 'undefined' && typeof max === 'undefined') {
                 if (string.length >= max) {
-                    throw new Error('String length must be less than ${max} characters long!');
+                    throw new Error("String length must be less than " + max + " characters long!");
                 }
             } else if (typeof max === 'undefined' || max === null) {
                 if (string.length <= min) {
-                    throw new Error('String length must be more than ${min} characters long!');
+                    throw new Error("String length must be more than " + min + " characters long!");
                 }
             } else {
                 if (string.length <= min || max <= string.length) {
-                    throw new Error('String length must be between ${min} and ${max} characters long!');
+                    throw new Error("String length must be between " + min + " and " + max + " characters long!");
                 }
             }
         }
 
-        function validateISBN(string) {
-            if (isNaN(string) || string.length != 10 && string.length != 13) {
+        function validateISBN(isbn) {
+            if (isNaN(isbn) || isbn.length != 10 && isbn.length != 13) {
                 throw new Error("Invalid ISBN!");
             }
         }
@@ -62,11 +62,11 @@ function solve() {
             }
             if (typeof maxValue === 'undefined' || maxValue === null) {
                 if (number < minValue) {
-                    throw new Error("Number must be more than ${min}!");
+                    throw new Error("Number must be more than " + minValue + "!");
                 }
             } else {
                 if (number < minValue || maxValue < number) {
-                    throw new Error("Number must be between ${min} and ${max}!");
+                    throw new Error("Number must be between " + minValue + " and " + maxValue + "!");
                 }
             }
         }
@@ -252,11 +252,13 @@ function solve() {
                 }
 
                 if (x !== null && (typeof x === "undefined" ? "undefined" : _typeof(x)) === 'object') {
-                    return this.items.filter(function (item) {
+                    var result = this.items.filter(function (item) {
                         return Object.keys(x).every(function (prop) {
                             return x[prop] === item[prop];
                         });
                     });
+
+                    return result;
                 }
 
                 throw new Error('Invalid options or id');
@@ -267,6 +269,7 @@ function solve() {
                 if (typeof pattern != 'string' || pattern.length < 1) {
                     throw new Error("Invalid pattern length!");
                 }
+
                 return this.items.filter(function (x) {
                     return x.name.indexOf(pattern) >= 0 || x.description.indexOf(pattern) >= 0;
                 });
@@ -382,7 +385,7 @@ function solve() {
 
                 medias.forEach(function (x) {
                     if (!(x instanceof Media)) {
-                        throw 'Must add only medias';
+                        throw new Error('Must add only medias');
                     }
                 });
 
