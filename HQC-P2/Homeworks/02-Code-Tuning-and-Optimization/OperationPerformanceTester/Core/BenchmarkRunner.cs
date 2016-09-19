@@ -3,9 +3,9 @@
     using System;
     using System.Diagnostics;
 
-    public static class TestRunner
+    public static class BenchmarkRunner
     {
-        public static TimeSpan BenchmarkTest(
+        public static TimeSpan Run(
             Func<dynamic, dynamic, dynamic> testDelegate,
             dynamic testCases,
             long totalIterations)
@@ -30,7 +30,7 @@
             return timer.Elapsed;
         }
 
-        public static TimeSpan BenchmarkTest(
+        public static TimeSpan Run(
             Action<dynamic> testDelegate,
             dynamic testCases,
             long totalIterations)

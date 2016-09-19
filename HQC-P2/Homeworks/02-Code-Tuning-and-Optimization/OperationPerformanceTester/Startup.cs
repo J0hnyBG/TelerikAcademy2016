@@ -16,12 +16,12 @@
 
             Console.WriteLine($"Starting simple arithmetic operations tests with {RepeatCount} iterations.");
             var simpleArithmeticOperationsTestSuite = new SimpleArithmeticOperationsTestSuite(RepeatCount);
-            var simpleTestsResult = simpleArithmeticOperationsTestSuite.GetTestsSummary();
+            var simpleTestsResult = simpleArithmeticOperationsTestSuite.GetBenchmarkSummary();
             Console.WriteLine(simpleTestsResult);
 
-            Console.WriteLine($"Starting complex arithmetic operations tests with {RepeatCount} iterations.");
-            var complexArithmeticOperationsTestSuite = new ComplexArithmeticOperationsTestSuite(RepeatCount);
-            var complexTestResults = complexArithmeticOperationsTestSuite.GetTestsSummary();
+            Console.WriteLine($"Starting advanced arithmetic operations tests with {RepeatCount} iterations.");
+            var complexArithmeticOperationsTestSuite = new AdvancedArithmeticOperationsTestSuite(RepeatCount);
+            var complexTestResults = complexArithmeticOperationsTestSuite.GetBenchmarkSummary();
             Console.WriteLine(complexTestResults);
 
             Thread.CurrentThread.Priority = initialThreadPriority;

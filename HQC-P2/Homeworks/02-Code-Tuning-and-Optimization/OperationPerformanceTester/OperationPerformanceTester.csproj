@@ -44,10 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\TestRunner.cs" />
-    <Compile Include="Core\TestSuites\ComplexArithmeticOperationsTestSuite.cs" />
+    <Compile Include="Core\BenchmarkRunner.cs" />
+    <Compile Include="Core\TestSuites\AdvancedArithmeticOperationsTestSuite.cs" />
     <Compile Include="Core\TestSuites\SimpleArithmeticOperationsTestSuite.cs" />
-    <Compile Include="Core\TestSuites\NaiveArithmeticTestSuite.cs" />
+    <Compile Include="Core\TestSuites\NaiveArithmeticOperationsTestSuite.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

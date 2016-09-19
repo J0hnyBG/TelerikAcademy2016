@@ -9,10 +9,8 @@ namespace SolarSystem
         private const double EarthYear = 365.25;
         private const double EarthRotationPeriod = 1.0;
         private const double SunRotationPeriod = 25.0;
-        private const double TwoPi = Math.PI * 2;
 
         private double _daysPerSecond = 2;
-        private double _startDays;
         private DateTime _startTime;
         private DispatcherTimer _timer;
 
@@ -35,7 +33,6 @@ namespace SolarSystem
         public double EarthOrbitRadius
         {
             get { return 40; }
-            set { }
         }
 
         public double Days { get; set; }
@@ -113,10 +110,10 @@ namespace SolarSystem
         private void EarthRotation()
         {
             // Bottleneck
-            for ( decimal step = 0; step <= 360; step += 0.00005m )
-            {
+            //for ( decimal step = 0; step <= 360; step += 0.00005m )
+            //{
                 this.EarthRotationAngle = (double)360 * this.Days / EarthRotationPeriod;
-            }
+            //}
 
             this.Update("EarthRotationAngle");
         }
