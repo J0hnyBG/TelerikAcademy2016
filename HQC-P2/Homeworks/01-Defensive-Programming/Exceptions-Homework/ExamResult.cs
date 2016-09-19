@@ -63,7 +63,7 @@ public class ExamResult
 
         private set
         {
-            if ( value < 0 )
+            if (value < 0)
             {
                 throw new ArgumentException(string.Format(GreaterThanOrEqualToZeroErrorMessage, "Maximum grade"));
             }
