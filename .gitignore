@@ -219,4 +219,5 @@ pip-log.txt
 [Nn]ode_modules
 node_modules/
 node_module/
+bower_components/
 .bin/
