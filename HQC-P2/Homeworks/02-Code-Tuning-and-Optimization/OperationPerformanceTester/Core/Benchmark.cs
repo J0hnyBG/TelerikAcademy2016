@@ -3,9 +3,19 @@
     using System;
     using System.Diagnostics;
 
-    public static class TestRunner
+    /// <summary>
+    /// An utility class which provides methods to run an Action or Func over given test cases and iterations.
+    /// </summary>
+    public static class Benchmark
     {
-        public static TimeSpan BenchmarkTest(
+        /// <summary>
+        /// Runs a specific Func a specified number of times and returns the time it took.
+        /// </summary>
+        /// <param name="testDelegate">The Func to be invoked.</param>
+        /// <param name="testCases">The data, which the testDelegate uses.</param>
+        /// <param name="totalIterations">The number of iterations for which all testCases will be repeated.</param>
+        /// <returns>The time it took to run the benchmark.</returns>
+        public static TimeSpan Run(
             Func<dynamic, dynamic, dynamic> testDelegate,
             dynamic testCases,
             long totalIterations)
@@ -30,7 +40,14 @@
             return timer.Elapsed;
         }
 
-        public static TimeSpan BenchmarkTest(
+        /// <summary>
+        /// Runs a specific Func a specified number of times and returns the time it took.
+        /// </summary>
+        /// <param name="testDelegate">The Func to be invoked.</param>
+        /// <param name="testCases">The data, which the testDelegate uses.</param>
+        /// <param name="totalIterations">The number of iterations for which all testCases will be repeated.</param>
+        /// <returns>The time it took to run the benchmark.</returns>
+        public static TimeSpan Run(
             Action<dynamic> testDelegate,
             dynamic testCases,
             long totalIterations)

@@ -7,7 +7,7 @@
 
     public class Startup
     {
-        private const int RepeatCount = 20000;
+        private const int RepeatCount = 10000;
 
         private static void Main()
         {
@@ -25,6 +25,8 @@
             Console.WriteLine(complexTestResults);
 
             Thread.CurrentThread.Priority = initialThreadPriority;
+
+            Console.WriteLine("Benchmark finished.");
         }
     }
 }

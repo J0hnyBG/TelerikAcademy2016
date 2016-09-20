@@ -3,17 +3,28 @@
     using System;
     using System.Text;
 
+    /// <summary>
+    /// Provides methods to benchmark the performance of Math.Sin, Math.Sqrt and Math.Log over different data types.
+    /// </summary>
     public class AdvancedArithmeticOperationsTestSuite
         : NaiveArithmeticOperationsTestSuite
     {
         private const int ValueOffset = 1000;
 
+        /// <summary>
+        /// Initiates a new instance of AdvancedArithmeticOperationsTestSuite.
+        /// </summary>
+        /// <param name="totalIterationsPerOperation"></param>
         public AdvancedArithmeticOperationsTestSuite(long totalIterationsPerOperation)
             : base(totalIterationsPerOperation)
         {
             base.Init(ValueOffset);
         }
 
+        /// <summary>
+        /// Runs a set of benchmarks and returns their results.
+        /// </summary>
+        /// <returns>The benchmark results</returns>
         public override string GetBenchmarkSummary()
         {
             var sb = new StringBuilder();

@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BenchmarkRunner.cs" />
+    <Compile Include="Core\Benchmark.cs" />
     <Compile Include="Core\TestSuites\AdvancedArithmeticOperationsTestSuite.cs" />
     <Compile Include="Core\TestSuites\SimpleArithmeticOperationsTestSuite.cs" />
     <Compile Include="Core\TestSuites\NaiveArithmeticOperationsTestSuite.cs" />
