@@ -4,6 +4,12 @@
 
     public static class RotatingWalkInMatrixCalculator
     {
+        /// <summary>
+        /// Calculates the values of a rotating walk for a matrix of given size.
+        /// </summary>
+        /// <param name="matrixSize"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException">when matrixSize is less than 0.</exception>
         public static int[,] Calculate(int matrixSize)
         {
             if (matrixSize < 0)
