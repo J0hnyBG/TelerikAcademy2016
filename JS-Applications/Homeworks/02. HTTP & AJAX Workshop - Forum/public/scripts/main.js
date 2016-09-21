@@ -128,7 +128,6 @@
     contentContainer.on('click', '#btn-add-thread', (ev) => {
         let $target = $(ev.target);
         let title = $target.parents('form').find('input#input-add-thread').val() || null;
-        // $target.parents('.container-messages').hide();
 
         data.threads.add(title)
             .then($('#btn-threads').trigger('click'))

@@ -36,7 +36,6 @@ var data = (function () {
                 username: localStorage.getItem(USERNAME_STORAGE_KEY),
                 postDate: new Date()
             };
-            // console.log(JSON.stringify(body));
             $.ajax({
                 url: 'api/threads',
                 method: 'POST',

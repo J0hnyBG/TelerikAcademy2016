@@ -62,6 +62,7 @@ class AssertionsHomework
         where T : IComparable<T>
     {
         Debug.Assert(arr != null, "Array has not been initialized!");
+        Debug.Assert(value != null, "Value has not been initialized!");
         Debug.Assert(startIndex >= 0, "Start index is less than 0!");
         Debug.Assert(endIndex < arr.Length, "End index is larger than the size of the array!");
 
