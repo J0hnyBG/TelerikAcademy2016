@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\RotatingWalkInMatrixCalculator.cs" />
+    <Compile Include="Models\Coordinate2D.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RotatingWalkInMatrixCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

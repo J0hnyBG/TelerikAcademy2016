@@ -10,7 +10,7 @@ var data = (function () {
     }
 
     function userLogout() {
-        localStorage.removeItem(USERNAME_STORAGE_KEY)
+        localStorage.removeItem(USERNAME_STORAGE_KEY);
         return Promise.resolve();
     }
 

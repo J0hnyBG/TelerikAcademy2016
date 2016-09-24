@@ -5,7 +5,7 @@ window.onload = function () {
 //Task 1
     function renderPosition(position) {
         let mapImage = document.getElementById('map-image');
-        mapImage.src = `https://maps.googleapis.com/maps/api/staticmap?center=${position.coords.latitude},${position.coords.longitude}"&zoom=13&size=600x600&markers=color:red%7Clabel:C%7C${position.coords.latitude},${position.coords.longitude}&key=AIzaSyB0gs6LCbo-AgaZruywKaP-fPCiBF5DBjA`;
+        mapImage.src = `https://maps.googleapis.com/maps/api/staticmap?center=${position.coords.latitude},${position.coords.longitude}"&zoom=13&size=600x600&markers=color:red%7Clabel:C%7C${position.coords.latitude},${position.coords.longitude}`;
 
         document.getElementsByClassName('location')[0].innerHTML = `${position.coords.latitude}, ${position.coords.longitude}`;
 

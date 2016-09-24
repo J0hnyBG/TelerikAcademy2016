@@ -6,11 +6,12 @@
     using NUnit.Framework;
 
     using WalkInMatrix;
+    using WalkInMatrix.Calculator;
 
     [TestFixture]
     public class RotatingWalkInMatrixCalculatorTests
     {
-        private static readonly List<int[,]> ExpectedResultsList = new List<int[,]>
+        private static readonly IList<int[,]> CorrectResultsList = new List<int[,]>
                                                                    {
                                                                        new[,]
                                                                        {
@@ -41,12 +42,12 @@
                                                                        }
                                                                    };
 
-        [TestCaseSource(nameof(ExpectedResultsList))]
+        [TestCaseSource(nameof(CorrectResultsList))]
         public void Calculate_WhenInputIsValid_ShouldReturnCorrectResults(int[,] expected)
         {
-            var matrixSize = expected.GetLength(0);
+            var validMatrixSize = expected.GetLength(0);
 
-            var result = RotatingWalkInMatrixCalculator.Calculate(matrixSize);
+            var result = RotatingWalkInMatrixCalculator.Calculate(validMatrixSize);
 
             Assert.AreEqual(expected, result);
         }
@@ -54,10 +55,10 @@
         [Test]
         public void Calculate_WhenInputIsLessThanZero_ShouldThrowArgumentOutOfRangeExceptionWithCorrectMessage()
         {
-            var matrixSize = -1;
+            var invalidMatrixSize = -1;
 
             var ex =
-                Assert.Throws<ArgumentOutOfRangeException>(() => RotatingWalkInMatrixCalculator.Calculate(matrixSize));
+                Assert.Throws<ArgumentOutOfRangeException>(() => RotatingWalkInMatrixCalculator.Calculate(invalidMatrixSize));
             StringAssert.Contains("Matrix size must be", ex.Message);
         }
     }

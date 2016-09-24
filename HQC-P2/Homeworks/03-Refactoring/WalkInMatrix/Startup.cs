@@ -2,6 +2,8 @@
 {
     using System;
 
+    using Calculator;
+
     internal class WalkInMatrica
     {
         private const string EnterNumberPrompt = "Enter a positive number ";
@@ -21,11 +23,11 @@
 
             var matrix = RotatingWalkInMatrixCalculator.Calculate(matrixSize);
 
-            for (var r = 0; r < matrixSize; r++)
+            for (var row = 0; row < matrixSize; row++)
             {
-                for (var c = 0; c < matrixSize; c++)
+                for (var col = 0; col < matrixSize; col++)
                 {
-                    Console.Write("{0,3}", matrix[r, c]);
+                    Console.Write("{0,3}", matrix[row, col]);
                 }
 
                 Console.WriteLine();
