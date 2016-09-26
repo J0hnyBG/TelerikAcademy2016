@@ -93,28 +93,42 @@
 
 <script id="messages-container-template" type="text/template">
     <div class="container-messages col-xs-8">
-        <div class="panel panel-default">
+        <div class="panel panel-default" data-thread-id="{{id}}">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    Messages for <strong class="thread-title"></strong>
+                    Messages for <strong class="thread-title">{{title}}</strong>
                     <button class="btn-close-msg btn btn-danger btn-xs pull-right glyphicon glyphicon-remove"
                             title="close"></button>
                     <button class="btn-collapse-msg btn btn-xs pull-right glyphicon glyphicon-chevron-up"
                             title="collapse"></button>
                 </h3>
             </div>
+            {{#if messages}}
+            {{#messages}}
             <div class="messages panel-body">
-                <div class="message" data-thread-id="{{id}}">
+                <div class="message">
                     <div>
-                        <p class="message-content"></p>
+                        <p class="message-content">{{message}}</p>
                         <p>
-                            <span>Created on </span><span class="message-date"></span>
-                            by <a class="message-creator" href="#"></a>
+                            <span>Created on </span><span class="message-date">{{#if postDate}}{{postDate}}{{else}}on unknown{{/if}}</span>
+                            by <a class="message-creator" href="#">{{#if username}}{{username}}{{else}}unknown{{/if}}</a>
                         </p>
                     </div>
                 </div>
             </div>
+            {{/messages}}
+            {{else}}no messages
+            {{/if}}
+            <form class="" role="search">
+                <div class="input-group">
+                    <input class="input-add-message message-content form-control" placeholder="Add new message..."/>
+                    <span class="input-group-btn">
+          <button class="btn-add-message btn btn-success " type="submit">Add</button>
+        </span>
+                </div>
+            </form>
         </div>
+
     </div>
 </script>
 

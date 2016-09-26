@@ -41,34 +41,35 @@
     }
 
     function loadMessagesContent(data) {
-        let container = $($('#messages-container-template').text()),
-            messagesContainer = container.find('.panel-body');
-        container.attr('data-thread-id', data.result.id);
-
-        function getMsgUI(msg, author, date) {
-            let template = $($('#messages-template').text());
-            template.find('.message-content').text(msg.message);
-            template.find('.message-creator').text(msg.username || 'anonymous');
-            template.find('.message-date').text(msg.postDate || 'unknown');
-            return template.clone(true);
-        }
-
-        function getAddNewMsgUI() {
-            let template = $($('#message-new-template').html());
-            return template.clone(true);
-        }
-
-        if (data.result.messages && data.result.messages.length > 0) {
-            data.result.messages.forEach((msg) => {
-                messagesContainer.append(getMsgUI(msg))
-            })
-        } else {
-            messagesContainer.append(getMsgUI('No messages!'))
-        }
-
-        messagesContainer.append(getAddNewMsgUI());
-
-        container.find('.thread-title').text(data.result.title);
+        // let container = $($('#messages-container-template').text()),
+        //     messagesContainer = container.find('.panel-body');
+        // container.attr('data-thread-id', data.result.id);
+        //
+        // function getMsgUI(msg, author, date) {
+        //     let template = $($('#messages-template').text());
+        //     template.find('.message-content').text(msg.message);
+        //     template.find('.message-creator').text(msg.username || 'anonymous');
+        //     template.find('.message-date').text(msg.postDate || 'unknown');
+        //     return template.clone(true);
+        // }
+        //
+        // function getAddNewMsgUI() {
+        //     let template = $($('#message-new-template').html());
+        //     return template.clone(true);
+        // }
+        //
+        // if (data.result.messages && data.result.messages.length > 0) {
+        //     data.result.messages.forEach((msg) => {
+        //         messagesContainer.append(getMsgUI(msg))
+        //     })
+        // } else {
+        //     messagesContainer.append(getMsgUI('No messages!'))
+        // }
+        //
+        // messagesContainer.append(getAddNewMsgUI());
+        //
+        // container.find('.thread-title').text(data.result.title);
+        var container = UI.generateMessagesHtml(data);
         contentContainer.append(container);
     }
 
@@ -114,7 +115,7 @@
             $container = $target.parents('.container-messages'),
             thId = $container.attr('data-thread-id'),
             msg = $container.find('.input-add-message').val();
-        $container.hide();
+        // $container.hide();
 
         data.threads.addMessage(thId, msg)
             .then($(`div[data-id ="${thId}"] > div > h3 > a`).trigger('click'))
