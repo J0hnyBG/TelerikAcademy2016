@@ -82,6 +82,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Coordinate2DTests.cs" />
     <Compile Include="RotatingWalkInMatrixCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

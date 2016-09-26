@@ -34,29 +34,7 @@
 
     // start threads
     function loadThreadsContent(threads) {
-        let container = $($('#threads-container-template').text()),
-            threadsContainer = container.find('#threads');
-
-        function getThreadUI(title, id, creator, date) {
-            let template = $($('#thread-template').text()).attr('data-id', id),
-                threadTitle = template.find('.thread-title').text(title),
-                threadCreator = template.find('.thread-creator').text(creator || 'anonymous'),
-                threadDate = template.find('.thread-date').text(date || 'unknown');
-
-            return template.clone(true);
-        }
-
-        function getAddNewThreadUI() {
-            let template = $($('#thread-new-template').html());
-            return template.clone(true);
-        }
-
-        threads.forEach((th) => {
-            let currentThreadUI = getThreadUI(th.title, th.id, th.username, th.postDate);
-            threadsContainer.append(currentThreadUI);
-        });
-
-        threadsContainer.append(getAddNewThreadUI());
+        var container = UI.generateThreadsHtml(threads);
 
         contentContainer.find('#container-thraeds').remove();
         contentContainer.html('').prepend(container);

@@ -3,7 +3,7 @@
     /// <summary>
     /// Provides a model for a 2D coordinate.
     /// </summary>
-    internal class Coordinate2D
+    public class Coordinate2D
     {
         /// <summary>
         ///     Instantiates a new Coordinate2D with default values.

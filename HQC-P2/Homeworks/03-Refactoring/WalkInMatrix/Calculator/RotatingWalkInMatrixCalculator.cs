@@ -2,28 +2,29 @@ namespace WalkInMatrix.Calculator
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
 
     using Models;
 
     /// <summary>
-    /// Provides a method to calculate a Rotating Walk in a matrix by given matrix size.
+    ///     Provides a method to calculate a Rotating Walk in a matrix by given matrix size.
     /// </summary>
     public static class RotatingWalkInMatrixCalculator
     {
-        private static readonly IList<Coordinate2D> AllDirections = new List<Coordinate2D>()
-                                                                {
-                                                                   new Coordinate2D(1, 1),
-                                                                   new Coordinate2D(1, 0),
-                                                                   new Coordinate2D(1, -1),
-                                                                   new Coordinate2D(0, -1),
-                                                                   new Coordinate2D(-1, -1),
-                                                                   new Coordinate2D(-1, 0),
-                                                                   new Coordinate2D(-1, 1),
-                                                                   new Coordinate2D(0, 1),
-                                                                };
+        private static readonly IList<Coordinate2D> AllDirections = new List<Coordinate2D>
+                                                                    {
+                                                                        new Coordinate2D(1, 1),
+                                                                        new Coordinate2D(1, 0),
+                                                                        new Coordinate2D(1, -1),
+                                                                        new Coordinate2D(0, -1),
+                                                                        new Coordinate2D(-1, -1),
+                                                                        new Coordinate2D(-1, 0),
+                                                                        new Coordinate2D(-1, 1),
+                                                                        new Coordinate2D(0, 1)
+                                                                    };
 
         /// <summary>
-        /// Calculates the values of a rotating walk for a matrix of given size.
+        ///     Calculates the values of a rotating walk for a matrix of given size.
         /// </summary>
         /// <param name="matrixSize"></param>
         /// <returns>The calculated rotating walk matrix.</returns>
@@ -38,9 +39,9 @@ namespace WalkInMatrix.Calculator
             var matrix = new int[matrixSize, matrixSize];
             int stepCount = 0;
 
-            var currentPosition = new Coordinate2D();
+            var currentPosition = Coordinate2D.Zero;
 
-            while (TryFindFirstEmptyCellCoordinates(matrix, currentPosition))
+            while (TryFindFirstEmptyCellCoordinates(matrix, ref currentPosition))
             {
                 FillMatrix(matrix, currentPosition, ref stepCount);
             }
@@ -49,15 +50,20 @@ namespace WalkInMatrix.Calculator
         }
 
         /// <summary>
-        /// Returns the next direction clockwise by a given direction.
+        ///     Returns the next direction clockwise by a given direction.
         /// </summary>
-        /// <param name="coordDeltas"></param>
-        private static Coordinate2D GetNextDirectionOfMovementClockwise(Coordinate2D coordDeltas)
+        /// <param name="currentDirection"></param>
+        private static Coordinate2D GetNextDirectionOfMovementClockwise(Coordinate2D currentDirection)
         {
+            Debug.Assert(currentDirection.Row == -1 || currentDirection.Row == 0 || currentDirection.Row == 1,
+                         "Invalid coordinate row passed!");
+            Debug.Assert(currentDirection.Col == -1 || currentDirection.Col == 0 || currentDirection.Col == 1,
+                         "Invalid coordinate col passed!");
+
             for (var i = 0; i < AllDirections.Count; i++)
             {
-                if (AllDirections[i].Row == coordDeltas.Row
-                    && AllDirections[i].Col == coordDeltas.Col)
+                if (AllDirections[i].Row == currentDirection.Row
+                    && AllDirections[i].Col == currentDirection.Col)
                 {
                     i = (i + 1) % AllDirections.Count;
                     return new Coordinate2D(AllDirections[i].Row, AllDirections[i].Col);
@@ -68,21 +74,22 @@ namespace WalkInMatrix.Calculator
         }
 
         /// <summary>
-        /// Asserts whether there are any neighbouring cells of the current coordinates, which have a value of 0.
+        ///     Asserts whether there are any neighbouring cells of the current coordinates, which have a value of 0.
         /// </summary>
         /// <param name="matrix">The checked matrix.</param>
         /// <param name="coords">The current coordinates.</param>
         /// <returns>True if any neighbouring cell has not been visited, false otherwise.</returns>
         private static bool CanMoveInAnyDirection(int[,] matrix, Coordinate2D coords)
         {
+            Debug.Assert(matrix != null, "Null matrix passed!");
+            Debug.Assert(coords != null, "Null coordinates passed!");
+
             foreach (Coordinate2D direction in AllDirections)
             {
-                var newRow = coords.Row + direction.Row;
-                var newCol = coords.Col + direction.Col;
-                var newDirection = new Coordinate2D(newRow, newCol);
+                var newCoordinate = coords + direction;
 
-                if (IsInsideMatrix(newDirection, matrix.GetLength(0))
-                    && matrix[newRow, newCol] == 0)
+                if (IsInsideMatrix(newCoordinate, matrix.GetLength(0))
+                    && matrix[newCoordinate.Row, newCoordinate.Col] == 0)
                 {
                     return true;
                 }
@@ -92,13 +99,13 @@ namespace WalkInMatrix.Calculator
         }
 
         /// <summary>
-        /// Modifies the provided coordinates to the indexes of the first cell in the matrix, which has a value of 0.
+        ///     Modifies the provided coordinates to the indexes of the first cell in the matrix, which has a value of 0.
         /// </summary>
         /// <param name="matrix">The checked matrix.</param>
         /// <param name="coords">The current coordinates.</param>
         /// <returns>False if none of the cells in the matrix have a value of 0, false otherwise.</returns>
         /// <remarks>Doesn't change the coordinate values if no empty cell is found.</remarks>
-        private static bool TryFindFirstEmptyCellCoordinates(int[,] matrix, Coordinate2D coords)
+        private static bool TryFindFirstEmptyCellCoordinates(int[,] matrix, ref Coordinate2D coords)
         {
             for (var row = 0; row < matrix.GetLength(0); row++)
             {
@@ -117,36 +124,46 @@ namespace WalkInMatrix.Calculator
         }
 
         /// <summary>
-        /// Asserts whether a cell on a specific position has a value different than 0.
+        ///     Asserts whether a cell on a specific position has a value different than 0.
         /// </summary>
         /// <param name="coord">The coordinate to perform the check on.</param>
         /// <param name="matrix">The checked matrix.</param>
         /// <returns>True if the cell's value is different than 0, false otherwise.</returns>
         private static bool HasBeenVisited(Coordinate2D coord, int[,] matrix)
         {
+            Debug.Assert(matrix != null, "Null matrix passed!");
+            Debug.Assert(coord != null, "Null coordinates passed!");
+
             return matrix[coord.Row, coord.Col] != 0;
         }
 
         /// <summary>
-        /// Asserts whether the passed coordinate falls within the range of 0 and matrixSize.
+        ///     Asserts whether the passed coordinate falls within the range of 0 and matrixSize.
         /// </summary>
         /// <param name="coord">The coordinate to perform the check on.</param>
         /// <param name="matrixSize">The upper bound of the range.</param>
         /// <returns>True if values fall within the range, false otherwise.</returns>
         private static bool IsInsideMatrix(Coordinate2D coord, int matrixSize)
         {
-            return 0 <= coord.Row && coord.Row < matrixSize 
-                && 0 <= coord.Col && coord.Col < matrixSize;
+            Debug.Assert(coord != null, "Null coordinates passed!");
+            Debug.Assert(matrixSize >= 0, "Invalid matrixSize passed!");
+
+            return 0 <= coord.Row && coord.Row < matrixSize
+                   && 0 <= coord.Col && coord.Col < matrixSize;
         }
 
         /// <summary>
-        /// Loops through a given matrix and fills its cells with Rotating Walk values until all neighbouring cells have been visited.
+        ///     Loops through a given matrix and fills its cells with Rotating Walk values until all neighbouring cells have been
+        ///     visited.
         /// </summary>
         /// <param name="matrix">The matrix to fill.</param>
         /// <param name="currentPos">The current position in the matrix.</param>
         /// <param name="stepCount">The current cell value counter.</param>
         private static void FillMatrix(int[,] matrix, Coordinate2D currentPos, ref int stepCount)
         {
+            Debug.Assert(matrix != null, "Null matrix passed!");
+            Debug.Assert(currentPos != null, "Null coordinates passed!");
+
             var directionOfMovement = new Coordinate2D(1, 1);
             matrix[currentPos.Row, currentPos.Col] = ++stepCount;
 

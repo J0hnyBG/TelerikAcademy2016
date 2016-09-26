@@ -59,7 +59,7 @@
 
             var ex =
                 Assert.Throws<ArgumentOutOfRangeException>(() => RotatingWalkInMatrixCalculator.Calculate(invalidMatrixSize));
-            StringAssert.Contains("Matrix size must be", ex.Message);
+            StringAssert.Contains("Matrix size", ex.Message);
         }
     }
 }
