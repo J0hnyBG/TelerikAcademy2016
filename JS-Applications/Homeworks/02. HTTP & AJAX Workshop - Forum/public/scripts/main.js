@@ -73,20 +73,7 @@
     }
 
     function loadGalleryContent(data) {
-        let list = data.data.children,
-            containerGallery = $($('#gallery-container-tempalte').text()),
-            containerImgs = containerGallery.find('#gallery-imgs'),
-            item = $($('#gallery-img-tempalte').text()),
-            itemImg = item.find('img.gallery-item-img'),
-            itemTitle = item.find('.gallery-item-title')
-
-        list.forEach((el) => {
-            itemTitle.text(el.data.title);
-            itemImg.attr('src', el.data.thumbnail);
-
-            containerImgs.append(item.clone(true));
-        });
-
+        var containerGallery = UI.generateGalleryHtml(data.data.children);
         contentContainer.html('').append(containerGallery);
     }
 
