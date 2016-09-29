@@ -67,6 +67,7 @@ var data = (function () {
         };
 
         return new Promise(function (resolve, reject) {
+            console.log(threadId);
             $.ajax({
                 url: `api/threads/${threadId}/messages`,
                 method: 'POST',
@@ -75,8 +76,11 @@ var data = (function () {
                 headers: {
                     'x-authkey': localStorage.getItem(USERNAME_STORAGE_KEY)
                 },
-                success: function (res) {
+                success: (res) => {
                     resolve(res);
+                },
+                fail: (err) => {
+                    reject(err);
                 }
             });
         });
