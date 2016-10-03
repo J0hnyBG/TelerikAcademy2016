@@ -10,7 +10,7 @@
 <title>TemplateDemo</title>
 </head>
 <body>
-<table>
+<table> 
     <# for (int i = 1; i <= 10; i++)
        { #>
          <tr><td>Test name <#= i #> </td>

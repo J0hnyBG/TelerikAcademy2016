@@ -1,0 +1,25 @@
+{
+  "name": "Fortune Cookies",
+  "homepage": "https://github.com/J0hnyBG/TelerikAcademy2016",
+  "authors": [
+    "J0hnyBG <ivan.parvanov1@gmail.com>"
+  ],
+  "description": "Exam 2015 - Telerik Academy",
+  "main": "index.html",
+  "keywords": [
+    "none"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "navigo": "^3.0.0"
+  }
+}
