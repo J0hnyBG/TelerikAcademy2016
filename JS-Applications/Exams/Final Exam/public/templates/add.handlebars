@@ -1,0 +1,16 @@
+<form class="col-md-4 col-md-offset-4" id="add-form">
+    <h1>Add material</h1>
+    <div class="form-group">
+        <label for="tb-title">Title: </label>
+        <input id="tb-title" class="form-control" placeholder="Title" required pattern=".{6,100}" title="6 to 100 characters">
+    </div>
+    <div class="form-group">
+        <label for="tb-description">Descripion: </label>
+        <input id="tb-description" type="text" class="form-control" placeholder="Description" required>
+    </div>
+    <div class="form-group">
+        <label for="tb-url">Image URL: </label>
+        <input id="tb-url" type="text" class="form-control" placeholder="Image URL">
+    </div>
+    <button class="btn btn-warning" id="btn-add-material">Submit</button>
+</form>

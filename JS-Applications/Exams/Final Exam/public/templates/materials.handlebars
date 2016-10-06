@@ -1,0 +1,13 @@
+{{#materials}}
+    <div class="panel panel-primary col-lg-6">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="#/material/{{id}}" class="material-details" data-material-id="{{id}}">{{title}}</a></h3>
+        </div>
+        <div class="panel-body">
+            <img src="{{img}}" />{{description}}
+        </div>
+        <div class="panel-body">
+            {{createdOn}} by <a href="#/users/{{user.username}}" data-user-id="{{user.id}}">{{user.username}}</a>
+        </div>
+    </div>
+{{/materials}}

@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="panel panel-primary col-lg-6">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="#/material/{{id}}" class="material-details"
+                                       >{{title}}</a></h3>
+        </div>
+
+        <div class="panel-heading logged-in">
+             <label for="status-select">Change material status:</label>
+            <select name="select" id="status-select" data-material-id="{{id}}" style="color:#000">
+                <option value=""></option>
+                <option value="want-to-watch">Want to watch</option>
+                <option value="watched">Watched</option>
+                <option value="watching">Watching</option>
+            </select>
+        </div>
+        <div class="panel-body">
+            <img src="{{img}}"/>
+            <p>{{description}}</p>
+        </div>
+        <div class="panel-body">
+            Created on {{createdOn}} by <a href="#/users/{{user.username}}"
+                                           data-user-id="{{user.id}}">{{user.username}}</a>
+        </div>
+
+        <div class="panel-footer">
+            {{#if comments}}
+                {{#comments}}
+                    <p>{{text}}</p> by <a href="#/users/{{user.username}}"
+                                          data-user-id="{{user.id}}">{{user.username}}</a>
+                {{/comments}}
+            {{else}}No comments!
+            {{/if}}
+            <br>
+            <input type="text" id="add-comment-input">
+            <a class="btn btn-default" id="add-comment" href="#/material/{{id}}/comment">Add Comment</a>
+        </div>
+    </div>
+</div>

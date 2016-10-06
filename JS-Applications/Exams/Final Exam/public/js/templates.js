@@ -8,7 +8,7 @@ let templates = {
                 return Promise.resolve(cachedTemplates[name]);
             }
             else {
-                let url = `./views/${name}.handlebars`;
+                let url = `./templates/${name}.handlebars`;
 
                 return requester.get(url)
                     .then(template => {
