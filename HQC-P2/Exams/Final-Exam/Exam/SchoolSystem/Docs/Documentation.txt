@@ -1,0 +1,14 @@
+﻿Bottleneck description: --------------------
+#1: Unnessesary "Thread.Sleep(350)" in WriteLine method of class Engine.
+
+
+Bug reports: --------------------
+Format: #Bug number - Class name - Bug description
+Example: #1 - PartnerBankingService - The variable "money" at line 36 overflows when you try to add more than 2.1 billion dollars.
+--------
+#1 - Student.cs -> ListMarks() method does not output "This student has no marks." when Marks.Count == 0
+#2 - Student.cs -> ListMarks() doesn't append "The student has these marks:" in front of the marks.
+#3 - Students.cs, Teachers.cs and Marks.cs had no validation due to public fields. This can lead to invalid values - for example First Name with a length > 31 symbols
+#4 - Student.cs -> Adding more than 20 marks per student was possible.
+#5 - Grade.cs -> grades 1 - 7 were missing
+#6 - CreateStudentCommand -> Allows the creation of students with invalid Grades (negative and more than 12), also valid for CreateTeacher
