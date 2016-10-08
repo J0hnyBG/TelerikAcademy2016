@@ -54,17 +54,17 @@
             if (!Validator.IsStringLengthValid(name, Constants.MinNameLength, Constants.MaxNameLength))
             {
                 throw new ArgumentException(string.Format(
-                    Constants.InvalidLengthErrorMessage,
-                    errorMsgContent,
-                    Constants.MinNameLength,
-                    Constants.MaxNameLength));
+                                                          Constants.InvalidLengthErrorMessage,
+                                                          errorMsgContent,
+                                                          Constants.MinNameLength,
+                                                          Constants.MaxNameLength));
             }
 
             if (!Validator.AreAllStringCharsLatin(name))
             {
                 throw new ArgumentException(string.Format(
-                    Constants.StringContainsInvalidCharsErrorMessage,
-                    errorMsgContent));
+                                                          Constants.StringContainsInvalidCharsErrorMessage,
+                                                          errorMsgContent));
             }
         }
     }

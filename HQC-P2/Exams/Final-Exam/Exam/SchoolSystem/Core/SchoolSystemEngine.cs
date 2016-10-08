@@ -31,7 +31,7 @@ namespace SchoolSystem.Core
 
         public static void AddStudent(int id, IStudent student)
         {
-            ValidatePerson(id, student, "Teacher");
+            ValidatePerson(id, student, "Student");
 
             if (Students == null)
             {
