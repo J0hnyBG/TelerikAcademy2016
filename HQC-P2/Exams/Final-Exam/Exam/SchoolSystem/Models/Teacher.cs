@@ -27,7 +27,7 @@
             {
                 if (value < Subject.Bulgarian || value > Subject.Programming)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(this.Subject), string.Format(Constants.OutOfRangeErrorMessage, "Subject", "1", "4"));
+                    throw new ArgumentOutOfRangeException(nameof(this.Subject), string.Format(Constants.OutOfRangeErrorMessage, "Subject", "0", "3"));
                 }
 
                 this.subject = value;

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<people>
+  <person>
+    <name>Pesho</name>
+    <address>Sofia</address>
+    <phone>0888123456</phone>
+  </person>
+  <person>
+    <name>Gosho</name>
+    <address>Kazanlak</address>
+    <phone>0888654321</phone>
+  </person>
+  <person>
+    <name>Tosho</name>
+    <address>Kaspichan</address>
+    <phone>0888888888</phone>
+  </person>
+  <person>
+    <name>Stamat</name>
+    <address>Plovdiv</address>
+    <phone>0886668888</phone>
+  </person>
+</people>

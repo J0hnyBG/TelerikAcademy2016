@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+
+<s:university xmlns:s="urn:students" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="urn:students students.xsd">
+    <s:student>
+        <s:id>1</s:id>
+        <s:name>Pesho Peshov</s:name>
+        <s:gender>Male</s:gender>
+        <s:birthDate>22.05.1991</s:birthDate>
+        <s:phone>0888888888</s:phone>
+        <s:email>pesho@gmail.com</s:email>
+        <s:course>3</s:course>
+        <s:specialty>Computer Science</s:specialty>
+        <s:facultyNumber>123456789</s:facultyNumber>
+        <s:exams>
+            <s:exam>
+                <s:id>1</s:id>
+                <s:name>C#</s:name>
+                <s:tutor>Mr. Tutor</s:tutor>
+                <s:score>90</s:score>
+            </s:exam>
+            <s:exam>
+                <s:id>2</s:id>
+                <s:name>F#</s:name>
+                <s:tutor>Mr. Tutor</s:tutor>
+                <s:score>30</s:score>
+            </s:exam>
+        </s:exams>
+        <s:enrollment>
+            <s:date>05.05.2014</s:date>
+            <s:examScore>50</s:examScore>
+        </s:enrollment>
+    </s:student>
+    <s:student>
+        <s:id>2</s:id>
+        <s:name>Gosho Peshov</s:name>
+        <s:gender>Male</s:gender>
+        <s:birthDate>22.05.1990</s:birthDate>
+        <s:phone>0888777777</s:phone>
+        <s:email>Gosho@gmail.com</s:email>
+        <s:course>3</s:course>
+        <s:specialty>Computer Science</s:specialty>
+        <s:facultyNumber>123456779</s:facultyNumber>
+        <s:exams>
+            <s:exam>
+                <s:id>1</s:id>
+                <s:name>C#</s:name>
+                <s:tutor>Mr. Tutor</s:tutor>
+                <s:score>90</s:score>
+            </s:exam>
+            <s:exam>
+                <s:id>2</s:id>
+                <s:name>F#</s:name>
+                <s:tutor>Mr. Tutor</s:tutor>
+                <s:score>60</s:score>
+            </s:exam>
+        </s:exams>
+        <s:enrollment>
+            <s:date>05.05.2014</s:date>
+            <s:examScore>80</s:examScore>
+        </s:enrollment>
+    </s:student>
+</s:university>

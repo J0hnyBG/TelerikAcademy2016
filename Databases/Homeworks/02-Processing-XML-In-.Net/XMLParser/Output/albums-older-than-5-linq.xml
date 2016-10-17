@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="albumcatalogue.xsl"?>
+<albumCatalogue>
+  <album>
+    <name>Sabbath Bloody Sabbath</name>
+    <artist>Black Sabbath</artist>
+    <year>1973</year>
+    <producer>Black Sabbath</producer>
+    <price>19.99</price>
+    <songs>
+      <song>
+        <title>Sabbath Bloody Sabbath</title>
+        <length>5:45</length>
+      </song>
+      <song>
+        <title>A National Acrobat</title>
+        <length>6:16</length>
+      </song>
+      <song>
+        <title>Fluff</title>
+        <length>4:11</length>
+      </song>
+      <song>
+        <title>Sabbra Cadabra</title>
+        <length>5:59</length>
+      </song>
+      <song>
+        <title>Killing Yourself to Live</title>
+        <length>5:41</length>
+      </song>
+      <song>
+        <title>Who Are You</title>
+        <length>4:11</length>
+      </song>
+      <song>
+        <title>Looking for Today</title>
+        <length>5:06</length>
+      </song>
+      <song>
+        <title>Spiral Architect</title>
+        <length>5:29</length>
+      </song>
+    </songs>
+  </album>
+  <album>
+    <name>Paranoid</name>
+    <artist>Black Sabbath</artist>
+    <year>1970</year>
+    <producer>Rodger Bain</producer>
+    <price>9.99</price>
+    <songs>
+      <song>
+        <title>War Pigs</title>
+        <length>7:57</length>
+      </song>
+      <song>
+        <title>Paranoid</title>
+        <length>2:48</length>
+      </song>
+      <song>
+        <title>Planet Caravan</title>
+        <length>4:32</length>
+      </song>
+      <song>
+        <title>Iron Man</title>
+        <length>5:56</length>
+      </song>
+      <song>
+        <title>Electric Funeral</title>
+        <length>4:53</length>
+      </song>
+      <song>
+        <title>Hand of Doom</title>
+        <length>7:08</length>
+      </song>
+      <song>
+        <title>Rat Salad</title>
+        <length>2:03</length>
+      </song>
+      <song>
+        <title>Fairies Wear Boots</title>
+        <length>6:15</length>
+      </song>
+    </songs>
+  </album>
+  <album>
+    <name>Led Zeppelin</name>
+    <artist>Led Zeppelin</artist>
+    <year>1969</year>
+    <producer>Jimmy Page</producer>
+    <price>16.99</price>
+    <songs>
+      <song>
+        <title>Good Times Bad Times</title>
+        <length>2:46</length>
+      </song>
+      <song>
+        <title>Babe I'm Gonna Leave You</title>
+        <length>6:42</length>
+      </song>
+      <song>
+        <title>You Shook Me</title>
+        <length>6:28</length>
+      </song>
+      <song>
+        <title>Dazed and Confused</title>
+        <length>6:28</length>
+      </song>
+    </songs>
+  </album>
+</albumCatalogue>

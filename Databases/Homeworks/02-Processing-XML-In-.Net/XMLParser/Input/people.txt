@@ -1,0 +1,4 @@
+Pesho;Sofia;0888123456
+Gosho;Kazanlak;0888654321
+Tosho;Kaspichan;0888888888
+Stamat;Plovdiv;0886668888

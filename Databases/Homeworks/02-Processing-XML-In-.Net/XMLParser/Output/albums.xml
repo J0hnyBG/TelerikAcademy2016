@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<albumList>
+	<album>
+		<albumName>Sabbath Bloody Sabbath</albumName>
+		<artist>Black Sabbath</artist>
+	</album>
+	<album>
+		<albumName>Paranoid</albumName>
+		<artist>Black Sabbath</artist>
+	</album>
+	<album>
+		<albumName>Led Zeppelin</albumName>
+		<artist>Led Zeppelin</artist>
+	</album>
+	<album>
+		<albumName>Super Expensive Album</albumName>
+		<artist>Some artist</artist>
+	</album>
+	<album>
+		<albumName>Super Expensive Album2</albumName>
+		<artist>Some artist</artist>
+	</album>
+</albumList>
