@@ -1,4 +1,4 @@
-﻿namespace XMLParser.Readers
+﻿namespace XMLParser.Parsers
 {
     using System.IO;
     using System.Xml.Linq;

@@ -1,11 +1,11 @@
 ﻿namespace XMLParser
 {
     using System;
-    using System.Xml;
-    using System.Xml.Linq;
     using System.Xml.Xsl;
 
-    using Readers;
+    using DirectoryStructure;
+
+    using Parsers;
 
     public class Startup
     {
@@ -17,7 +17,7 @@
         {
             var albumInputUri = InputDirectory + "albumcatalogue.xml";
 
-            var extractor = new XmlCatalogueReader();
+            var extractor = new XmlCatalogueParser();
 
             //Task 2
             var artists = extractor.ExtractArtistsAndAlbumCountDom(albumInputUri);
@@ -63,6 +63,13 @@
             //Task 8
             extractor.ExtractAlbumAndArtistNames(albumInputUri, OutputDirectory + "albums.xml");
             Write("Extracted albums and artists and saved to " + OutputDirectory + "albums.xml");
+            Write(Divider);
+
+            //Task 9-10
+            var generator = new DirectoryXmlStructureGenerator();
+            var directoryDocument = generator.GenerateXmlStructure("..\\..\\..\\");
+            directoryDocument.Save(OutputDirectory + "project-directory-info.xml");
+            Write("Generated folder and file structure for current project and saved to " + OutputDirectory + "project-directory-info.xml");
             Write(Divider);
 
             //Task 11

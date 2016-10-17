@@ -1,4 +1,4 @@
-﻿namespace XMLParser.Readers
+﻿namespace XMLParser.Parsers
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using System.Xml.Linq;
     using System.Xml.XPath;
 
-    public class XmlCatalogueReader
+    public class XmlCatalogueParser
     {
         public IDictionary<string, int> ExtractArtistsAndAlbumCountDom(string uri)
         {

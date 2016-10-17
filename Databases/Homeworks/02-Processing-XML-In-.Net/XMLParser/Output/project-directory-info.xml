@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dir name="XMLParser">
+  <file name="XMLParser.sln" type="sln" />
+  <file name="XMLParser.sln.DotSettings.user" type="user" />
+  <dir name=".vs">
+    <dir name="XMLParser">
+      <dir name="v14">
+        <file name=".suo" type="suo" />
+      </dir>
+    </dir>
+  </dir>
+  <dir name="Input">
+    <file name="albumcatalogue.xml" type="xml" />
+    <file name="albumcatalogue.xsd" type="xsd" />
+    <file name="albumcatalogue.xsl" type="xsl" />
+    <file name="people.txt" type="txt" />
+    <dir name=".idea">
+      <file name="Input.iml" type="iml" />
+      <file name="jsLibraryMappings.xml" type="xml" />
+      <file name="misc.xml" type="xml" />
+      <file name="modules.xml" type="xml" />
+      <file name="workspace.xml" type="xml" />
+      <dir name="inspectionProfiles">
+        <file name="profiles_settings.xml" type="xml" />
+        <file name="Project_Default.xml" type="xml" />
+      </dir>
+    </dir>
+  </dir>
+  <dir name="Output">
+    <file name="albumcatalogue-filtered.xml" type="xml" />
+    <file name="albumcatalogue.html" type="html" />
+    <file name="albums-older-than-5-linq.xml" type="xml" />
+    <file name="albums-older-than-5.xml" type="xml" />
+    <file name="albums.xml" type="xml" />
+    <file name="people.xml" type="xml" />
+    <file name="project-directory-info.xml" type="xml" />
+  </dir>
+  <dir name="XMLParser">
+    <file name="App.config" type="config" />
+    <file name="Startup.cs" type="cs" />
+    <file name="XMLParser.csproj" type="csproj" />
+    <dir name="bin">
+      <dir name="Debug">
+        <file name="XMLParser.exe" type="exe" />
+        <file name="XMLParser.exe.config" type="config" />
+        <file name="XMLParser.pdb" type="pdb" />
+        <file name="XMLParser.vshost.exe" type="exe" />
+        <file name="XMLParser.vshost.exe.config" type="config" />
+      </dir>
+      <dir name="Release" />
+    </dir>
+    <dir name="DirectoryStructure">
+      <file name="DirectoryXmlStructureGenerator.cs" type="cs" />
+    </dir>
+    <dir name="obj">
+      <dir name="Debug">
+        <file name="DesignTimeResolveAssemblyReferencesInput.cache" type="cache" />
+        <file name="TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" type="cs" />
+        <file name="TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" type="cs" />
+        <file name="TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" type="cs" />
+        <file name="XMLParser.csproj.FileListAbsolute.txt" type="txt" />
+        <file name="XMLParser.csprojResolveAssemblyReference.cache" type="cache" />
+        <file name="XMLParser.exe" type="exe" />
+        <file name="XMLParser.pdb" type="pdb" />
+        <dir name="TempPE" />
+      </dir>
+    </dir>
+    <dir name="Properties">
+      <file name="AssemblyInfo.cs" type="cs" />
+    </dir>
+    <dir name="Readers">
+      <file name="TextFileParser.cs" type="cs" />
+      <file name="XmlCatalogueReader.cs" type="cs" />
+    </dir>
+  </dir>
+</dir>

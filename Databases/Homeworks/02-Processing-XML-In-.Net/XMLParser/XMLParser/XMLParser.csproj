@@ -43,17 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Readers\TextFileParser.cs" />
-    <Compile Include="Readers\XmlCatalogueReader.cs" />
+    <Compile Include="DirectoryStructure\DirectoryXmlStructureGenerator.cs" />
+    <Compile Include="Parsers\TextFileParser.cs" />
+    <Compile Include="Parsers\XmlCatalogueParser.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DirectoryStructureGenerator\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
