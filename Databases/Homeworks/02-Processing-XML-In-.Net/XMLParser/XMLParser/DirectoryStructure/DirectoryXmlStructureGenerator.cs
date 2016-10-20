@@ -21,11 +21,14 @@
             var files = root.GetFiles("*.*");
             foreach (FileInfo fileInfo in files)
             {
-                var fileExtension = fileInfo.Name.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)
+                var fileExtension = fileInfo.Name
+                                            .Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)
                                             .Last();
-                directoryElement.Add(new XElement("file",
-                                                  new XAttribute("name", fileInfo.Name),
-                                                  new XAttribute("type", fileExtension)));
+
+                directoryElement.Add(new XElement(
+                                         "file",
+                                         new XAttribute("name", fileInfo.Name),
+                                         new XAttribute("type", fileExtension)));
             }
 
             var subDirs = root.GetDirectories();

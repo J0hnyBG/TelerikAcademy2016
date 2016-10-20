@@ -18,10 +18,11 @@
                     var personAddress = splitLine[1];
                     var personPhone = splitLine[2];
 
-                    result.Add(new XElement("person",
-                                            new XElement("name", personName),
-                                            new XElement("address", personAddress),
-                                            new XElement("phone", personPhone)));
+                    result.Add(new XElement(
+                                   "person",
+                                   new XElement("name", personName),
+                                   new XElement("address", personAddress),
+                                   new XElement("phone", personPhone)));
                 }
             }
 
