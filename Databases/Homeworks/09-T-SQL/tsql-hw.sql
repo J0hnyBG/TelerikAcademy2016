@@ -294,10 +294,26 @@ GO
 ---------------7--------------
 USE [TelerikAcademy]
 GO
-CREATE FUNCTION dbo.udf_GetAllNamesConsistingOfSetOfLetters (@letters NVARCHAR(MAX))
+CREATE FUNCTION dbo.udf_GetAllNames ()
 RETURNS TABLE
 AS
-	RETURN (SELECT DISTINCT e.FirstName FROM Employees e);
+	RETURN (
+	SELECT DISTINCT
+		e.FirstName AS [Name]
+	FROM Employees e
+	UNION
+	SELECT DISTINCT
+		e.MiddleName
+	FROM Employees e
+	UNION
+	SELECT DISTINCT
+		e.LastName
+	FROM Employees e
+	UNION
+	SELECT DISTINCT
+		t.Name
+	FROM Towns t
+	);
 GO
 
 --DROP FUNCTION dbo.udf_GetAllNamesConsistingOfSetOfLetters
@@ -306,7 +322,6 @@ SELECT
 	*
 FROM dbo.udf_GetAllNamesConsistingOfSetOfLetters('oistmiahf');
 GO
----------------2--------------
 ---------------2--------------
 ---------------2--------------
 ---------------2--------------
