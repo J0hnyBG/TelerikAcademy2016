@@ -316,12 +316,21 @@ AS
 	);
 GO
 
---DROP FUNCTION dbo.udf_GetAllNamesConsistingOfSetOfLetters
-
-SELECT 
-	*
-FROM dbo.udf_GetAllNamesConsistingOfSetOfLetters('oistmiahf');
+CREATE FUNCTION dbo.udf_GetNamesConsistingOfOnlyTheseLetters (@letters NVARCHAR(MAX))
+RETURNS TABLE
+AS    
+	RETURN SELECT
+		*
+	FROM dbo.udf_GetAllNames() n
+	WHERE LOWER(n.Name) NOT LIKE '%[^' + LOWER(@letters) + ']%';
 GO
+
+SELECT
+	*
+FROM dbo.udf_GetNamesConsistingOfOnlyTheseLetters('oistmiahf');
+GO
+
+---------------8--------------
 ---------------2--------------
 ---------------2--------------
 ---------------2--------------
