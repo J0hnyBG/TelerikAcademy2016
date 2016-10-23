@@ -1,17 +1,17 @@
 ---------------1--------------
-USE [master]
+USE [master];
 GO
 
 IF DB_ID('BankSystem') IS NOT NULL
 BEGIN
-	DROP DATABASE [BankSystem]
-END
+	DROP DATABASE [BankSystem];
+END;
 GO
 
-CREATE DATABASE [BankSystem]
+CREATE DATABASE [BankSystem];
 GO
 
-USE [BankSystem]
+USE [BankSystem];
 GO
 
 CREATE TABLE dbo.Persons (
@@ -20,7 +20,7 @@ CREATE TABLE dbo.Persons (
 	,FirstName NVARCHAR(50) NOT NULL
 	,LastName NVARCHAR(50) NOT NULL
 	,SSN BIGINT NOT NULL UNIQUE
-)
+);
 GO
 
 CREATE TABLE dbo.Accounts (
@@ -29,7 +29,7 @@ CREATE TABLE dbo.Accounts (
 	,PersonId INT
 	,CONSTRAINT FK_Accounts_Persons FOREIGN KEY (PersonId) REFERENCES Persons (Id)
 	,Balance MONEY
-)
+);
 GO
 
 INSERT INTO Persons (FirstName, LastName, SSN)
@@ -44,9 +44,9 @@ INSERT INTO Persons (FirstName, LastName, SSN)
 	VALUES (N'Petar', N'Georgiev', 990121821);
 
 INSERT INTO Accounts (PersonId, Balance)
-	VALUES (1, 1000)
+	VALUES (1, 1000);
 INSERT INTO Accounts (PersonId, Balance)
-	VALUES (1, 2000)
+	VALUES (1, 2000);
 INSERT INTO Accounts (PersonId, Balance)
 	VALUES (2, 2000);
 INSERT INTO Accounts (PersonId, Balance)
@@ -61,10 +61,10 @@ CREATE PROC dbo.usp_SelectFullNameOfAllPeople
 AS
 	SELECT
 		p.FirstName + ' ' + p.LastName AS [FullName]
-	FROM Persons p
+	FROM Persons p;
 GO
 
-EXEC dbo.usp_SelectFullNameOfAllPeople
+EXEC dbo.usp_SelectFullNameOfAllPeople;
 GO
 
 ---------------2--------------
@@ -81,10 +81,10 @@ AS
 				,p.FirstName
 				,p.LastName
 				,p.SSN
-	HAVING @money <= SUM(a.Balance)
+	HAVING @money <= SUM(a.Balance);
 GO
 
-EXEC dbo.usp_SelectPeopleWithMoreMoneyThan @money = '3500'
+EXEC dbo.usp_SelectPeopleWithMoreMoneyThan @money = 3500;
 GO
 ---------------3--------------
 CREATE FUNCTION dbo.udf_GetBalanceAfter (@sum MONEY,
@@ -95,28 +95,28 @@ AS
 BEGIN
 	RETURN (
 	(@months / 12) * @interest * @sum / 100 + @sum
-	)
-END
+	);
+END;
 GO
 
 SELECT
-	dbo.udf_GetBalanceAfter(100, 5, 12)
+	dbo.udf_GetBalanceAfter(100, 5, 12);
 SELECT
-	dbo.udf_GetBalanceAfter(100, 5, 18)
+	dbo.udf_GetBalanceAfter(100, 5, 18);
 SELECT
-	dbo.udf_GetBalanceAfter(100, 5, 24)
+	dbo.udf_GetBalanceAfter(100, 5, 24);
 GO
 
 ---------------4--------------
 
 IF OBJECT_ID('dbo.usp_ApplyMonthOfInterestTo') IS NOT NULL
-	SET NOEXEC ON
+	SET NOEXEC ON;
 GO
 CREATE PROCEDURE dbo.usp_ApplyMonthOfInterestTo
 AS
 	RETURN;
 GO
-SET NOEXEC OFF
+SET NOEXEC OFF;
 GO
 ALTER PROCEDURE dbo.usp_ApplyMonthOfInterestTo (@interest FLOAT, @accountId INT)
 AS
@@ -126,16 +126,16 @@ BEGIN
 	SET @accountBalance = (SELECT
 			a.Balance
 		FROM Accounts a
-		WHERE @accountId = a.Id)
+		WHERE @accountId = a.Id);
 	DECLARE @newBalance MONEY;
 	SET @newBalance = dbo.udf_GetBalanceAfter(@accountBalance, @interest, 1);
 
 	UPDATE Accounts
 	SET Balance = @newBalance
-	WHERE Id = @accountId
+	WHERE Id = @accountId;
 
 	RETURN;
-END
+END;
 GO
 
 SELECT
@@ -150,16 +150,16 @@ SELECT
 FROM Accounts a
 WHERE a.Id = 1;
 
----------------5--------------
+---------------5.1--------------
 
 IF OBJECT_ID('dbo.usp_WithdrawMoney') IS NOT NULL
-	SET NOEXEC ON
+	SET NOEXEC ON;
 GO
 CREATE PROCEDURE dbo.usp_WithdrawMoney
 AS
 	RETURN;
 GO
-SET NOEXEC OFF
+SET NOEXEC OFF;
 GO
 ALTER PROCEDURE dbo.usp_WithdrawMoney (@accountId INT,
 @money MONEY)
@@ -172,17 +172,17 @@ BEGIN
 	SET @currentBalance = (SELECT
 			a.Balance
 		FROM Accounts a
-		WHERE @accountId = a.Id)
+		WHERE @accountId = a.Id);
 	DECLARE @newBalance MONEY;
 	SET @newBalance = @currentBalance - @money;
 
 	UPDATE Accounts
 	SET Balance = @newBalance
-	WHERE @accountId = Id
+	WHERE @accountId = Id;
 
 	COMMIT;
 	RETURN;
-END
+END;
 GO
 
 SELECT
@@ -191,20 +191,22 @@ FROM Accounts a
 WHERE a.Id = 3;
 
 EXEC dbo.usp_WithdrawMoney	@money = 1000
-							,@accountId = 3
+							,@accountId = 3;
 SELECT
 	*
 FROM Accounts a
 WHERE a.Id = 3;
 
+---------------5.2--------------
+
 IF OBJECT_ID('dbo.usp_DepositMoney') IS NOT NULL
-	SET NOEXEC ON
+	SET NOEXEC ON;
 GO
 CREATE PROCEDURE dbo.usp_DepositMoney
 AS
 	RETURN;
 GO
-SET NOEXEC OFF
+SET NOEXEC OFF;
 GO
 ALTER PROCEDURE dbo.usp_DepositMoney (@accountId INT,
 @money MONEY)
@@ -217,17 +219,17 @@ BEGIN
 	SET @currentBalance = (SELECT
 			a.Balance
 		FROM Accounts a
-		WHERE @accountId = a.Id)
+		WHERE @accountId = a.Id);
 	DECLARE @newBalance MONEY;
 	SET @newBalance = @currentBalance + @money;
 
 	UPDATE Accounts
 	SET Balance = @newBalance
-	WHERE @accountId = Id
+	WHERE @accountId = Id;
 
 	COMMIT;
 	RETURN;
-END
+END;
 GO
 
 SELECT
@@ -236,7 +238,7 @@ FROM Accounts a
 WHERE a.Id = 3;
 
 EXEC dbo.usp_DepositMoney	@money = 1000
-							,@accountId = 3
+							,@accountId = 3;
 SELECT
 	*
 FROM Accounts a
@@ -251,7 +253,7 @@ CREATE TABLE dbo.Logs (
 	,CONSTRAINT FK_Logs_Accounts FOREIGN KEY (AccountId) REFERENCES Accounts (Id)
 	,OldSum MONEY
 	,NewSum MONEY
-)
+);
 GO
 
 CREATE TRIGGER dbo.trg_AccountBalanceUpdate
@@ -277,22 +279,22 @@ BEGIN
 	INSERT INTO Logs (AccountId, OldSum, NewSum)
 		VALUES (@accountId, @oldBalance, @newBalance);
 
-END
+END;
 GO
 
 SELECT
 	*
-FROM Logs l
+FROM Logs l;
 EXEC dbo.usp_DepositMoney	@money = 10000
-							,@accountId = 3
+							,@accountId = 3;
 EXEC dbo.usp_WithdrawMoney	@money = 1000
-							,@accountId = 5
+							,@accountId = 5;
 SELECT
 	*
-FROM Logs l
+FROM Logs l;
 GO
 ---------------7--------------
-USE [TelerikAcademy]
+USE [TelerikAcademy];
 GO
 CREATE FUNCTION dbo.udf_GetAllNames ()
 RETURNS TABLE
@@ -318,7 +320,7 @@ GO
 
 CREATE FUNCTION dbo.udf_GetNamesConsistingOfOnlyTheseLetters (@letters NVARCHAR(MAX))
 RETURNS TABLE
-AS    
+AS
 	RETURN SELECT
 		*
 	FROM dbo.udf_GetAllNames() n
@@ -330,9 +332,29 @@ SELECT
 FROM dbo.udf_GetNamesConsistingOfOnlyTheseLetters('oistmiahf');
 GO
 
----------------8--------------
----------------2--------------
----------------2--------------
----------------2--------------
----------------2--------------
----------------2--------------
+---------------10--------------
+USE TelerikAcademy;
+GO
+
+sp_configure @configname=clr_enabled, @configvalue=1
+GO
+RECONFIGURE
+GO
+
+--Replace path to unzipped Concatenate.dll before execution
+DECLARE @path NVARCHAR(1024);
+SET @path = 'd:\Misc\TelerikAcademy2016\Databases\Homeworks\09-T-SQL\Concatenate.dll';
+
+CREATE ASSEMBLY [concat]
+FROM @path
+WITH PERMISSION_SET = SAFE;
+GO
+
+CREATE AGGREGATE [dbo].[StrConcat] (@value NVARCHAR(MAX))
+RETURNS NVARCHAR(MAX)
+	EXTERNAL NAME [concat].[StrConcat];
+GO
+
+SELECT
+	dbo.StrConcat(FirstName + ' ' + LastName)
+FROM Employees;
