@@ -36,16 +36,6 @@
             }
         }
 
-        //public void CreateTable()
-        //{
-        //    using ( this.Connection )
-        //    {
-        //        var command = this.GetCommand("CREATE TABLE [PersonScores] (Name VARCHAR, Score int);");
-
-        //        command.ExecuteNonQuery();
-        //    }
-        //}
-
         /// <summary>
         /// Lists all rows form the PersonScores table.
         /// </summary>

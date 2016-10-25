@@ -83,7 +83,6 @@
     <Compile Include="Data\ConnectionProviders\OleDbConnectionProvider.cs" />
     <Compile Include="Data\ConnectionProviders\SqlConnectionProvider.cs" />
     <Compile Include="Data\ConnectionProviders\SqLiteConnectionProvider.cs" />
-    <Compile Include="Data\Contracts\IDBEngine.cs" />
     <Compile Include="Data\MySqlDbEngine.cs" />
     <Compile Include="Data\OleDbEngine.cs" />
     <Compile Include="Data\SqlDbEngine.cs" />
