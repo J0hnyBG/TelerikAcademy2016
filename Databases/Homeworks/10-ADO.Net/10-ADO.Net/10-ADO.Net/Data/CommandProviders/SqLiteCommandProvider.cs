@@ -2,16 +2,16 @@
 {
     using System.Collections.Generic;
     using System.Data;
-    using System.Data.SqlClient;
+    using System.Data.SQLite;
 
     using Abstract;
 
-    public class SqlCommandProvider : AbstractCommandProvider
+    public class SqLiteCommandProvider : AbstractCommandProvider
     {
         public override IDbCommand CreateDbCommand(string query, IDictionary<string, object> parameters = null)
         {
             this.ValidateCommandString(query);
-            var command = new SqlCommand(query);
+            var command = new SQLiteCommand(query);
             this.AddParameters(command, parameters);
 
             return command;

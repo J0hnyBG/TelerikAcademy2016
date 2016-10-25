@@ -1,30 +1,18 @@
 ﻿namespace _10_ADO.Net.Data.CommandProviders
 {
-    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.OleDb;
 
-    using Contracts;
+    using Abstract;
 
-    public class OleDbCommandProvider : ICommandProvider
+    public class OleDbCommandProvider : AbstractCommandProvider
     {
-        public IDbCommand CreateDbCommand(string query, IDictionary<string, object> parameters = null)
+        public override IDbCommand CreateDbCommand(string query, IDictionary<string, object> parameters = null)
         {
-            if (string.IsNullOrEmpty(query))
-            {
-                throw new ArgumentNullException(nameof(query));
-            }
-
+            this.ValidateCommandString(query);
             var command = new OleDbCommand(query);
-
-            if (parameters != null)
-            {
-                foreach (var item in parameters)
-                {
-                    command.Parameters.AddWithValue(item.Key, item.Value);
-                }
-            }
+            this.AddParameters(command, parameters);
 
             return command;
         }

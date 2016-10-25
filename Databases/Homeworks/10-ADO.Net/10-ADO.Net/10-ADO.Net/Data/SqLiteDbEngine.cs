@@ -11,10 +11,10 @@
 
     using Models;
 
-    public class MySqlDbEngine : AbstractDbEngine
+    public class SqLiteDbEngine : AbstractDbEngine
     {
-        public MySqlDbEngine(string connectionString)
-            : base(connectionString, new MySqlCommandProvider(), new MySqlConnectionProvider())
+        public SqLiteDbEngine(string connectionString)
+            : base(connectionString, new SqLiteCommandProvider(), new SqLiteConnectionProvider())
         {
         }
 
@@ -25,7 +25,8 @@
         {
             using (this.Connection)
             {
-                var command = this.GetCommand("SELECT * FROM books");
+                var command = this.GetCommand("SELECT Name, Author FROM books;");
+
                 var reader = command.ExecuteReader();
                 var result = this.ParseDataReader<Book>(reader);
                 return result;
@@ -70,6 +71,7 @@
                     this.GetCommand(
                                     @"INSERT INTO books (Name, Author, ISBN, PublishDate) VALUES(@Name, @Author, @ISBN, @PublishDate);",
                                     parameters);
+
                 var result = command.ExecuteNonQuery();
                 return result;
             }

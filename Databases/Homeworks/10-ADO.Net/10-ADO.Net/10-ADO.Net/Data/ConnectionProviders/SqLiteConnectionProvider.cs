@@ -2,11 +2,11 @@
 {
     using System;
     using System.Data;
-    using System.Data.OleDb;
+    using System.Data.SQLite;
 
     using Contracts;
 
-    public class OleDbConnectionProvider : IConnectionProvider
+    public class SqLiteConnectionProvider : IConnectionProvider
     {
         public IDbConnection GetConnection(string connectionString)
         {
@@ -15,7 +15,7 @@
                 throw new ArgumentNullException(nameof(connectionString));
             }
 
-            var connection = new OleDbConnection(connectionString);
+            var connection = new SQLiteConnection(connectionString);
             return connection;
         }
     }

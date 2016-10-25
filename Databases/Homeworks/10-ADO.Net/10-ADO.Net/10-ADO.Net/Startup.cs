@@ -17,6 +17,8 @@
         private const string MySqlConnectionString =
             "Server=localhost; port=3309; database=library; UID=root; password=zxc123";
 
+        private const string SqLiteConnectionString = "Data Source=../../../library.db;Version=3;";
+
         private const string ResultFormat = "{0}: {1}";
 
         private static void Main()
@@ -30,7 +32,7 @@
 
             //Task 2
             var categoryNamesAndDescriptions = sqlEngine.GetCategoryNamesAndDescriptions();
-            foreach (var category in categoryNamesAndDescriptions)
+            foreach ( var category in categoryNamesAndDescriptions )
             {
                 WriteLine(string.Format(ResultFormat, category.CategoryName, category.Description));
             }
@@ -39,7 +41,7 @@
 
             //Task 3
             var categoryWithProducts = sqlEngine.GetProductsGroupedByCategory();
-            foreach (var category in categoryWithProducts)
+            foreach ( var category in categoryWithProducts )
             {
                 WriteLine(string.Format(ResultFormat, category.CategoryName, category.Products));
             }
@@ -52,18 +54,18 @@
             //Task 5
             var images = sqlEngine.GetAllCategoryImages();
             var fileManager = new ImageFileManager();
-            for (var i = 0; i < images.Count; i++)
+            for ( var i = 0; i < images.Count; i++ )
             {
-                fileManager.WriteToDisk($"..\\..\\CategoryImages\\image-{i + 1}.jpg", images[i].Picture);
+                fileManager.WriteToDisk($"..\\..\\..\\..\\CategoryImages\\image-{i + 1}.jpg", images[i].Picture);
             }
 
-            WriteLine("Downloaded and saved category images to ..\\..\\CategoryImages\\");
+            WriteLine("Downloaded and saved category images to ..\\..\\..\\..\\CategoryImages\\");
             Divide();
 
             //Task 6
             var oleDbEngine = new OleDbEngine(OledbConnectionString);
             var scores = oleDbEngine.GetPersonScores();
-            foreach (var personScore in scores)
+            foreach ( var personScore in scores )
             {
                 WriteLine(string.Format(ResultFormat, personScore.Name, personScore.Score));
             }
@@ -71,14 +73,12 @@
             Divide();
 
             //Task 7
-            //oleDbEngine.InsertPerson("Tosho", 50);
+            oleDbEngine.InsertPerson("Tosho", 50);
 
             //Task 8
             var pattern = GetUserInput("product");
-
             var searchResult = sqlEngine.SearchProductsByName(pattern);
-
-            foreach (var product in searchResult)
+            foreach ( var product in searchResult )
             {
                 WriteLine(product.ProductName);
             }
@@ -87,7 +87,7 @@
             //Task 9
             var mySqlDb = new MySqlDbEngine(MySqlConnectionString);
             var allBooks = mySqlDb.ListAllBooks();
-            foreach (var book in allBooks)
+            foreach ( var book in allBooks )
             {
                 WriteLine(string.Format(ResultFormat, book.Author, book.Name));
             }
@@ -96,7 +96,7 @@
             //Task 9.1
             var bookSearchPattern = GetUserInput("book");
             var bookSearchResult = mySqlDb.SearchForBooksByName(bookSearchPattern);
-            foreach (var book in bookSearchResult)
+            foreach ( var book in bookSearchResult )
             {
                 WriteLine(string.Format(ResultFormat, book.Author, book.Name));
             }
@@ -104,6 +104,28 @@
 
             //Task 9.2
             mySqlDb.AddBook("The Art of War", "Sun Tzu", "56453-5654-4512", DateTime.Now);
+
+            var sqlLiteDb = new SqLiteDbEngine(SqLiteConnectionString);
+            //Task 10.2
+            sqlLiteDb.AddBook("The Art of Unit Testing", "Roy Osherove", "9781933988276", DateTime.Now);
+            Divide();
+
+            //Task 10
+            var result = sqlLiteDb.ListAllBooks();
+            foreach (var book in result)
+            {
+                WriteLine(string.Format(ResultFormat, book.Author, book.Name));
+            }
+            Divide();
+
+            //Task 10.1
+            var bookSearchPatternLite = GetUserInput("book");
+            var bookSearchLiteResult = sqlLiteDb.SearchForBooksByName(bookSearchPatternLite);
+            foreach (var book in bookSearchLiteResult)
+            {
+                WriteLine(string.Format(ResultFormat, book.Author, book.Name));
+            }
+            Divide();
         }
 
         private static void Divide()
