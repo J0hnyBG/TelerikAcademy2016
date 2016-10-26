@@ -1,4 +1,4 @@
-﻿namespace _10_ADO.Net.Data
+﻿namespace _10_ADO.Net.Data.Core
 {
     using System;
     using System.Collections.Generic;
@@ -11,10 +11,10 @@
 
     using Models;
 
-    public class SqLiteDbEngine : AbstractDbEngine
+    public class MySqlDbEngine : AbstractDbEngine
     {
-        public SqLiteDbEngine(string connectionString)
-            : base(connectionString, new SqLiteCommandProvider(), new SqLiteConnectionProvider())
+        public MySqlDbEngine(string connectionString)
+            : base(connectionString, new MySqlCommandProvider(), new MySqlConnectionProvider())
         {
         }
 
@@ -25,8 +25,7 @@
         {
             using (this.Connection)
             {
-                var command = this.GetCommand("SELECT Name, Author FROM books;");
-
+                var command = this.GetCommand("SELECT * FROM books");
                 var reader = command.ExecuteReader();
                 var result = this.ParseDataReader<Book>(reader);
                 return result;
@@ -71,7 +70,6 @@
                     this.GetCommand(
                                     @"INSERT INTO books (Name, Author, ISBN, PublishDate) VALUES(@Name, @Author, @ISBN, @PublishDate);",
                                     parameters);
-
                 var result = command.ExecuteNonQuery();
                 return result;
             }

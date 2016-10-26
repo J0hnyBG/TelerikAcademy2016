@@ -1,10 +1,13 @@
-﻿namespace _10_ADO.Net.Data
+﻿namespace _10_ADO.Net.Data.Core
 {
     using System.Collections.Generic;
 
     using Abstract;
+
     using CommandProviders;
+
     using ConnectionProviders;
+
     using Models;
 
     public class SqlDbEngine : AbstractDbEngine
@@ -25,10 +28,10 @@
         {
             using (this.Connection)
             {
-                var command = this.GetCommand($"SELECT COUNT(*) FROM {tableName}");
+                string query = $"SELECT COUNT(*) FROM {tableName}";
+                var command = this.GetCommand(query);
 
                 var numberOfCategories = (int)command.ExecuteScalar();
-
                 return numberOfCategories;
             }
         }
@@ -41,7 +44,8 @@
         {
             using (this.Connection)
             {
-                var command = this.GetCommand("SELECT CategoryName, Description FROM Categories");
+                const string query = "SELECT CategoryName, Description FROM Categories";
+                var command = this.GetCommand(query);
                 var reader = command.ExecuteReader();
 
                 var categories = this.ParseDataReader<Category>(reader);
@@ -57,7 +61,7 @@
         {
             using (this.Connection)
             {
-                var query = @"SELECT DISTINCT
+                const string query = @"SELECT DISTINCT
                     CategoryName
                     , SUBSTRING((SELECT
                             ', ' + p.ProductName AS[text()]
@@ -69,15 +73,15 @@
                     FROM Categories c";
 
                 var command = this.GetCommand(query);
-
                 var reader = command.ExecuteReader();
+
                 var categoriesWithProducts = this.ParseDataReader<CategoryWithProducts>(reader);
                 return categoriesWithProducts;
             }
         }
 
         /// <summary>
-        /// Inserts a new product in the Products table.
+        ///     Inserts a new product in the Products table.
         /// </summary>
         public void InsertProduct(string productName,
                                   int supplierId,
@@ -88,7 +92,7 @@
         {
             using (this.Connection)
             {
-                var query =
+                const string query =
                     @"INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
                     VALUES(@ProductName, @SupplierID, @CategoryID, @Quantity, @UnitPrice, @UnitsInStock, DEFAULT, DEFAULT, DEFAULT); ";
                 var parameters = new Dictionary<string, object>
@@ -106,22 +110,23 @@
         }
 
         /// <summary>
-        /// Gets all images for categories
+        ///     Gets all images for categories
         /// </summary>
         public IList<PictureContainer> GetAllCategoryImages()
         {
             using (this.Connection)
             {
-                var command = this.GetCommand("SELECT Picture FROM Categories;");
-
+                const string query = "@SELECT Picture FROM Categories;";
+                var command = this.GetCommand(query);
                 var reader = command.ExecuteReader();
+
                 var pictures = this.ParseDataReader<PictureContainer>(reader);
                 return pictures;
             }
         }
 
         /// <summary>
-        /// Searches Products table and outputs each product with a partial match in ProductName.
+        ///     Searches Products table and outputs each product with a partial match in ProductName.
         /// </summary>
         public IList<Product> SearchProductsByName(string pattern)
         {
@@ -131,11 +136,10 @@
                                                          {
                                                              { "@Pattern", "%" + pattern + "%" }
                                                          };
-
-                var command = this.GetCommand(@"SELECT ProductName FROM Products WHERE ProductName LIKE @Pattern;",
-                                              parameters);
-
+                const string query = @"SELECT ProductName FROM Products WHERE ProductName LIKE @Pattern;";
+                var command = this.GetCommand(query, parameters);
                 var reader = command.ExecuteReader();
+
                 var products = this.ParseDataReader<Product>(reader);
                 return products;
             }

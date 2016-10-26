@@ -1,13 +1,27 @@
 ﻿namespace _10_ADO.Net
 {
     using System;
+    using System.Linq;
 
     using Data;
+    using Data.Core;
 
     using Files;
 
     internal class Startup
     {
+        private const string sad =
+//@"■  ■  ■
+//■■ ■ ■■
+//■  ■  ■
+//■■ ■ ■■
+//■     ■
+//■     ■
+// ■   ■ 
+//  ■ ■   
+//   ■   
+//";
+            "\u25A0  \u25A0  \u25A0\n\u25A0\u25A0 \u25A0 \u25A0\u25A0\n\u25A0  \u25A0  \u25A0\n\u25A0\u25A0 \u25A0 \u25A0\u25A0\n\u25A0     \u25A0\n\u25A0     \u25A0\n \u25A0   \u25A0 \n  \u25A0 \u25A0   \n   \u25A0";
         //Change connection string as nessesary
         private const string SqlConnectionString = "Server=.; Database=NorthWind; Integrated Security=true";
 
@@ -24,6 +38,7 @@
 
         private static void Main()
         {
+            Console.WriteLine(sad);
             var sqlEngine = new SqlDbEngine(SqlConnectionString);
 
             //Task 1
@@ -144,10 +159,10 @@
 
         private static void Divide()
         {
-            WriteLine(new string('-', 50));
+            WriteLine(new string('■', 100));
             WriteLine("Press any key for next task.");
             Console.ReadKey();
-            WriteLine(new string('-', 50));
+            WriteLine(new string('■', 100));
         }
 
         private static void WriteLine(string toWrite)
@@ -157,8 +172,7 @@
 
         private static string GetUserInput(string prompt)
         {
-            WriteLine($"Please enter {prompt} search word: ");
-            var pattern = Console.ReadLine();
+            var pattern = string.Empty;
             while (string.IsNullOrEmpty(pattern))
             {
                 WriteLine($"Please enter {prompt} search word: ");

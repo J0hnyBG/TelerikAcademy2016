@@ -1,4 +1,4 @@
-﻿namespace _10_ADO.Net.Data.Abstract
+﻿namespace _10_ADO.Net.Data.Core.Abstract
 {
     using System;
     using System.Collections.Generic;

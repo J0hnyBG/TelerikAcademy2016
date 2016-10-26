@@ -71,7 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Abstract\AbstractDbEngine.cs" />
     <Compile Include="Data\CommandProviders\Abstract\AbstractCommandProvider.cs" />
     <Compile Include="Data\CommandProviders\Contracts\ICommandProvider.cs" />
     <Compile Include="Data\CommandProviders\MySqlCommandProvider.cs" />
@@ -83,10 +82,13 @@
     <Compile Include="Data\ConnectionProviders\OleDbConnectionProvider.cs" />
     <Compile Include="Data\ConnectionProviders\SqlConnectionProvider.cs" />
     <Compile Include="Data\ConnectionProviders\SqLiteConnectionProvider.cs" />
-    <Compile Include="Data\MySqlDbEngine.cs" />
-    <Compile Include="Data\OleDbEngine.cs" />
-    <Compile Include="Data\SqlDbEngine.cs" />
-    <Compile Include="Data\SqLiteDbEngine.cs" />
+    <Compile Include="Data\Core\Abstract\AbstractDbEngine.cs" />
+    <Compile Include="Data\Core\MySqlDbEngine.cs" />
+    <Compile Include="Data\Core\OleDbEngine.cs" />
+    <Compile Include="Data\Core\SqlDbEngine.cs" />
+    <Compile Include="Data\Core\SqLiteDbEngine.cs" />
+    <Compile Include="Data\DbFactory.cs" />
+    <Compile Include="Data\IDbFactory.cs" />
     <Compile Include="Files\ImageFileManager.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Category.cs" />

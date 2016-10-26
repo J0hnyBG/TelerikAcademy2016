@@ -1,4 +1,4 @@
-﻿namespace _10_ADO.Net.Data
+﻿namespace _10_ADO.Net.Data.Core
 {
     using System.Collections.Generic;
 
