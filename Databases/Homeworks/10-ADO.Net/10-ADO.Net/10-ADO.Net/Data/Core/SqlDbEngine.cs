@@ -116,7 +116,7 @@
         {
             using (this.Connection)
             {
-                const string query = "@SELECT Picture FROM Categories;";
+                const string query = @"SELECT Picture FROM Categories;";
                 var command = this.GetCommand(query);
                 var reader = command.ExecuteReader();
 

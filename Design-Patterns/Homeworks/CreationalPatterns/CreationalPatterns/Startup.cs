@@ -14,7 +14,7 @@
 
             if (singleton == sameSingleton)
             {
-                Console.WriteLine("Objects are the same instance");
+                singleton.Log("Objects are the same instance.");
             }
         }
     }

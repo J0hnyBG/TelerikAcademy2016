@@ -1,0 +1,6 @@
+1. Facade
+    * The Facade pattern hides the complexities of the system and provides an interface to the client using which the client can access the system. It adds an interface to an existing system to hide its complexities. This pattern involves a single class which provides simplified methods required by the client and delegates calls to methods of existing system classes.
+    
+2. The Adapter pattern works as a bridge between two incompatible interfaces. This type of design pattern comes under structural pattern as this pattern combines the capability of two independent interfaces. This pattern involves a single class which is responsible to join functionalities of independent or incompatible interfaces.
+
+3. The Composite pattern is used where we need to treat a group of objects in similar way as a single object. Composite pattern composes objects in term of a tree structure to represent part as well as whole hierarchy. This type of design pattern comes under structural pattern as this pattern creates a tree structure of group of objects.
