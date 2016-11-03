@@ -1,0 +1,11 @@
+1. Chain Of Responsibility
+    * The Chain Of Responsibility pattern gives us a way to avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it. The pattern chains the receiving objects together, and then passes any request messages from object to object until it reaches an object capable of handling the message. The number and type of handler objects isn't known and they can be configured dynamically. The chaining mechanism uses recursive composition to allow an unlimited number of handlers to be linked. It also simplifies object interconnections. Instead of senders and receivers maintaining references to all candidate receivers, each sender keeps a single reference to the head of the chain, and each receiver keeps a single reference to its immediate successor in the chain.
+    
+2. Strategy 
+    * In the Strategy pattern different algorithms are represented as concrete strategy classes, and they share a common strategy interface. A context object contains a reference to a strategy. By changing the context's strategy, different behaviors can be obtained and although these behaviors are different, the different strategies all operate on data from the context. Rather than providing different behaviors via subclasses overriding methods in superclasses, the strategy pattern allows for different behaviors to be interchanged at runtime.
+    
+3. Memento
+    * The Memento is a design pattern which allows us to save an object's current state and restore it at a later time. The pattern allows for the internal state of an object to be saved without breaking the rules of encapsulation. This design pattern is commonly used to provide an application with Undo functionality.
+    
+4. Template Method
+    * The Template Method is a design pattern which allows us to define the skeleton of an algorithm in a method and deferring some or all steps to subclasses. It is commonly used when two or more implementations of a similar algorithm exist.
