@@ -38,7 +38,10 @@ namespace Dealership.NinjectBindings
                               var assembly = this.GetType()
                                                  .GetTypeInfo()
                                                  .Assembly;
-                              IList<Type> typeInfos = assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(CommandHandler))).ToList();
+
+                              IList<Type> typeInfos = assembly.GetTypes()
+                                                              .Where(t => t.IsSubclassOf(typeof(CommandHandler)))
+                                                              .ToList();
 
                               var commandHandlers = new List<ICommandHandler>();
                               for (var i = 0; i < typeInfos.Count; i++)
@@ -47,7 +50,7 @@ namespace Dealership.NinjectBindings
                                   commandHandlers.Add(handler);
                                   if (i != 0)
                                   {
-                                      commandHandlers[i-1].SetNext(handler);
+                                      commandHandlers[i - 1].SetNext(handler);
                                   }
                               }
 

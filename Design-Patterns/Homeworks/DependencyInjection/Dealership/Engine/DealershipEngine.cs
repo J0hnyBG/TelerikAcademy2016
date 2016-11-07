@@ -15,10 +15,10 @@ namespace Dealership.Engine
         private const string UserNotLogged = "You are not logged! Please login first!";
 
         private readonly IDealershipFactory _factory;
+        private readonly IConsoleInputOutputProvider _console;
+        private readonly ICommandHandler _commandHandler;
         private ICollection<IUser> _users;
         private IUser _loggedUser;
-        private IConsoleInputOutputProvider _console;
-        private readonly ICommandHandler _commandHandler;
 
         public DealershipEngine(IDealershipFactory factory,
                                 IConsoleInputOutputProvider consoleInputOutputProvider,
@@ -135,7 +135,9 @@ namespace Dealership.Engine
 
         private string ProcessSingleCommand(ICommand command)
         {
-            if (command.Name != "RegisterUser" && command.Name != "Login" && this._loggedUser == null)
+            if (command.Name != "RegisterUser"
+                && command.Name != "Login"
+                && this._loggedUser == null)
             {
                 return UserNotLogged;
             }
