@@ -59,7 +59,7 @@ namespace Computers.Seeding.DataGenerators
                                    Storages = computerStorages,
                                    Gpus = computerGpus,
                                    Memory = possibleMemories[random.GetRandomNumber(0, possibleMemories.Length - 1)],
-                                   ComputerType = types[random.GetRandomNumber(0, 2)]
+                                   ComputerType = types[random.GetRandomNumber(0, types.Count - 1)]
                                };
 
                 computersToAdd.Add(computer);

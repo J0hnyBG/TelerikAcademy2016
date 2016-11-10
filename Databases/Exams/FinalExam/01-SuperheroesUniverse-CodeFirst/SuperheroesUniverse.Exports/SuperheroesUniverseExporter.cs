@@ -37,7 +37,7 @@
                                                          Powers = hero.Powers.Select(p => p.Name).ToArray()
                                                      });
             var container = new SuperheroesCollection { Superheroes = serializable.ToArray() };
-            var result = this.Serialize(container, "AllSuperheroes-Export.xml");
+            var result = Serialize(container, "AllSuperheroes-Export.xml");
 
             return result;
         }
@@ -57,7 +57,7 @@
                                                      });
             var container = new SuperheroesCollection { Superheroes = serializable.ToArray() };
 
-            var result = this.Serialize(container, $"HeroesWithPower{safePowerName}-Export.xml");
+            var result = Serialize(container, $"HeroesWithPower{safePowerName}-Export.xml");
 
             return result;
         }
@@ -76,7 +76,7 @@
                       };
             var container = new SuperheroesCollection { Superheroes = new[] { dto } };
 
-            var result = this.Serialize(container, $"HeroWithId{(int)superheroId}-Export.xml");
+            var result = Serialize(container, $"HeroWithId{(int)superheroId}-Export.xml");
 
             return result;
         }
@@ -96,7 +96,7 @@
                                                      });
             var container = new SuperheroesCollection { Superheroes = serializable.ToArray() };
 
-            var result = this.Serialize(container, $"HeroesFrom-{safeFileCityName}-Export.xml");
+            var result = Serialize(container, $"HeroesFrom-{safeFileCityName}-Export.xml");
 
             return result;
         }
@@ -115,7 +115,7 @@
 
             var container = new FractionContainer { Fractions = dtos };
 
-            var result = this.Serialize(container, "AllFractions-Export.xml");
+            var result = Serialize(container, "AllFractions-Export.xml");
             return result;
         }
 
@@ -130,14 +130,13 @@
                            Name = fraction.Name
                        };
 
-            var container = new FractionContainer();
-            container.Fractions = new[] { dtos };
+            var container = new FractionContainer { Fractions = new[] { dtos } };
 
-            var result = this.Serialize(container, $"FractionsForId-{(int)fractionId}-Export.xml");
+            var result = Serialize(container, $"FractionsForId-{(int)fractionId}-Export.xml");
             return result;
         }
 
-        private string Serialize<T>(T fractions, string fileName)
+        private static string Serialize<T>(T fractions, string fileName)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
 
@@ -146,7 +145,6 @@
                                             FileAccess.Write, FileShare.Read);
             xmlSerializer.Serialize(fileStream, fractions);
             fileStream.Close();
-
             var result = File.ReadAllText(DirectoryPath + fileName);
 
             return result;

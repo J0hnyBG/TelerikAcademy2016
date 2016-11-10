@@ -11,6 +11,7 @@
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Modules;
+
     public  class SuperheroesModule : NinjectModule
     {
         public override void Load()

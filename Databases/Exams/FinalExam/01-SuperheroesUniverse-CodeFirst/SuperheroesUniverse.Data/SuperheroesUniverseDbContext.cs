@@ -30,11 +30,6 @@ namespace SuperheroesUniverse.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            //base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<HeroRelationship>()
-            //            .HasMany(i => i.Superhero)
-            //            .WithRequired()
-            //            .WillCascadeOnDelete(false);
         }
     }
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <fractions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <fractions>
-    <fraction id="1">
-      <membersCount>2</membersCount>
+    <fraction id="1" members="2">
       <name>Justice League</name>
       <planets />
     </fraction>

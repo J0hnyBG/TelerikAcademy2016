@@ -7,7 +7,7 @@
         [XmlAttribute("id")]
         public int Id { get; set; }
 
-        [XmlElement("membersCount")]
+        [XmlAttribute("membersCount")]
         public int MembersCount { get; set; }
 
         [XmlElement("name")]

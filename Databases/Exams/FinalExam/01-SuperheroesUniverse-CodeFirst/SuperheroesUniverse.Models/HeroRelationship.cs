@@ -9,12 +9,12 @@
     {
         [Key, Column(Order = 0)]
         public int SuperheroId { get; set; }
-        [Column("Superhero")]
+        [Column("SuperheroId")]
         public virtual Superhero Superhero { get; set; }
 
         [Key, Column(Order = 1)]
         public int SecondHeroId { get; set; }
-        [Column("SecondHero")]
+        [Column("SecondHeroId")]
         public virtual Superhero SecondHero { get; set; }
 
         public RelationshipType Relationship { get; set; }

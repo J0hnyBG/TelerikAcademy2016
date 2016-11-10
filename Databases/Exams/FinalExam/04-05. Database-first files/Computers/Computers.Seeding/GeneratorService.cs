@@ -14,9 +14,9 @@
         public void InsertAllTableData()
         {
             var db = new ComputersEntitiesDb();
-            var generators = GetAllGenerators();
-            var random = new RandomGenerator();
 
+            var random = new RandomGenerator();
+            var generators = GetAllGenerators();
             foreach (var dataGenerator in generators)
             {
                 dataGenerator.Generate(db, random);
