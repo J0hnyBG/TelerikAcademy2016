@@ -1,18 +1,18 @@
-﻿using SchoolSystem.Framework.Core.Contracts;
+﻿using SchoolSystem.Framework.Core.Repositories.Contracts;
 using SchoolSystem.Framework.Models.Contracts;
 
 namespace SchoolSystem.Framework.Core.Repositories
 {
     public class SchoolSystemData : ISchoolSystemData
     {
-        public SchoolSystemData(IKeyedRepository<IStudent> students, IKeyedRepository<ITeacher> teachers)
+        public SchoolSystemData(IRepository<IStudent> students, IRepository<ITeacher> teachers)
         {
             this.Students = students;
             this.Teachers = teachers;
         }
 
-        public IKeyedRepository<IStudent> Students { get; }
+        public IRepository<IStudent> Students { get; }
 
-        public IKeyedRepository<ITeacher> Teachers { get; }
+        public IRepository<ITeacher> Teachers { get; }
     }
 }

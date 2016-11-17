@@ -35,7 +35,7 @@ namespace SchoolSystem.Framework.Models
                     $"The student's marks count exceed the maximum count of {MaxStudentMarksCount} marks");
             }
 
-            var newMark = this.markFactory.GetMark(this.Subject, mark);
+            var newMark = this.markFactory.CreateMark(this.Subject, mark);
             student.Marks.Add(newMark);
         }
     }

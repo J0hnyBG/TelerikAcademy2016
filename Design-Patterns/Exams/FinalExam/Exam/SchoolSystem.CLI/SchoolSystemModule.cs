@@ -15,8 +15,8 @@ using SchoolSystem.Framework.Core.Commands;
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
 using SchoolSystem.Framework.Core.Providers;
-using SchoolSystem.Framework.Models;
-using SchoolSystem.Framework.Models.Contracts;
+using SchoolSystem.Framework.Core.Repositories;
+using SchoolSystem.Framework.Core.Repositories.Contracts;
 
 namespace SchoolSystem.Cli
 {
@@ -35,26 +35,47 @@ namespace SchoolSystem.Cli
             this.Bind<IReader>().To<ConsoleReaderProvider>();
             this.Bind<IParser>().To<CommandParserProvider>();
 
+            this.Bind(typeof(IRepository<>)).To(typeof(KeyedRepository<>)).WhenInjectedInto<ISchoolSystemData>();
+
             this.Bind<ISchoolSystemEngine>().To<Engine>();
 
-            this.Bind<IMarkFactory>().ToFactory().InSingletonScope();
             this.Bind<IStudentFactory>().ToFactory().InSingletonScope();
             this.Bind<ITeacherFactory>().ToFactory().InSingletonScope();
-
-            this.Bind<IStudent>().To<Student>().Named(typeof(Student).Name);
-            this.Bind<ITeacher>().To<Teacher>().Named(typeof(Teacher).Name);
-            this.Bind<IMark>().To<Mark>().Named(typeof(Mark).Name);
+            this.Bind<IMarkFactory>().ToFactory().InSingletonScope();
 
             this.Bind<ICommandFactory>()
                 .ToFactory(() => new UseFirstArgumentAsNameInstanceProvider())
                 .InSingletonScope();
 
-            this.Bind<ICommand>().To<CreateStudentCommand>().Named(typeof(CreateStudentCommand).Name);
-            this.Bind<ICommand>().To<CreateTeacherCommand>().Named(typeof(CreateTeacherCommand).Name);
-            this.Bind<ICommand>().To<RemoveStudentCommand>().Named(typeof(RemoveStudentCommand).Name);
-            this.Bind<ICommand>().To<RemoveTeacherCommand>().Named(typeof(RemoveTeacherCommand).Name);
-            this.Bind<ICommand>().To<StudentListMarksCommand>().Named(typeof(StudentListMarksCommand).Name);
-            this.Bind<ICommand>().To<TeacherAddMarkCommand>().Named(typeof(TeacherAddMarkCommand).Name);
+            this.Bind<ICommand>()
+                .To<CreateStudentCommand>()
+                .InSingletonScope()
+                .Named(typeof(CreateStudentCommand).Name);
+
+            this.Bind<ICommand>()
+                .To<CreateTeacherCommand>()
+                .InSingletonScope()
+                .Named(typeof(CreateTeacherCommand).Name);
+
+            this.Bind<ICommand>()
+                .To<RemoveStudentCommand>()
+                .InSingletonScope()
+                .Named(typeof(RemoveStudentCommand).Name);
+
+            this.Bind<ICommand>()
+                .To<RemoveTeacherCommand>()
+                .InSingletonScope()
+                .Named(typeof(RemoveTeacherCommand).Name);
+
+            this.Bind<ICommand>()
+                .To<StudentListMarksCommand>()
+                .InSingletonScope()
+                .Named(typeof(StudentListMarksCommand).Name);
+
+            this.Bind<ICommand>()
+                .To<TeacherAddMarkCommand>()
+                .InSingletonScope()
+                .Named(typeof(TeacherAddMarkCommand).Name);
 
             IConfigurationProvider configurationProvider = this.Kernel.Get<IConfigurationProvider>();
             if (configurationProvider.IsTestEnvironment)

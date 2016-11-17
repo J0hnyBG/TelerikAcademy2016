@@ -26,23 +26,26 @@ namespace SchoolSystem.Tests.CommandTests
             var command = new RemoveStudentCommand();
             //Act
             var result = command.Execute(parameters, mockEngine.Object.Data);
+            var secondResult = command.Execute(parameters, mockEngine.Object.Data);
             //Assert
             Assert.AreEqual(ExpectedReturnValue, result);
+            Assert.AreEqual(ExpectedReturnValue, secondResult);
         }
 
-        [Test]
-        public void Execute_ShouldCallEngineRemoveStudentWithCorrectParameters_WhenValidArgumentsArePassed()
+        [TestCase("1")]
+        [TestCase("2")]
+        public void Execute_ShouldCallEngineRemoveStudentWithCorrectParameters_WhenValidArgumentsArePassed(string id)
         {
             //Arrange
-            var parameters = new List<string>() { "1" };
+            var parameters = new List<string>() { id };
             var mockEngine = new Mock<ISchoolSystemEngine>();
-            mockEngine.Setup(e => e.Data.Students.Remove(1));
+            mockEngine.Setup(e => e.Data.Students.Remove(int.Parse(id)));
 
             var command = new RemoveStudentCommand();
             //Act
             command.Execute(parameters, mockEngine.Object.Data);
             //Assert
-            mockEngine.Verify(e => e.Data.Students.Remove(1), Times.Once());
+            mockEngine.Verify(e => e.Data.Students.Remove(int.Parse(id)), Times.Once());
         }
 
         [Test]

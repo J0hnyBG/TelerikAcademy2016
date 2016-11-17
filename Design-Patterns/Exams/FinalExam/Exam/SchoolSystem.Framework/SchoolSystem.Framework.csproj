@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,21 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Commands\Contracts\ICommand.cs" />
-    <Compile Include="Core\Commands\Contracts\IIdProvider.cs" />
     <Compile Include="Core\Commands\Contracts\IMarkFactory.cs" />
-    <Compile Include="Core\Commands\Contracts\IModelFactory.cs" />
     <Compile Include="Core\Commands\Contracts\IStudentFactory.cs" />
     <Compile Include="Core\Commands\Contracts\ITeacherFactory.cs" />
     <Compile Include="Core\Commands\CreateStudentCommand.cs" />
     <Compile Include="Core\Commands\CreateTeacherCommand.cs" />
     <Compile Include="Core\Commands\ICommandFactory.cs" />
-    <Compile Include="Core\Commands\Providers\IdProvider.cs" />
     <Compile Include="Core\Commands\RemoveStudentCommand.cs" />
     <Compile Include="Core\Commands\RemoveTeacherCommand.cs" />
     <Compile Include="Core\Commands\StudentListMarksCommand.cs" />
     <Compile Include="Core\Commands\TeacherAddMarkCommand.cs" />
     <Compile Include="Core\Contracts\IEngine.cs" />
-    <Compile Include="Core\Contracts\IKeyedRepository.cs" />
     <Compile Include="Core\Contracts\IParser.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
     <Compile Include="Core\Contracts\ISchoolSystemEngine.cs" />
@@ -64,7 +64,8 @@
     <Compile Include="Core\Providers\CommandParserProvider.cs" />
     <Compile Include="Core\Providers\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Providers\ConsoleWriterProvider.cs" />
-    <Compile Include="Core\Repositories\ISchoolSystemData.cs" />
+    <Compile Include="Core\Repositories\Contracts\IRepository.cs" />
+    <Compile Include="Core\Repositories\Contracts\ISchoolSystemData.cs" />
     <Compile Include="Core\Repositories\KeyedRepository.cs" />
     <Compile Include="Core\Repositories\SchoolSystemData.cs" />
     <Compile Include="Models\Abstractions\Person.cs" />
@@ -78,6 +79,9 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

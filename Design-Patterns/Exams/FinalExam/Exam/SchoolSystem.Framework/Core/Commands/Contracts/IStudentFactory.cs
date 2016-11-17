@@ -5,6 +5,6 @@ namespace SchoolSystem.Framework.Core.Commands.Contracts
 {
     public interface IStudentFactory
     {
-        IStudent GetStudent(string firstName, string lastName, Grade grade);
+        IStudent CreateStudent(string firstName, string lastName, Grade grade);
     }
 }

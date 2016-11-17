@@ -16,8 +16,8 @@
       <name>Nightwing</name>
       <secretIdentity>Dick Grayson</secretIdentity>
       <powers>
-        <string>Martial arts</string>
         <string>Acrobatics</string>
+        <string>Martial arts</string>
       </powers>
       <alignment>Good</alignment>
       <city>Gotham</city>
@@ -26,9 +26,9 @@
       <name>Dr. Stephen Strange</name>
       <secretIdentity>Dr. Stephen Strange</secretIdentity>
       <powers>
-        <string>Martial arts</string>
         <string>Magic</string>
         <string>Dimensional travel</string>
+        <string>Martial arts</string>
       </powers>
       <alignment>Good</alignment>
       <city>New York</city>

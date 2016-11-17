@@ -5,6 +5,6 @@ namespace SchoolSystem.Framework.Core.Commands.Contracts
 {
     public interface IMarkFactory
     {
-        IMark GetMark(Subject subject, float value);
+        IMark CreateMark(Subject subject, float value);
     }
 }

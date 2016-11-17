@@ -17,24 +17,27 @@ namespace SchoolSystem.Cli.Interceptors
             {
                 throw new ArgumentNullException(nameof(writer));
             }
+
             this.writer = writer;
         }
 
         public void Intercept(IInvocation invocation)
         {
-            var timer = new Stopwatch();
             var methodName = invocation.Request.Method.Name;
-            var type = invocation.Request.Target.GetType().Name;
-            type = type.Replace("Proxy", string.Empty);
+            var typeName = invocation.Request.Target
+                                     .GetType()
+                                     .Name.Replace("Proxy", string.Empty);
 
-            this.writer.WriteLine($"Calling method {methodName} of type {type}...");
+            this.writer.WriteLine($"Calling method {methodName} of type {typeName}...");
 
+            var timer = new Stopwatch();
             timer.Start();
             invocation.Proceed();
             timer.Stop();
 
             var elapsed = timer.ElapsedMilliseconds;
-            this.writer.WriteLine($"Total execution time for method {methodName} of type {type} is {elapsed} milliseconds.");
+            this.writer.WriteLine(
+                                  $"Total execution time for method {methodName} of type {typeName} is {elapsed} milliseconds.");
         }
     }
 }

@@ -16,8 +16,8 @@
       <name>Nightwing</name>
       <secretIdentity>Dick Grayson</secretIdentity>
       <powers>
-        <string>Martial arts</string>
         <string>Acrobatics</string>
+        <string>Martial arts</string>
       </powers>
       <alignment>Good</alignment>
       <city>Gotham</city>
@@ -36,9 +36,9 @@
       <name>Dr. Stephen Strange</name>
       <secretIdentity>Dr. Stephen Strange</secretIdentity>
       <powers>
-        <string>Martial arts</string>
         <string>Magic</string>
         <string>Dimensional travel</string>
+        <string>Martial arts</string>
       </powers>
       <alignment>Good</alignment>
       <city>New York</city>
@@ -97,8 +97,8 @@
       <name>Ultraman</name>
       <secretIdentity>Clark Kent (Earth 2)</secretIdentity>
       <powers>
-        <string>Super strength</string>
         <string>Transdimentional vision</string>
+        <string>Super strength</string>
       </powers>
       <alignment>Evil</alignment>
       <city>Centropolis</city>
@@ -107,11 +107,11 @@
       <name>Wolverine</name>
       <secretIdentity>James Howlett</secretIdentity>
       <powers>
-        <string>Healing</string>
         <string>Mutant</string>
         <string>Metallic skeleton</string>
         <string>Strong</string>
         <string>Has claws</string>
+        <string>Healing</string>
       </powers>
       <alignment>Good</alignment>
       <city>Unknown</city>
@@ -120,8 +120,8 @@
       <name>Professor X</name>
       <secretIdentity>Charles Francis Xavi</secretIdentity>
       <powers>
-        <string>Mutant</string>
         <string>Telepathics</string>
+        <string>Mutant</string>
       </powers>
       <alignment>Good</alignment>
       <city>New York</city>

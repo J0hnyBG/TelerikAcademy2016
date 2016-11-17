@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using SchoolSystem.Framework.Core.Commands.Contracts;
-using SchoolSystem.Framework.Core.Repositories;
+using SchoolSystem.Framework.Core.Repositories.Contracts;
 using SchoolSystem.Framework.Models.Enums;
 
 namespace SchoolSystem.Framework.Core.Commands
@@ -27,10 +27,8 @@ namespace SchoolSystem.Framework.Core.Commands
             var lastName = parameters[1];
             var grade = (Grade)int.Parse(parameters[2]);
 
-            var student = this.studentFactory.GetStudent(firstName, lastName, grade);
-            var studentId = data.Students.NextId;
-
-            data.Students.Add(student);
+            var student = this.studentFactory.CreateStudent(firstName, lastName, grade);
+            var studentId = data.Students.Add(student);
 
             return $"A new student with name {firstName} {lastName}, grade {grade} and ID {studentId} was created.";
         }

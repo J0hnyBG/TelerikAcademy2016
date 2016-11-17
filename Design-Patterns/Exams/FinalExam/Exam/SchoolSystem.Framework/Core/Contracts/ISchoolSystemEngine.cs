@@ -1,4 +1,4 @@
-﻿using SchoolSystem.Framework.Core.Repositories;
+﻿using SchoolSystem.Framework.Core.Repositories.Contracts;
 
 namespace SchoolSystem.Framework.Core.Contracts
 {

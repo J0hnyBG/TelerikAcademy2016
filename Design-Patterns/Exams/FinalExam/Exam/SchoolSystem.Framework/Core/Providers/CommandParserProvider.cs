@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Ninject;
+
 using SchoolSystem.Framework.Core.Commands;
 using SchoolSystem.Framework.Core.Commands.Contracts;
 using SchoolSystem.Framework.Core.Contracts;
@@ -12,21 +14,21 @@ namespace SchoolSystem.Framework.Core.Providers
     {
         private readonly ICommandFactory commandFactory;
 
-        public CommandParserProvider(ICommandFactory commandCreationHandler)
+        public CommandParserProvider(ICommandFactory commandFactory)
         {
-            if (commandCreationHandler == null)
+            if (commandFactory == null)
             {
-                throw new ArgumentNullException(nameof(commandCreationHandler));
+                throw new ArgumentNullException(nameof(commandFactory));
             }
 
-            this.commandFactory = commandCreationHandler;
+            this.commandFactory = commandFactory;
         }
 
         public ICommand ParseCommand(string fullCommand)
         {
             var commandName = fullCommand.Split(' ')[0] + "Command";
 
-            var command = this.commandFactory.GetCommand(commandName);
+            var command = this.commandFactory.CreateCommand(commandName);
             return command;
         }
 
@@ -35,12 +37,9 @@ namespace SchoolSystem.Framework.Core.Providers
             var commandParts = fullCommand.Split(' ').ToList();
             commandParts.RemoveAt(0);
 
-            if (commandParts.Count() == 0)
-            {
-                return null;
-            }
-
-            return commandParts;
+            return commandParts.Any()
+                ? commandParts
+                : null;
         }
     }
 }

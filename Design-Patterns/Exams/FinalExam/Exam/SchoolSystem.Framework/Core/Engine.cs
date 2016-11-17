@@ -1,7 +1,7 @@
 ﻿using System;
 
 using SchoolSystem.Framework.Core.Contracts;
-using SchoolSystem.Framework.Core.Repositories;
+using SchoolSystem.Framework.Core.Repositories.Contracts;
 
 namespace SchoolSystem.Framework.Core
 {

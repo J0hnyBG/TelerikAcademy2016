@@ -8,7 +8,7 @@ namespace SchoolSystem.Cli.InstanceProviders
 {
     public class UseFirstArgumentAsNameInstanceProvider : StandardInstanceProvider
     {
-        protected override string GetName(System.Reflection.MethodInfo methodInfo, object[] arguments)
+        protected override string GetName(MethodInfo methodInfo, object[] arguments)
         {
             return (string)arguments[0];
         }

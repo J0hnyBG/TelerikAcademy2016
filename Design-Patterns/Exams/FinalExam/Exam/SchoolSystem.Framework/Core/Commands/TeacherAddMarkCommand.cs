@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using SchoolSystem.Framework.Core.Commands.Contracts;
-using SchoolSystem.Framework.Core.Repositories;
+using SchoolSystem.Framework.Core.Repositories.Contracts;
 
 namespace SchoolSystem.Framework.Core.Commands
 {

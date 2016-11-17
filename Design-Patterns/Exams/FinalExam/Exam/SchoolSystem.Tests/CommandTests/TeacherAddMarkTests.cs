@@ -19,9 +19,10 @@ namespace SchoolSystem.Tests.CommandTests
         [TestCase("1", "sdas", "5")]
         [TestCase("1", "1", "asdasdsa")]
         [TestCase("@#!", "ASD", "asdasdsa")]
-        public void Execute_ShouldThrowFormatException_WhenInvalidArgumentsArePassed(string teacherId,
-                                                                                     string studentId,
-                                                                                     string mark)
+        public void Execute_ShouldThrowFormatException_WhenInvalidArgumentsArePassed(
+            string teacherId,
+            string studentId,
+            string mark)
         {
             //Arrange
             var parameters = new List<string> { teacherId, studentId, mark };
@@ -35,9 +36,10 @@ namespace SchoolSystem.Tests.CommandTests
         [TestCase("1", null, "5")]
         [TestCase("1", "1", null)]
         [TestCase(null, null, null)]
-        public void Execute_ShouldThrowArgumentNullException_WhenNullArgumentsArePassed(string teacherId,
-                                                                                     string studentId,
-                                                                                     string mark)
+        public void Execute_ShouldThrowArgumentNullException_WhenNullArgumentsArePassed(
+            string teacherId,
+            string studentId,
+            string mark)
         {
             //Arrange
             var parameters = new List<string> { teacherId, studentId, mark };
@@ -60,7 +62,6 @@ namespace SchoolSystem.Tests.CommandTests
                         .Returns(mockedStudent.Object);
             mockedEngine.Setup(e => e.Data.Teachers.GetById(1))
                         .Returns(mockedTeacher.Object);
-
 
             var command = new TeacherAddMarkCommand();
             //Act
@@ -98,7 +99,6 @@ namespace SchoolSystem.Tests.CommandTests
             mockedEngine.Setup(e => e.Data.Teachers.GetById(1))
                         .Returns(mockedTeacher.Object);
 
-
             var command = new TeacherAddMarkCommand();
             //Act
             var result = command.Execute(parameters, mockedEngine.Object.Data);
@@ -106,19 +106,27 @@ namespace SchoolSystem.Tests.CommandTests
             Assert.AreEqual(ExpectedMessage, result);
         }
 
-        [Test]
-        public void Execute_ShouldTeacherAddMarkMethodWithCorrectParameters_WhenValidArgumentsArePassed()
+        [TestCase("1", "1", "2")]
+        [TestCase("2", "3", "5")]
+        public void Execute_ShouldTeacherAddMarkMethodWithCorrectParameters_WhenValidArgumentsArePassed(
+            string teacher,
+            string student,
+            string mark)
         {
             //Arrange
-            var parameters = new List<string> { "1", "1", "2" };
+            var parameters = new List<string> { teacher, student, mark };
+            var teacherId = int.Parse(teacher);
+            var studentId = int.Parse(student);
+            var parsedMark = float.Parse(mark);
+
             var mockedStudent = new Mock<IStudent>();
             var mockedTeacher = new Mock<ITeacher>();
-            mockedTeacher.Setup(t => t.AddMark(mockedStudent.Object, 2f));
+            mockedTeacher.Setup(t => t.AddMark(mockedStudent.Object, parsedMark));
 
             var mockedEngine = new Mock<ISchoolSystemEngine>();
-            mockedEngine.Setup(e => e.Data.Students.GetById(1))
+            mockedEngine.Setup(e => e.Data.Students.GetById(studentId))
                         .Returns(mockedStudent.Object);
-            mockedEngine.Setup(e => e.Data.Teachers.GetById(1))
+            mockedEngine.Setup(e => e.Data.Teachers.GetById(teacherId))
                         .Returns(mockedTeacher.Object);
 
 
@@ -126,7 +134,7 @@ namespace SchoolSystem.Tests.CommandTests
             //Act
             command.Execute(parameters, mockedEngine.Object.Data);
             //Assert
-            mockedTeacher.Verify(t => t.AddMark(mockedStudent.Object, 2f), Times.Once());
+            mockedTeacher.Verify(t => t.AddMark(mockedStudent.Object, parsedMark), Times.Once());
         }
     }
 }
