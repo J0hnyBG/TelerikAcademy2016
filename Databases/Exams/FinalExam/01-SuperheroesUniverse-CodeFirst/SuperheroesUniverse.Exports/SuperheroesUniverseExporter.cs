@@ -1,4 +1,6 @@
-﻿namespace SuperheroesUniverse.Exports
+﻿using System.Text;
+
+namespace SuperheroesUniverse.Exports
 {
     using System;
     using System.IO;
@@ -18,7 +20,7 @@
         {
             if (db == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(db));
             }
 
             this.db = db;
@@ -35,8 +37,9 @@
                                                          Id = hero.Id,
                                                          SecretIdentity = hero.SecretIdentity,
                                                          Powers = hero.Powers.Select(p => p.Name).ToArray()
-                                                     });
-            var container = new SuperheroesCollection { Superheroes = serializable.ToArray() };
+                                                     })
+                                     .ToArray();
+            var container = new SuperheroesCollection { Superheroes = serializable };
             var result = Serialize(container, "AllSuperheroes-Export.xml");
 
             return result;
@@ -54,8 +57,9 @@
                                                          Id = hero.Id,
                                                          SecretIdentity = hero.SecretIdentity,
                                                          Powers = hero.Powers.Select(p => p.Name).ToArray()
-                                                     });
-            var container = new SuperheroesCollection { Superheroes = serializable.ToArray() };
+                                                     })
+                                                     .ToArray();
+            var container = new SuperheroesCollection { Superheroes = serializable };
 
             var result = Serialize(container, $"HeroesWithPower{safePowerName}-Export.xml");
 
@@ -136,15 +140,14 @@
             return result;
         }
 
-        private static string Serialize<T>(T fractions, string fileName)
+        private static string Serialize<T>(T item, string fileName)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
+            var xmlSerializer = new XmlSerializer(typeof(T));
+            using (var tw = new StreamWriter(DirectoryPath + fileName, false, Encoding.UTF8))
+            {
+                xmlSerializer.Serialize(tw, item);
+            }
 
-            var fileStream = new FileStream(DirectoryPath + fileName,
-                                            FileMode.Create,
-                                            FileAccess.Write, FileShare.Read);
-            xmlSerializer.Serialize(fileStream, fractions);
-            fileStream.Close();
             var result = File.ReadAllText(DirectoryPath + fileName);
 
             return result;

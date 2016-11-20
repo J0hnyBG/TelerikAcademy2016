@@ -35,7 +35,7 @@ namespace _12_StackImplementation
 
             private set
             {
-                if (value == this.items.Length)
+                if (value <= this.items.Length)
                 {
                     return;
                 }
@@ -47,6 +47,7 @@ namespace _12_StackImplementation
                     {
                         Array.Copy(this.items, 0, objArray, 0, this.size);
                     }
+
                     this.items = objArray;
                 }
                 else

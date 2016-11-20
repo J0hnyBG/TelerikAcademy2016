@@ -29,7 +29,19 @@ namespace SuperheroesUniverse.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<HeroRelationship>().HasKey(r => r.Id);
+            //modelBuilder.Entity<HeroRelationship>()
+            //            .HasRequired(r => r.Superhero)
+            //            .WithMany(x => x.Relationships)
+            //            .HasForeignKey(x => new { x.SuperheroId, x.SecondHeroId });
+            //modelBuilder.Entity<HeroRelationship>()
+            //    .HasKey(t => new { t.SuperheroId, t.SecondHeroId});
+
+            //modelBuilder.Entity<HeroRelationship>().HasRequired(t => t.Superhero)
+            //            .WithMany(s => s.Relationships)
+            //            .Map(m => m.MapKey("OneId").MapKey(new string[] { "SuperheroId", "SecondHeroId" }));
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.
         }
     }
 }

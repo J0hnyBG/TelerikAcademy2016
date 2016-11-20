@@ -4,9 +4,7 @@
     using System.Reflection;
 
     using Data.Common;
-
     using Exports;
-
     using Importer;
 
     using Ninject;

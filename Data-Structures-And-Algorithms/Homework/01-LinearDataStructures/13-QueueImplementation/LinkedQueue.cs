@@ -21,17 +21,17 @@ namespace _13_QueueImplementation
         public void Enqueue(T value)
         {
             var item = new LinkedListItem<T>(value);
-
             if (this.LastItem != null)
             {
                 this.LastItem.NextItem = item;
             }
-            this.LastItem = item;
 
+            this.LastItem = item;
             if (this.FirstItem == null)
             {
                 this.FirstItem = item;
             }
+
             this.Count++;
         }
 

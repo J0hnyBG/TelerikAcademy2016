@@ -5,8 +5,7 @@
     [XmlRoot("fractions")]
     public class FractionContainer
     {
-        [XmlArray("fractions")]
-        [XmlArrayItem("fraction")]
+        [XmlElement("fraction")]
         public FractionDto[] Fractions { get; set; }
 
         public FractionDto this[int i]

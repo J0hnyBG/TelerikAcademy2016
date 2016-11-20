@@ -5,8 +5,7 @@
     [XmlRoot("superheroes")]
     public class SuperheroesCollection
     {
-        [XmlArray("superheroes")]
-        [XmlArrayItem("superhero")]
+        [XmlElement("superhero")]
         public SuperheroDto[] Superheroes { get; set; }
 
         public SuperheroDto this[int i]

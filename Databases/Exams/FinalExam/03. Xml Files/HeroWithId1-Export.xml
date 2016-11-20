@@ -1,16 +1,12 @@
-<?xml version="1.0"?>
-<superheroes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <superheroes>
-    <superhero id="1">
-      <name>Batman</name>
-      <secretIdentity>Bruce Wayne</secretIdentity>
-      <powers>
-        <string>Utility belt</string>
-        <string>Intelligence</string>
-        <string>Martial arts</string>
-      </powers>
-      <alignment>Good</alignment>
-      <city>Gotham</city>
-    </superhero>
-  </superheroes>
-</superheroes>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SuperheroDto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="1">
+  <name>Batman</name>
+  <secretIdentity>Bruce Wayne</secretIdentity>
+  <powers>
+    <string>Utility belt</string>
+    <string>Intelligence</string>
+    <string>Martial arts</string>
+  </powers>
+  <alignment>Good</alignment>
+  <city>Gotham</city>
+</SuperheroDto>

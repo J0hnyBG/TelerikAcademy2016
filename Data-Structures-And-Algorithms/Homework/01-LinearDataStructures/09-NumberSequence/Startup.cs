@@ -29,7 +29,7 @@ S7 = S2 + 2;
                 var first = currentValue + 1;
                 numberQueue.Enqueue(first);
 
-                var second = (currentValue*2) + 1;
+                var second = (currentValue * 2) + 1;
                 numberQueue.Enqueue(second);
 
                 var third = currentValue + 2;

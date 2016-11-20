@@ -26,5 +26,7 @@
             get { return this.countries; }
             set { this.countries = value; }
         }
+
+        public virtual ICollection<Fraction> Fractions { get; set; }
     }
 }
