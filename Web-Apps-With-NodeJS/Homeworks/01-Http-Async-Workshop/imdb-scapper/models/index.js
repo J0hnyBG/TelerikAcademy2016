@@ -22,6 +22,10 @@ module.exports = {
         return Actor.getModel(actor.name, actor.url, actor.imgUrl, actor.biography, actor.movies);
     },
     insertManyActors(actors) {
-        Actor.insertMany(actors);
+        Actor.insertMany(actors, (err, res) => {
+            if (err) {
+                console.log(err);
+            }
+        });
     }
 };

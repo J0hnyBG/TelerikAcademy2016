@@ -16,7 +16,8 @@ let SimpleMovieSchema = new Schema({
     },
     imdbId: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 });
 

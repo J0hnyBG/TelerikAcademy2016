@@ -9,11 +9,12 @@ const imdbUrlTemplate = _.template(constants.actorUrlTemplate);
 let ActorSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     imdbId: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     imgUrl: {
         type: String,

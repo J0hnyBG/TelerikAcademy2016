@@ -6,7 +6,7 @@ module.exports = {
     requestWaitingPeriod: 500,
     workingWithMessage: "Working with ",
     selector: ".col-title span[title] a",
-    asyncPagesCount: 5,
+    asyncPagesCount: 10,
     urlEndString: "/?ref",
     titleInUrl: "/title/",
     simpleMovieUrlTemplate: "http://imdb.com/title/<%= id %>/?ref_=adv_li_tt",

@@ -52,9 +52,9 @@ module.exports.parseMovieDetails = (html, url) => {
     const imgUrl = $item.find("#title-overview-widget > div.vital > div.slate_wrapper > div.poster > a > img").attr("src");
     const description = $item.find("#titleStoryLine > div.inline.canwrap > p").html();
     const categories = $item.find("#title-overview-widget > .vital .title_wrapper > .subtext > a > span")
-        .each((i, link) => {
+        .map((i, link) => {
             let $link = $(link);
-            let cat = $link.html();
+            let cat = $link.text();
             return cat;
         })
         .toArray();
@@ -82,15 +82,14 @@ module.exports.parseMovieDetails = (html, url) => {
 module.exports.parseActorDetails = (html, url) => {
     const $item = $("body");
     $item.html(html);
-
     const name = $item.find("#overview-top > h1 > span").html();
     const imgUrl = $item.find("#name-poster").attr("src");
     const biography = $item.find("#name-bio-text > div > div").text();
     const movies = $item.find("#filmography > .filmo-category-section > .filmo-row > b > a")
         .map((i, link) => {
             let $link = $(link);
-            let cat = $link.text();
-            return cat;
+            let movie = $link.text();
+            return movie;
         })
         .toArray();
 
