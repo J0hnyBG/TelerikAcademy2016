@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace _05_ZigZagSets
 {
-    //TODO: 70/100
+    //TODO: 70/100 - time limit
     internal class Startup
     {
         private static bool[] used;
@@ -50,11 +50,6 @@ namespace _05_ZigZagSets
                     if (used[i])
                     {
                         continue;
-                    }
-
-                    if (k < n)
-                    {
-                        
                     }
 
                     used[i] = true;

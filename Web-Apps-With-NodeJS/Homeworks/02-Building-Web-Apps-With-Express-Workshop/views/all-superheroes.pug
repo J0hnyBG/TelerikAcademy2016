@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    form.form.form-horizontal(action='/superheroes', method='post')
+        label
+            | Name
+            input.form-control(type='text', name='name')
+        label
+            | Secret identity
+            input.form-control(type='text', name='secretIdentity')
+        label
+            | Image url:
+            input.form-control(type='text', name='imageUrl')
+        input.form-control(type='submit', value='Create superhero')
+
+        each superhero in superheroes
+            .panel.panel-primary
+                .panel-heading
+                    h3.panel-title #{superhero.secretIdentity}
+                .panel-body
+                    p
+                        #{superhero.name}
+                        #{superhero.image}
+                        #{superhero.alignment}

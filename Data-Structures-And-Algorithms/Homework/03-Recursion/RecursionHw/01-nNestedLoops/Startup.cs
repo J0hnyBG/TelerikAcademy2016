@@ -1,24 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace _01_nNestedLoops
 {
     internal class Startup
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Enter n: ");
-            var n = int.Parse(Console.ReadLine());
-            Loop(n);
+            var count = int.Parse(Console.ReadLine());
+            var numbers = Enumerable.Range(0, count).Select(x => 1).ToArray();
+
+            Loop(numbers, count, count);
         }
 
-        private static void Loop(int n)
+        private static void Loop(IList<int> arr, int current, int count)
         {
-            for (int i = 1; i < n + 1; i++)
+            for (var i = 0; i < count; i++)
             {
-                Console.Write(i);
-                Loop(n - 1);
-                Console.WriteLine();
+                if (current > 1)
+                {
+                    Loop(arr, current - 1, count);
+                }
+                else
+                {
+                    Console.WriteLine(string.Join(" ", arr));
+                }
+
+                arr[count - current]++;
             }
+
+            arr[count - current] = 1;
         }
     }
 }
