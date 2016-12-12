@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace _02_Diameter
 {
     public class Startup
     {
+        // TODO: 4/100
         private static void Main()
         {
             var graph = new Graph();
@@ -13,52 +15,46 @@ namespace _02_Diameter
             for (int i = 0; i < numberOfNodes - 1; i++)
             {
                 var edges = Console.ReadLine().Split(' ');
+
                 var firstNodeId = int.Parse(edges[0]);
                 var secondNodeId = int.Parse(edges[1]);
-                if (!graph.Nodes.ContainsKey(firstNodeId))
-                {
-                    graph.AddNode(firstNodeId);
-                }
+                var weight = ulong.Parse(edges[2]);
 
-                if (!graph.Nodes.ContainsKey(secondNodeId))
-                {
-                    graph.AddNode(secondNodeId);
-                }
-
-                var weight = int.Parse(edges[2]);
                 graph.AddConnection(firstNodeId, secondNodeId, weight, true);
             }
 
-            double max = double.MinValue;
-            foreach (var node in graph.Nodes)
+            ulong max = ulong.MinValue;
+            foreach (var node in graph.EdgeNodes)
             {
-                var current = Dfs(0, node, new Dictionary<int, Node>());
-
+                var current = LongestPathFromNode(0, node, new bool[numberOfNodes]);
                 if (current > max)
                 {
                     max = current;
                 }
             }
 
-            //Console.WriteLine(graph);
-            Console.WriteLine("max: " + max);
+            Console.WriteLine(max);
         }
 
-        private static double Dfs(double current, KeyValuePair<int, Node> node, IDictionary<int, Node> traversed)
+        private static int previousNodeId = int.MinValue;
+
+        private static ulong LongestPathFromNode(ulong currentSum, Node currentNode, bool[] traversed)
         {
-            foreach (var connection in node.Value.Connections)
+            foreach (var connection in currentNode.Connections)
             {
-                current += connection.Distance;
-                if (!traversed.ContainsKey(connection.Target.Name))
+                if (traversed[connection.Target.Id] || previousNodeId == currentNode.Id)
                 {
-                    traversed.Add(connection.Target.Name, connection.Target);
-                    current += Dfs(0, new KeyValuePair<int, Node>(connection.Target.Name, connection.Target), traversed);
-                    traversed.Remove(connection.Target.Name);
+                    continue;
                 }
 
+                traversed[currentNode.Id] = true;
+                currentSum += LongestPathFromNode(connection.Distance, connection.Target, traversed);
+                traversed[currentNode.Id] = false;
+
+                previousNodeId = currentNode.Id;
             }
 
-            return current;
+            return currentSum;
         }
     }
 
@@ -66,24 +62,24 @@ namespace _02_Diameter
     {
         private readonly IList<Edge> connections;
 
-        public Node(int name)
+        public Node(int id)
         {
-            this.Name = name;
+            this.Id = id;
             this.connections = new List<Edge>();
         }
 
-        public int Name { get; private set; }
+        public int Id { get; private set; }
 
         public IEnumerable<Edge> Connections
         {
             get { return this.connections; }
         }
 
-        public void AddConnection(Node targetNode, double distance, bool twoWay)
+        public void AddConnection(Node targetNode, ulong distance, bool twoWay)
         {
             if (targetNode == null)
             {
-                throw new ArgumentNullException(nameof(targetNode));
+                throw new ArgumentNullException("targetNode");
             }
 
             if (targetNode == this)
@@ -105,13 +101,20 @@ namespace _02_Diameter
 
         public override string ToString()
         {
-            return this.Name.ToString();
+            var sb = new StringBuilder();
+            sb.AppendLine(this.Id.ToString());
+            foreach (var connection in Connections)
+            {
+                sb.AppendLine(connection.ToString());
+            }
+
+            return sb.ToString();
         }
     }
 
     public class Edge
     {
-        public Edge(Node target, double distance)
+        public Edge(Node target, ulong distance)
         {
             this.Target = target;
             this.Distance = distance;
@@ -119,7 +122,12 @@ namespace _02_Diameter
 
         public Node Target { get; private set; }
 
-        public double Distance { get; private set; }
+        public ulong Distance { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("T: {0}, D: {1}", this.Target, this.Distance);
+        }
     }
 
     public class Graph
@@ -131,14 +139,29 @@ namespace _02_Diameter
 
         internal IDictionary<int, Node> Nodes { get; private set; }
 
+        public IList<Node> EdgeNodes
+        {
+            get { return this.Nodes.Where(n => n.Value.Connections.Count() < 2).Select(x => x.Value).ToList(); }
+        }
+
         public void AddNode(int name)
         {
             var node = new Node(name);
             this.Nodes.Add(name, node);
         }
 
-        public void AddConnection(int fromNode, int toNode, int distance, bool twoWay)
+        public void AddConnection(int fromNode, int toNode, ulong distance, bool twoWay)
         {
+            if (!this.Nodes.ContainsKey(fromNode))
+            {
+                this.AddNode(fromNode);
+            }
+
+            if (!this.Nodes.ContainsKey(toNode))
+            {
+                this.AddNode(toNode);
+            }
+
             this.Nodes[fromNode].AddConnection(this.Nodes[toNode], distance, twoWay);
         }
 
