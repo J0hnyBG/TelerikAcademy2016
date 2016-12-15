@@ -11,7 +11,7 @@ namespace _03_WordSearch
         private const string FilePath = "../../asd.txt";
         private const int NumberOfSearchWords = 1000;
         private static readonly Random random = new Random();
-        private static readonly IDictionary<string, int> searchWords = new Dictionary<string, int>();
+        private static readonly IDictionary<string, int> wordCounts = new Dictionary<string, int>();
 
         private static void Main(string[] args)
         {
@@ -22,20 +22,20 @@ namespace _03_WordSearch
 
             Console.WriteLine($"Trie initialized. Begin searching.");
 
-            var words = searchWords.Keys.ToList();
+            var searchWords = wordCounts.Keys.ToList();
 
             var st = new Stopwatch();
             st.Start();
-            foreach (var word in words)
+            foreach (var word in searchWords)
             {
-                searchWords[word] = wordTrie.CountWord(word);
+                wordCounts[word] = wordTrie.CountWord(word);
             }
 
             st.Stop();
 
-            foreach (var word in words)
+            foreach (var word in searchWords)
             {
-                Console.WriteLine($"\"{word}\" appears {wordTrie.CountWord(word)} times.");
+                Console.WriteLine($"\"{word}\" appears {wordCounts[word]} times.");
             }
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -62,9 +62,9 @@ namespace _03_WordSearch
 
                 var wordIndex = random.Next(0, wordsInLine.Length);
                 var word = wordsInLine[wordIndex];
-                if (searchWords.Count < NumberOfSearchWords && !searchWords.ContainsKey(word))
+                if (wordCounts.Count < NumberOfSearchWords && !wordCounts.ContainsKey(word))
                 {
-                    searchWords.Add(word, 0);
+                    wordCounts.Add(word, 0);
                 }
 
                 wordTrie.InsertRange(wordsInLine);
