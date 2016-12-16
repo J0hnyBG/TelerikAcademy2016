@@ -1,187 +1,131 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace _02_Diameter
 {
-    public class Startup
+    internal class Program
     {
-        // TODO: 4/100
         private static void Main()
         {
             var graph = new Graph();
-            int numberOfNodes = int.Parse(Console.ReadLine());
-            for (int i = 0; i < numberOfNodes - 1; i++)
+            var n = int.Parse(Console.ReadLine());
+
+            for (var i = 0; i < n - 1; i++)
             {
-                var edges = Console.ReadLine().Split(' ');
+                var input = Console.ReadLine().Split(' ');
 
-                var firstNodeId = int.Parse(edges[0]);
-                var secondNodeId = int.Parse(edges[1]);
-                var weight = ulong.Parse(edges[2]);
+                var firstNode = int.Parse(input[0]);
+                var secondNode = int.Parse(input[1]);
+                var weight = int.Parse(input[2]);
 
-                graph.AddConnection(firstNodeId, secondNodeId, weight, true);
+                graph.AddConnection(firstNode, secondNode, weight);
             }
 
-            ulong max = ulong.MinValue;
-            foreach (var node in graph.EdgeNodes)
-            {
-                var current = LongestPathFromNode(0, node, new bool[numberOfNodes]);
-                if (current > max)
-                {
-                    max = current;
-                }
-            }
-
+            var max = graph.FindLongestWeightedRouteSum();
             Console.WriteLine(max);
-        }
-
-        private static int previousNodeId = int.MinValue;
-
-        private static ulong LongestPathFromNode(ulong currentSum, Node currentNode, bool[] traversed)
-        {
-            foreach (var connection in currentNode.Connections)
-            {
-                if (traversed[connection.Target.Id] || previousNodeId == currentNode.Id)
-                {
-                    continue;
-                }
-
-                traversed[currentNode.Id] = true;
-                currentSum += LongestPathFromNode(connection.Distance, connection.Target, traversed);
-                traversed[currentNode.Id] = false;
-
-                previousNodeId = currentNode.Id;
-            }
-
-            return currentSum;
-        }
-    }
-
-    public class Node
-    {
-        private readonly IList<Edge> connections;
-
-        public Node(int id)
-        {
-            this.Id = id;
-            this.connections = new List<Edge>();
-        }
-
-        public int Id { get; private set; }
-
-        public IEnumerable<Edge> Connections
-        {
-            get { return this.connections; }
-        }
-
-        public void AddConnection(Node targetNode, ulong distance, bool twoWay)
-        {
-            if (targetNode == null)
-            {
-                throw new ArgumentNullException("targetNode");
-            }
-
-            if (targetNode == this)
-            {
-                throw new ArgumentException("Node may not connect to itself.");
-            }
-
-            if (distance <= 0)
-            {
-                throw new ArgumentException("Distance must be positive.");
-            }
-
-            this.connections.Add(new Edge(targetNode, distance));
-            if (twoWay)
-            {
-                targetNode.AddConnection(this, distance, false);
-            }
-        }
-
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine(this.Id.ToString());
-            foreach (var connection in Connections)
-            {
-                sb.AppendLine(connection.ToString());
-            }
-
-            return sb.ToString();
-        }
-    }
-
-    public class Edge
-    {
-        public Edge(Node target, ulong distance)
-        {
-            this.Target = target;
-            this.Distance = distance;
-        }
-
-        public Node Target { get; private set; }
-
-        public ulong Distance { get; private set; }
-
-        public override string ToString()
-        {
-            return string.Format("T: {0}, D: {1}", this.Target, this.Distance);
         }
     }
 
     public class Graph
     {
+        private readonly Dictionary<int, List<Edge>> nodes;
+
         public Graph()
         {
-            this.Nodes = new Dictionary<int, Node>();
+            this.nodes = new Dictionary<int, List<Edge>>();
         }
 
-        internal IDictionary<int, Node> Nodes { get; private set; }
-
-        public IList<Node> EdgeNodes
+        public Dictionary<int, List<Edge>> Nodes
         {
-            get { return this.Nodes.Where(n => n.Value.Connections.Count() < 2).Select(x => x.Value).ToList(); }
+            get { return this.nodes; }
         }
 
-        public void AddNode(int name)
+        public int EdgeNode
         {
-            var node = new Node(name);
-            this.Nodes.Add(name, node);
-        }
-
-        public void AddConnection(int fromNode, int toNode, ulong distance, bool twoWay)
-        {
-            if (!this.Nodes.ContainsKey(fromNode))
+            get
             {
-                this.AddNode(fromNode);
-            }
-
-            if (!this.Nodes.ContainsKey(toNode))
-            {
-                this.AddNode(toNode);
-            }
-
-            this.Nodes[fromNode].AddConnection(this.Nodes[toNode], distance, twoWay);
-        }
-
-        public override string ToString()
-        {
-            var result = new StringBuilder();
-
-            foreach (var node in this.Nodes)
-            {
-                result.Append(node.Key + " -> ");
-
-                foreach (var connection in node.Value.Connections)
+                foreach (var item in this.nodes)
                 {
-                    result.Append(connection.Target + "-" + connection.Distance + " ");
+                    if (item.Value.Count == 1)
+                    {
+                        return item.Key;
+                    }
                 }
 
-                result.AppendLine();
+                throw new ArgumentException();
+            }
+        }
+
+        public int FindLongestWeightedRouteSum()
+        {
+            var nodeToStart = this.EdgeNode;
+            this.FindMaxRoute(nodeToStart, 0);
+            nodeToStart = this.startNode;
+            this.FindMaxRoute(nodeToStart, 0);
+
+            return this.maxValue;
+        }
+
+        public void AddConnection(int firstNode, int secondNode, int weight)
+        {
+            if (!this.Nodes.ContainsKey(firstNode))
+            {
+                this.Nodes.Add(firstNode, new List<Edge>());
             }
 
-            return result.ToString();
+            if (!this.Nodes.ContainsKey(secondNode))
+            {
+                this.Nodes.Add(secondNode, new List<Edge>());
+            }
+
+            var edge = new Edge(firstNode, secondNode, weight);
+
+            this.Nodes[firstNode].Add(edge);
+            this.Nodes[secondNode].Add(edge);
         }
+
+        private int maxValue = 0;
+        private int startNode = 0;
+
+        private void FindMaxRoute(int node, int current)
+        {
+            if (current > this.maxValue)
+            {
+                this.maxValue = current;
+                this.startNode = node;
+            }
+
+            foreach (var edge in this.Nodes[node])
+            {
+                if (edge.IsVisited)
+                {
+                    continue;
+                }
+
+                edge.IsVisited = true;
+                var nodeToSearch = edge.From == node ? edge.To : edge.From;
+                this.FindMaxRoute(nodeToSearch, current + edge.Weight);
+                edge.IsVisited = false;
+            }
+        }
+    }
+
+    public class Edge
+    {
+        public Edge(int from, int to, int weight)
+        {
+            this.From = from;
+            this.To = to;
+            this.Weight = weight;
+            this.IsVisited = false;
+        }
+
+        public int From { get; set; }
+
+        public int To { get; set; }
+
+        public bool IsVisited { get; set; }
+
+        public int Weight { get; set; }
     }
 }
