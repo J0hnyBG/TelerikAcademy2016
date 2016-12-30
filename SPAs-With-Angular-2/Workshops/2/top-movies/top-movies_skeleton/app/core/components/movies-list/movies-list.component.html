@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="center-text">
+        <h4>Movie list!</h4>
+        <label for="tb-search">Search movies: </label>
+        <input id="tb-search" class="form-control" [(ngModel)]="search" #searchTb="ngModel" type="text" id="Search"
+               (input)="doSearch($event.target.value)">
+        <form class="form-inline">
+            <select class="form-control" [(ngModel)]="sort" #sortBy="ngModel" name="sortBy">
+                <option value="Title" selected="selected">Title</option>
+                <option value="Year">Year</option>
+            </select>
+            <select class="form-control" [(ngModel)]="order" #orderSelect="ngModel" name="orderBy">
+                <option value="1" selected="selected">Asc</option>
+                <option value="-1">Desc</option>
+            </select>
+        </form>
+
+    </div>
+    <div class="search-results" infinite-scroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="200"
+         (scrolled)="onScroll()"
+         [scrollWindow]="true">
+
+        <table class="table table-responsive table-striped table-hover">
+            <thead>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Year</th>
+            </thead>
+            <tbody>
+            <tr mdb-movie-list-item *ngFor="let movie of (movies | sort: [sort, +order])" [movie]="movie">
+            </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="loading" class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Loading</h3>
+            </div>
+        </div>
+    </div>
+</div>

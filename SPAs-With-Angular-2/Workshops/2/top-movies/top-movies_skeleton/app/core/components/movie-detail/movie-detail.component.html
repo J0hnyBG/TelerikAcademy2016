@@ -1,0 +1,16 @@
+<h2 *ngIf="loading">Loading movie...</h2>
+<h3>Details for {{movie.Title}}</h3>
+
+<ul class="list-group">
+    <li class="list-group-item">Year<span class="badge">{{movie.Year}}</span></li>
+    <li class="list-group-item">Title<span class="badge">{{movie.Title}}</span></li>
+    <li class="list-group-item">Genre<span class="badge">{{movie.Genre}}</span></li>
+    <li class="list-group-item">Director<span class="badge">{{movie.Director}}</span></li>
+    <li class="list-group-item">Writer<span class="badge">{{movie.Writer}}</span></li>
+    <li class="list-group-item">Actors<span class="badge">{{movie.Actors}}</span></li>
+    <li class="list-group-item">Language<span class="badge">{{movie.Language}}</span></li>
+    <li class="list-group-item">imdbRating <span class="badge"><ac-stars [starCount]="movie.starRating" [rating]="movie.starRating"></ac-stars></span><span class="badge">{{movie.imdbRating}} </span></li>
+    <li class="list-group-item">Rated<span class="badge">{{movie.Rated}}</span></li>
+</ul>
+
+<a routerLink="/" routerLinkActive="active" ><button class="btn btn-default btn-success btn-lg">Back</button></a>

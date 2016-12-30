@@ -1,0 +1,10 @@
+<td>
+    <span *ngIf="!movie.Poster || movie.Poster === 'N/A'">No image!</span>
+    <img *ngIf="movie.Poster && movie.Poster !== 'N/A'" [src]="movie.Poster" [alt]="movie.Title">
+</td>
+<td>
+    <span><a routerLink="/movie/{{movie.imdbID}}" routerLinkActive="active" >{{movie.Title}}</a></span>
+</td>
+<td>
+    <span>{{movie.Year}}</span>
+</td>
