@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{046E623B-B4C7-4C22-9079-E203E0EAF27A}</ProjectGuid>
+    <ProjectGuid>{50BFE4D7-53FA-41D6-B420-E27AE930B84A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_01_Portals</RootNamespace>
-    <AssemblyName>01-Portals</AssemblyName>
+    <RootNamespace>_02_GirlsGoneWild</RootNamespace>
+    <AssemblyName>02-GirlsGoneWild</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

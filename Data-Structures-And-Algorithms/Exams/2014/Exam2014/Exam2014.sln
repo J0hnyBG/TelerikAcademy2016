@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-Portals", "01-Portals\01-Portals.csproj", "{046E623B-B4C7-4C22-9079-E203E0EAF27A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-GirlsGoneWild", "02-GirlsGoneWild\02-GirlsGoneWild.csproj", "{50BFE4D7-53FA-41D6-B420-E27AE930B84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-OnlineMarket", "03-OnlineMarket\03-OnlineMarket.csproj", "{7B2EEF32-4A31-4A28-B939-764885955E3B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{046E623B-B4C7-4C22-9079-E203E0EAF27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046E623B-B4C7-4C22-9079-E203E0EAF27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046E623B-B4C7-4C22-9079-E203E0EAF27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046E623B-B4C7-4C22-9079-E203E0EAF27A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BFE4D7-53FA-41D6-B420-E27AE930B84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BFE4D7-53FA-41D6-B420-E27AE930B84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BFE4D7-53FA-41D6-B420-E27AE930B84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BFE4D7-53FA-41D6-B420-E27AE930B84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
