@@ -16,10 +16,10 @@ namespace _03_OnlineMarket
         {
             var market = new Market();
             var command = Console.ReadLine();
-            while ( command != EndCommand )
+            while (command != EndCommand)
             {
                 var splitCmd = command.Split(' ');
-                switch ( splitCmd[0] )
+                switch (splitCmd[0])
                 {
                     case AddCommand:
                         HandleAddCommand(market, splitCmd);
@@ -32,7 +32,7 @@ namespace _03_OnlineMarket
                 command = Console.ReadLine();
             }
 
-            foreach ( var line in Output )
+            foreach (var line in Output)
             {
                 Console.WriteLine(line);
             }
@@ -40,11 +40,11 @@ namespace _03_OnlineMarket
 
         private static void HandleFilterCommand(Market market, string[] splitCmd)
         {
-            switch ( splitCmd[2] )
+            switch (splitCmd[2])
             {
                 case "type":
                     var products = market.FindProductsByType(splitCmd[3]);
-                    if ( products == null )
+                    if (products == null)
                     {
                         Console.WriteLine("Error: Type " + splitCmd[3] + " does not exists");
                         break;
@@ -54,17 +54,18 @@ namespace _03_OnlineMarket
                     break;
                 case "price":
                     IEnumerable<Product> result;
-                    if ( splitCmd[3] == "to" )
+                    if (splitCmd[3] == "to")
                     {
                         result = market.FindProductsByPrice(max: double.Parse(splitCmd[4]));
                     }
-                    else if ( splitCmd[3] == "from" && splitCmd.Length < 6 )
+                    else if (splitCmd[3] == "from" && splitCmd.Length < 6)
                     {
                         result = market.FindProductsByPrice(min: double.Parse(splitCmd[4]));
                     }
                     else
                     {
-                        result = market.FindProductsByPrice(min: double.Parse(splitCmd[4]), max: double.Parse(splitCmd[6]));
+                        result = market.FindProductsByPrice(min: double.Parse(splitCmd[4]),
+                                                            max: double.Parse(splitCmd[6]));
                     }
 
                     PrintProducts(result);
@@ -78,7 +79,7 @@ namespace _03_OnlineMarket
             var price = double.Parse(splitCmd[2]);
             var type = splitCmd[3];
             var product = new Product(name, price, type);
-            if ( market.AddProduct(product) )
+            if (market.AddProduct(product))
             {
                 Console.WriteLine("Ok: Product " + product.Name + " added successfully");
             }
@@ -91,7 +92,7 @@ namespace _03_OnlineMarket
         private static void PrintProducts(IEnumerable<Product> products)
         {
             var sb = new StringBuilder("Ok: ");
-            if ( products != null )
+            if (products != null)
             {
                 sb.Append(string.Join(", ", products));
             }
@@ -109,20 +110,20 @@ namespace _03_OnlineMarket
         public Market()
         {
             this.productComparer = Comparer<Product>.Create((a, b) =>
-                                                         {
-                                                             var result = a.Price.CompareTo(b.Price);
-                                                             if ( result == 0 )
-                                                             {
-                                                                 result = string.Compare(a.Name, b.Name, StringComparison.Ordinal);
-                                                             }
+                                                            {
+                                                                var result = a.Price.CompareTo(b.Price);
+                                                                if (result == 0)
+                                                                {
+                                                                    result = string.Compare(a.Name, b.Name, StringComparison.Ordinal);
+                                                                }
 
-                                                             if ( result == 0 )
-                                                             {
-                                                                 result = string.Compare(a.Type, b.Type, StringComparison.Ordinal);
-                                                             }
+                                                                if (result == 0)
+                                                                {
+                                                                    result = string.Compare(a.Type, b.Type, StringComparison.Ordinal);
+                                                                }
 
-                                                             return result;
-                                                         });
+                                                                return result;
+                                                            });
 
             this.productsByPrice = new SortedSet<Product>(this.productComparer);
             this.productsByType = new Dictionary<string, ISet<Product>>();
@@ -131,12 +132,12 @@ namespace _03_OnlineMarket
 
         public bool AddProduct(Product product)
         {
-            if ( !this.productNames.Add(product.Name) )
+            if (!this.productNames.Add(product.Name))
             {
                 return false;
             }
 
-            if ( !this.productsByType.ContainsKey(product.Type) )
+            if (!this.productsByType.ContainsKey(product.Type))
             {
                 this.productsByType[product.Type] = new SortedSet<Product>(this.productComparer);
             }
@@ -149,7 +150,7 @@ namespace _03_OnlineMarket
 
         public IEnumerable<Product> FindProductsByType(string type)
         {
-            if ( this.productsByType.ContainsKey(type) )
+            if (this.productsByType.ContainsKey(type))
             {
                 return this.productsByType[type].Take(10);
             }
