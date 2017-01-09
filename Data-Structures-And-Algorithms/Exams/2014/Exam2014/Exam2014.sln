@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-GirlsGoneWild", "02-Girl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-OnlineMarket", "03-OnlineMarket\03-OnlineMarket.csproj", "{7B2EEF32-4A31-4A28-B939-764885955E3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-Towns", "04-Towns\04-Towns.csproj", "{884668DA-AFBE-43A5-853F-16BAA61D1A8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-Sorting", "05-Sorting\05-Sorting.csproj", "{3CCC3CED-9D31-44F4-B41F-AF150153B9C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B2EEF32-4A31-4A28-B939-764885955E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{884668DA-AFBE-43A5-853F-16BAA61D1A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{884668DA-AFBE-43A5-853F-16BAA61D1A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{884668DA-AFBE-43A5-853F-16BAA61D1A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{884668DA-AFBE-43A5-853F-16BAA61D1A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CCC3CED-9D31-44F4-B41F-AF150153B9C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CCC3CED-9D31-44F4-B41F-AF150153B9C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CCC3CED-9D31-44F4-B41F-AF150153B9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CCC3CED-9D31-44F4-B41F-AF150153B9C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

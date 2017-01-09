@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace _03_OnlineMarket
 {
@@ -10,9 +9,8 @@ namespace _03_OnlineMarket
         private const string AddCommand = "add";
         private const string FilterCommand = "filter";
         private const string EndCommand = "end";
-        private static IList<string> Output = new List<string>();
 
-        private static void Main(string[] args)
+        private static void Main()
         {
             var market = new Market();
             var command = Console.ReadLine();
@@ -31,14 +29,9 @@ namespace _03_OnlineMarket
 
                 command = Console.ReadLine();
             }
-
-            foreach (var line in Output)
-            {
-                Console.WriteLine(line);
-            }
         }
 
-        private static void HandleFilterCommand(Market market, string[] splitCmd)
+        private static void HandleFilterCommand(Market market, IReadOnlyList<string> splitCmd)
         {
             switch (splitCmd[2])
             {
@@ -53,12 +46,12 @@ namespace _03_OnlineMarket
                     PrintProducts(products);
                     break;
                 case "price":
-                    IEnumerable<Product> result;
+                    IEnumerable<IProduct> result;
                     if (splitCmd[3] == "to")
                     {
                         result = market.FindProductsByPrice(max: double.Parse(splitCmd[4]));
                     }
-                    else if (splitCmd[3] == "from" && splitCmd.Length < 6)
+                    else if (splitCmd[3] == "from" && splitCmd.Count < 6)
                     {
                         result = market.FindProductsByPrice(min: double.Parse(splitCmd[4]));
                     }
@@ -73,7 +66,7 @@ namespace _03_OnlineMarket
             }
         }
 
-        private static void HandleAddCommand(Market market, string[] splitCmd)
+        private static void HandleAddCommand(Market market, IReadOnlyList<string> splitCmd)
         {
             var name = splitCmd[1];
             var price = double.Parse(splitCmd[2]);
@@ -89,27 +82,28 @@ namespace _03_OnlineMarket
             }
         }
 
-        private static void PrintProducts(IEnumerable<Product> products)
+        private static void PrintProducts(IEnumerable<IProduct> products)
         {
-            var sb = new StringBuilder("Ok: ");
+            var result = "Ok: ";
             if (products != null)
             {
-                sb.Append(string.Join(", ", products));
+                result = result + string.Join(", ", products);
             }
-            Console.WriteLine(sb.ToString().TrimEnd(',', ' '));
+
+            Console.WriteLine(result);
         }
     }
 
     internal class Market
     {
-        private readonly IComparer<Product> productComparer;
-        private readonly HashSet<string> productNames;
-        private readonly IDictionary<string, ISet<Product>> productsByType;
-        private readonly ISet<Product> productsByPrice;
+        private readonly IComparer<IProduct> productComparer;
+        private readonly ISet<string> productNames;
+        private readonly IDictionary<string, ISet<IProduct>> productsByType;
+        private readonly ISet<IProduct> productsByPrice;
 
         public Market()
         {
-            this.productComparer = Comparer<Product>.Create((a, b) =>
+            this.productComparer = Comparer<IProduct>.Create((a, b) =>
                                                             {
                                                                 var result = a.Price.CompareTo(b.Price);
                                                                 if (result == 0)
@@ -125,12 +119,12 @@ namespace _03_OnlineMarket
                                                                 return result;
                                                             });
 
-            this.productsByPrice = new SortedSet<Product>(this.productComparer);
-            this.productsByType = new Dictionary<string, ISet<Product>>();
+            this.productsByPrice = new SortedSet<IProduct>(this.productComparer);
+            this.productsByType = new Dictionary<string, ISet<IProduct>>();
             this.productNames = new HashSet<string>();
         }
 
-        public bool AddProduct(Product product)
+        public bool AddProduct(IProduct product)
         {
             if (!this.productNames.Add(product.Name))
             {
@@ -139,7 +133,7 @@ namespace _03_OnlineMarket
 
             if (!this.productsByType.ContainsKey(product.Type))
             {
-                this.productsByType[product.Type] = new SortedSet<Product>(this.productComparer);
+                this.productsByType[product.Type] = new SortedSet<IProduct>(this.productComparer);
             }
 
             this.productsByType[product.Type].Add(product);
@@ -148,7 +142,7 @@ namespace _03_OnlineMarket
             return true;
         }
 
-        public IEnumerable<Product> FindProductsByType(string type)
+        public IEnumerable<IProduct> FindProductsByType(string type)
         {
             if (this.productsByType.ContainsKey(type))
             {
@@ -158,29 +152,52 @@ namespace _03_OnlineMarket
             return null;
         }
 
-        public IEnumerable<Product> FindProductsByPrice(double min = double.MinValue, double max = double.MaxValue)
+        public IEnumerable<IProduct> FindProductsByPrice(double min = double.MinValue, double max = double.MaxValue)
         {
             var result = this.productsByPrice.Where(p => p.Price >= min && p.Price <= max).Take(10);
             return result;
         }
     }
 
-    internal class Product
+    internal class Product : IProduct
     {
-        public string Name;
-        public string Type;
-        public double Price;
+        public string name;
+        public string type;
+        public double price;
 
         public Product(string name, double price, string type)
         {
-            this.Name = name;
-            this.Type = type;
-            this.Price = price;
+            this.name = name;
+            this.type = type;
+            this.price = price;
+        }
+
+        public string Name
+        {
+            get { return this.name; }
+        }
+
+        public string Type
+        {
+            get { return this.type; }
+        }
+
+        public double Price
+        {
+            get { return this.price; }
         }
 
         public override string ToString()
         {
             return string.Format("{0}({1})", this.Name, this.Price);
         }
+    }
+
+    internal interface IProduct
+    {
+        string Name { get; }
+        string Type { get; }
+        double Price { get; }
+
     }
 }
