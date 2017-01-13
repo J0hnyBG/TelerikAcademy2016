@@ -1,5 +1,4 @@
 /* globals module require */
-
 "use strict";
 
 const Router = require("express").Router;
