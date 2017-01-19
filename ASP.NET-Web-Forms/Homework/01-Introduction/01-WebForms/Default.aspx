@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="_01_WebForms.Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Sum integers or change the url to localhost:.../*.img</h1>
+    <h1><a href="/This Picture Changes With The Url.img">HttpHandler page</a> or </h1>
     <div class="jumbotron">
 
-        <h2>Sum two integers:</h2>
+        <h2>Sum integers:</h2>
         <div class="form-group">
             <asp:Label ID="Label1" runat="server" Text="First number:"></asp:Label>
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
