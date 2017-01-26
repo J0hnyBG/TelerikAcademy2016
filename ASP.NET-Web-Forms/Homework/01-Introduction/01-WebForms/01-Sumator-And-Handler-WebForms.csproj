@@ -288,7 +288,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HttpHandlers\HttpTextToImageHandler.cs" />
+    <Compile Include="HttpHandlers\TextToImageHttpHandler.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Business\ISumatorPresenter.cs" />

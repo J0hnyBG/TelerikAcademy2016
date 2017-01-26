@@ -3,6 +3,7 @@ using System.Drawing.Imaging;
 using System.Web;
 
 using Ninject;
+using Ninject.Planning.Directives;
 using Ninject.Web;
 
 using _01_WebForms.Extensions;
@@ -10,7 +11,7 @@ using _01_WebForms.Services;
 
 namespace _01_WebForms.HttpHandlers
 {
-    public class HttpTextToImageHandler : HttpHandlerBase
+    public class TextToImageHttpHandler : HttpHandlerBase
     {
         [Inject]
         public ITextToImgService TextToImg { get; set; }

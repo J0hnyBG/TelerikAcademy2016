@@ -2,6 +2,7 @@ using System.IO;
 using System.Reflection;
 
 using Ninject.Extensions.Conventions;
+using Ninject.Syntax;
 
 using _01_WebForms.Business;
 using _01_WebForms.Common.Contracts;
@@ -68,7 +69,7 @@ namespace _01_WebForms.App_Start
         /// Load your modules or register your services here!
         /// </summary>
         /// <param name="kernel">The kernel.</param>
-        private static void RegisterServices(IKernel kernel)
+        private static void RegisterServices(IBindingRoot kernel)
         {
             kernel.Bind(x =>
             {
@@ -79,6 +80,14 @@ namespace _01_WebForms.App_Start
 
             kernel.Bind<ISumatorPageView>()
                   .To<Default>();
+
+            kernel.Rebind<ITextToImgService>()
+                  .To<TextToImgService>()
+                  .InSingletonScope();
+
+            kernel.Rebind<IFileNameExtractorService>()
+                  .To<FileNameExtractorService>()
+                  .InSingletonScope();
         }
     }
 }
