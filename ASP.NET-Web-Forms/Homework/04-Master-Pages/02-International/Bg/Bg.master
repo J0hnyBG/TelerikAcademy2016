@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Bg.master.cs" Inherits="_02_International.Bg.Bg" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/Bg/Home.aspx">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a runat="server" href="~/Bg/Home.aspx">Начало</a>
+                    </li>
+                    <li>
+                        <a runat="server" href="~/Bg/About.aspx">За нас</a>
+                    </li>
+                    <li>
+                        <a runat="server" href="~/Bg/Contact.aspx">Контакти</a>
+                    </li>
+                    <li>
+                        <a runat="server" href="~/En/Home.aspx">
+                            <img src="https://www.plumplay.co.uk/media/wysiwyg/flags/uk-on.jpg" alt="Alternate Text"/>English
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <asp:ContentPlaceholder runat="server" ID="BgBody"></asp:ContentPlaceholder>
+        <hr/>
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - Моята ASP апликация...</p>
+        </footer>
+    </div>
+</asp:Content>

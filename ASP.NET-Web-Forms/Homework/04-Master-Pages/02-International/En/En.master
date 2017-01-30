@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="En.master.cs" Inherits="_02_International.En.En" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a runat="server" href="~/En/Home.aspx">Home</a>
+                    </li>
+                    <li>
+                        <a runat="server" href="~/En/About.aspx">About</a>
+                    </li>
+                    <li>
+                        <a runat="server" href="~/En/Contact.aspx">Contact</a>
+                    </li>
+                    <li>
+                        <a runat="server" href="~/Bg/Home.aspx">
+                            <img src="http://www.kab.bg/images/bgFlag.jpg" alt="BG flag"/>Bulgarian
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <asp:ContentPlaceholder runat="server" ID="EnBody"></asp:ContentPlaceholder>
+        <hr/>
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+        </footer>
+    </div>
+</asp:Content>
