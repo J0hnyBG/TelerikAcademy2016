@@ -53,43 +53,43 @@
         </td>
         <td>
             <asp:TextBox ID="EmployeeIDTextBox" runat="server" Text='<%#
-                                      this.Bind("EmployeeID") %>'/>
+                                      Bind("EmployeeID") %>'/>
         </td>
         <td>
             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%#
-                                      this.Bind("LastName") %>'/>
+                                      Bind("LastName") %>'/>
         </td>
         <td>
             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%#
-                                      this.Bind("FirstName") %>'/>
+                                      Bind("FirstName") %>'/>
         </td>
         <td>
             <asp:TextBox ID="TitleTextBox" runat="server" Text='<%#
-                                      this.Bind("Title") %>'/>
+                                      Bind("Title") %>'/>
         </td>
         <td>
             <asp:TextBox ID="BirthDateTextBox" runat="server" Text='<%#
-                                      this.Bind("BirthDate") %>'/>
+                                      Bind("BirthDate") %>'/>
         </td>
         <td>
             <asp:TextBox ID="AddressTextBox" runat="server" Text='<%#
-                                      this.Bind("Address") %>'/>
+                                      Bind("Address") %>'/>
         </td>
         <td>
             <asp:TextBox ID="CityTextBox" runat="server" Text='<%#
-                                      this.Bind("City") %>'/>
+                                      Bind("City") %>'/>
         </td>
         <td>
             <asp:TextBox ID="RegionTextBox" runat="server" Text='<%#
-                                      this.Bind("Region") %>'/>
+                                      Bind("Region") %>'/>
         </td>
         <td>
             <asp:TextBox ID="PostalCodeTextBox" runat="server" Text='<%#
-                                      this.Bind("PostalCode") %>'/>
+                                      Bind("PostalCode") %>'/>
         </td>
         <td>
             <asp:TextBox ID="CountryTextBox" runat="server" Text='<%#
-                                      this.Bind("Country") %>'/>
+                                      Bind("Country") %>'/>
         </td>
     </tr>
 </EditItemTemplate>
@@ -108,43 +108,43 @@
         </td>
         <td>
             <asp:TextBox ID="EmployeeIDTextBox" runat="server" Text='<%#
-                                      this.Bind("EmployeeID") %>'/>
+                                      Bind("EmployeeID") %>'/>
         </td>
         <td>
             <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%#
-                                      this.Bind("LastName") %>'/>
+                                      Bind("LastName") %>'/>
         </td>
         <td>
             <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%#
-                                      this.Bind("FirstName") %>'/>
+                                      Bind("FirstName") %>'/>
         </td>
         <td>
             <asp:TextBox ID="TitleTextBox" runat="server" Text='<%#
-                                      this.Bind("Title") %>'/>
+                                      Bind("Title") %>'/>
         </td>
         <td>
             <asp:TextBox ID="BirthDateTextBox" runat="server" Text='<%#
-                                      this.Bind("BirthDate") %>'/>
+                                      Bind("BirthDate") %>'/>
         </td>
         <td>
             <asp:TextBox ID="AddressTextBox" runat="server" Text='<%#
-                                      this.Bind("Address") %>'/>
+                                      Bind("Address") %>'/>
         </td>
         <td>
             <asp:TextBox ID="CityTextBox" runat="server" Text='<%#
-                                      this.Bind("City") %>'/>
+                                      Bind("City") %>'/>
         </td>
         <td>
             <asp:TextBox ID="RegionTextBox" runat="server" Text='<%#
-                                      this.Bind("Region") %>'/>
+                                      Bind("Region") %>'/>
         </td>
         <td>
             <asp:TextBox ID="PostalCodeTextBox" runat="server" Text='<%#
-                                      this.Bind("PostalCode") %>'/>
+                                      Bind("PostalCode") %>'/>
         </td>
         <td>
             <asp:TextBox ID="CountryTextBox" runat="server" Text='<%#
-                                      this.Bind("Country") %>'/>
+                                      Bind("Country") %>'/>
         </td>
     </tr>
 </InsertItemTemplate>
