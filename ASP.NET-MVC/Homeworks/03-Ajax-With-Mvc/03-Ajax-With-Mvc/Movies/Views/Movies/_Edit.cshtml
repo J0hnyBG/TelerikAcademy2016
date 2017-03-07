@@ -1,0 +1,45 @@
+﻿@model Movies.Models.Movie
+
+<td colspan="8">
+    @using (Ajax.BeginForm("Edit", null, new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "mainContent", OnSuccess = "initDatepickers()" }, new { @class = "form-inline" }) )
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row" style="display: table; width: 100%">
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control center" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.Director, new { htmlAttributes = new { @class = "form-control center" } })
+                @Html.ValidationMessageFor(model => model.Director, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control datefield center" } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.LeadMale, new { htmlAttributes = new { @class = "form-control center" } })
+                @Html.ValidationMessageFor(model => model.LeadMale, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.LeadFemale, new { htmlAttributes = new { @class = "form-control center" } })
+                @Html.ValidationMessageFor(model => model.LeadFemale, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.Studio, new { htmlAttributes = new { @class = "form-control center " } })
+                @Html.ValidationMessageFor(model => model.Studio, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                @Html.EditorFor(model => model.StudioAddress, new { htmlAttributes = new { @class = "form-control center" } })
+                @Html.ValidationMessageFor(model => model.StudioAddress, "", new { @class = "text-danger" })
+            </div>
+            <div style="display: table-cell">
+                <div class="btn-group">
+                    <input type="submit" value="Save" class="btn btn-success btn-sm"/>
+                    <a class="btn btn-sm btn-warning" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#mainContent" href="/Movies" data-ajax-success="initDatepickers()">Cancel</a>
+                </div>
+            </div>
+        </div>
+    }
+</td>
