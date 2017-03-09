@@ -1,0 +1,19 @@
+﻿@model _02_MVC_Essentials.Models.ByteCalculatorViewModel
+<table class="table table-striped table-condensed">
+    <thead>
+    <tr>
+        <td colspan="2">
+            Storage (Kilo = 1024 bits)
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var modelResult in Model.Results)
+    {
+        <tr>
+            <td>@modelResult.Key</td>
+            <td>@modelResult.Value</td>
+        </tr>
+    }
+    </tbody>
+</table>

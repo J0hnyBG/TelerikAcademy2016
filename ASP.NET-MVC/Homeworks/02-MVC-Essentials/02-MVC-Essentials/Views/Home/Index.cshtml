@@ -1,31 +1,42 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Bit Calculator";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@using _02_MVC_Essentials.Models
+@model _02_MVC_Essentials.Models.ByteCalculatorBindingModel
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-xs-8">
+        <h1>
+            <img src="http://sf.gwebtools.com/images/icons/binaryIcon.png">
+            Bit Calculator
+        </h1>
+
+        @using (Ajax.BeginForm("Index", "Home", new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "results" }))
+        {
+            <div class="control-group">
+                @Html.LabelFor(x => x.Quantity)
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Quantity, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Quantity)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(x => x.Multiple)
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.Multiple, ByteCalculatorBindingModel.ListItems, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(x => x.KiloByteSize)
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.KiloByteSize, new List<SelectListItem>() { new SelectListItem() { Value = "1024", Text = "1024" }, new SelectListItem() { Value = "1000", Text = "1000" } }, null, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="GO"/>
+        }
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+    <div id="results" style="margin-top: 15px">
     </div>
 </div>
