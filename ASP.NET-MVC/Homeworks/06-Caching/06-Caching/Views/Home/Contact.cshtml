@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Files";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<string>
+<h2>Files in C:\</h2>
+<p class="lead">Updated on @DateTime.Now.ToLongTimeString()</p>
+
+<ul>
+    @foreach (var file in Model)
+    {
+        <li>@file</li>
+    }
+</ul>
